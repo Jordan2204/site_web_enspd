@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Respcentinc;
+
+class RespCentIncRepository extends ResourceRepository
+{
+
+    public function __construct(Respcentinc $respcentinc)
+    {
+        $this->model = $respcentinc;
+    }
+
+}
