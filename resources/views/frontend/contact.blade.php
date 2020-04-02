@@ -7,7 +7,7 @@
 
 @section('section_principale')
     <div align="center">
-        <h1 style="text-align: center;">CARTE GOOGLE MAPS DE LOCALISATION DE LA FGI </h1><br>
+        <h1 style="text-align: center;">LOCALISATION DE LA FACULTE DE GENIE INDUSTRIEL(FGI) </h1><br>
         <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1GbPvCjhaoxX2KaPqmJ-l2L6yb7Ub_Y_X" width="640" height="480">
             
         </iframe><br><br>

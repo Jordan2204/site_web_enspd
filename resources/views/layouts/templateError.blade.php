@@ -12,19 +12,8 @@
 
         
          <!-- style css de boostrap -->
-         {!! Html::style('css/bootstrap-4.0.0/bootstrap.min.css') !!}
-
+         <link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap-4.0.0/bootstrap.min.css') }}">
        
-         <!-- theme de bootsrap -->
-       
-         <!-- style css personnaliser-->
-        {!! Html::style('css/style_global.css') !!}
-
-
-       
-         <!-- Barre de navigation justifier -->
-       {!! Html::style('css/en-tete_pieds/justified-nav.css') !!}
-
         <!--[if lt IE 9]>
             {{ Html::style('https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js') }}
             {{ Html::style('https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js') }}

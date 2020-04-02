@@ -21,7 +21,7 @@
 							<div id="block-1" class="col-md-4 col-sm-6">
 								@foreach ($medias as $media)
 									@if ($dept->media_id == $media->id)
-										<img src="{{$media->chemin}}/{{$media->nom}}" alt="Dept">
+										<img src="{{$media->chemin}}/{{$media->nom}}" alt="Dept" class="img-fluid">
 									@endif
 								@endforeach
 								

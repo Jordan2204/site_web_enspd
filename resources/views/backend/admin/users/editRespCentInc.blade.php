@@ -27,9 +27,9 @@
                         {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Email']) !!}
                         {!! $errors->first('email', '<small class="help-block">:message</small>') !!}
                     </div>
-                    <a href="javascript:history.back()" class="btn btn-primary">
-                         <span class="glyphicon glyphicon-circle-arrow-left"></span> Retour
-                    </a>
+                     <a href="javascript:history.back()" class="btn btn-primary float-left">         <i class="fa fa-chevron-circle-left"> Retour</i>
+                            <span class="glyphicon glyphicon-circle-arrow-left "></span>
+                        </a>
                         {!! Form::submit('Valider', ['class' => 'btn btn-primary pull-right']) !!}
                     {!! Form::close() !!}
                 </div>

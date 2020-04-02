@@ -14,15 +14,15 @@
         <link rel="icon" type="image/x-icon" href="/{{ session('iconeFGI')->chemin }}/{{ session('iconeFGI')->nom }}">
       
          <!-- style css de boostrap -->
-        {!! Html::style('css/bootstrap-4.0.0/bootstrap.min.css') !!}
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap-4.0.0/bootstrap.min.css') }}">
 
          <!-- style css personnaliser-->
-        {!! Html::style('css/style_global.css') !!}
+        <link rel="stylesheet" type="text/css" href=" {{ asset('css/style_global.css') }}">
         <!-- {!! Html::style('css/template_responsive.css') !!}-->
 
          <!-- Barre de navigation justifier -->
         <!--{!! Html::style('css/en-tete_pieds/justified-nav.css') !!}-->
-        <link rel="stylesheet" href="/css/bootnavbar.css">
+        <link rel="stylesheet" href="{{ asset('/css/bootnavbar.css') }}">
       
 
         <!--[if lt IE 9]>
@@ -190,15 +190,15 @@
            </div>
     </div>
   <!-- plugins jQuery -->
-    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="{{ asset('/js/jquery-3.2.1.min.js') }}"></script>
 
      <!-- fichier js  -->
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="/js/bootnavbar.js" ></script>
-    <script type="text/javascript" src="/js/script.responsive.js"></script>
+    <script src="{{ asset('/js/bootnavbar.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('/js/script.responsive.js{') }}"></script>
 
 
     <script>
@@ -207,8 +207,8 @@
         })
     </script>
         <script>window.jQuery || document.write('<script src="/vendor/bootstrap4.0.0/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="/vendor/bootstrap-4.0.0/assets/js/vendor/popper.min.js"></script>
+    <script src="{{ asset('/vendor/bootstrap-4.0.0/assets/js/vendor/popper.min.js') }}"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="/vendor/bootstrap-4.0.0//assets/js/vendor/holder.min.js"></script>
+    <script src="{{ asset('/vendor/bootstrap-4.0.0//assets/js/vendor/holder.min.js ') }}"></script>
 </body>
 </html>

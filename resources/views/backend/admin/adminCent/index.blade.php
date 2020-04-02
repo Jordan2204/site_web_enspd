@@ -5,7 +5,7 @@
   @endsection
 
   @section('dashboard')
-    Gestion Des Profils
+    Gestion Des Membres de l'administratrion centrale
   @endsection
 
   @section('apresHome')
@@ -35,14 +35,17 @@
                   </div>
                   <!-- /. tools -->
                 </div>
-                <img class="card-img-top" alt="Thumbnail [100%x225]" src="/{{ $persoAdminCent->chemin }}/{{ $persoAdminCent->nom }}" style="height: 250px; width: 100%; display: block;">
+                <img class="card-img-top" alt="Thumbnail [100%250]" src="/{{ $persoAdminCent->chemin }}/{{ $persoAdminCent->nom }}" style="height: 250px; width: 100%; display: block;">
                 <div class="card-body">
                   <p class="card-text">{!! strtoupper($persoAdminCent->postePers) !!}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                      {!! link_to_route('mediasAdmin.edit', 'Mettre a jour l\'image', [$persoAdminCent->idM], ['class' => 'btn btn-sm btn-outline-secondary  float-right']) !!}
                     </div>
-                    <small class="text-muted"><button type="button" class="btn btn-sm btn-outline-secondary"><a href="/admin/personnel/{{ $persoAdminCent->idPers }}/edit">Modifier</a></button></small>
+                    <small class="text-muted">
+                      <button type="button" class="btn btn-sm btn-outline-secondary"><a href="/admin/personnel/{{ $persoAdminCent->idPers }}/edit"><i class="fa fa-edit"> Modifier</i></a>
+                      </button>
+                    </small>
                   </div>
                 </div>
               </div>
@@ -50,7 +53,8 @@
        @endforeach
     </div>
     <div class="row justify-content-center">
-       <a href="/admin/personnel/create" class="btn btn-info btn-lg float-left">Nouveau</a>
+       <a href="/admin/personnel/create" class="btn btn-info btn-lg float-left">
+        <i class=" fa fa-plus">  Nouveau</i></a>
     </div><br>
     
 @endsection

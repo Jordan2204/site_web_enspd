@@ -57,7 +57,7 @@
                         {!! Form::password('password_confirmation', ['class' => 'form-control','id' => 'confirmePassword', 'placeholder' => 'Confirmation mot de passe']) !!}
                     </div>
                     <div>
-                        <a href="javascript:history.back()" class="btn btn-primary float-left">               Retour
+                        <a href="javascript:history.back()" class="btn btn-primary float-left">         <i class="fa fa-chevron-circle-left"> Retour</i>
                             <span class="glyphicon glyphicon-circle-arrow-left "></span>
                         </a>
                         {!! Form::submit('Créer', ['class' => 'btn btn-primary float-right ']) !!}

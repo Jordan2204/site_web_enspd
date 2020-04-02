@@ -23,19 +23,19 @@
                 <a class="nav-link" id="custom-content-below-messages-tab" data-toggle="pill" href="#custom-content-below-messages" role="tab" aria-controls="custom-content-below-messages" aria-selected="false">Doyen <span class="badge badge-danger"></span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="custom-content-below-settings-tab" data-toggle="pill" href="#custom-content-below-settings" role="tab" aria-controls="custom-content-below-settings" aria-selected="false">Resp dept <span class="badge badge-danger">{!! $respDepts->count() !!}</span></a>
+                <a class="nav-link" id="custom-content-below-settings-tab" data-toggle="pill" href="#custom-content-below-settings" role="tab" aria-controls="custom-content-below-settings" aria-selected="false">Resp departements <span class="badge badge-danger">{!! $respDepts->count() !!}</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="custom-content-below-messages-tab" data-toggle="pill" href="#custom-content-below-respCentIncs" role="tab" aria-controls="custom-content-below-respCentIncs" aria-selected="false">Resp centre inc <span class="badge badge-danger"></span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="custom-content-below-messages-tab" data-toggle="pill" href="#custom-content-below-RespForm" role="tab" aria-controls="custom-content-below-RespForm" aria-selected="false">Resp form <span class="badge badge-danger"></span></a>
+                <a class="nav-link" id="custom-content-below-messages-tab" data-toggle="pill" href="#custom-content-below-RespForm" role="tab" aria-controls="custom-content-below-RespForm" aria-selected="false">Resp formation <span class="badge badge-danger"></span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="custom-content-below-messages-tab" data-toggle="pill" href="#custom-content-below-RespDoct" role="tab" aria-controls="custom-content-below-RespDoct" aria-selected="false">Resp ecole doct <span class="badge badge-danger"></span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="custom-content-below-messages-tab" data-toggle="pill" href="#custom-content-below-Respcom" role="tab" aria-controls="custom-content-below-Respcom" aria-selected="false">Resp com <span class="badge badge-danger"></span></a>
+                <a class="nav-link" id="custom-content-below-messages-tab" data-toggle="pill" href="#custom-content-below-Respcom" role="tab" aria-controls="custom-content-below-Respcom" aria-selected="false">Resp communication <span class="badge badge-danger"></span></a>
               </li>
             </ul>
 
@@ -70,8 +70,18 @@
                                 <td class="text-secondary"><strong>{!! $admin->name !!}</strong></td>
                                 <td class="text-secondary"><strong>{!! $admin->prenom !!}</strong></td>
                                 <td class="text-secondary"><strong>{!! $admin->poste !!}</strong></td>
-                                <td>{!! link_to_route('admin.show', 'Voir', [$admin->id], ['class' => 'btn btn-success btn-block']) !!}</td>
-                                <td>{!! link_to_route('admin.edit', 'Modifier', [$admin->id], ['class' => 'btn btn-warning btn-block']) !!}</td>
+                               
+                                 <td>
+                                  <a href="{{ route('admin.show',[$admin->id])}}" class="btn btn-success btn-block">
+                                    <i class="fa fa-eye" aria-hidden="true">  Voir</i>
+                                  </a> 
+                                </td>
+                                <td>
+                                  <a href="{{ route('admin.edit',[$admin->id])}}" class="btn btn-warning btn-block">
+                                    <i class="fas fa-edit" aria-hidden="true">  Modifier</i>
+                                  </a> 
+                                </td>
+  
                                 <td>
                                     {!! Form::open(['method' => 'DELETE', 'route' => ['admin.destroy', $admin->id]]) !!}
                                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
@@ -116,8 +126,16 @@
                                 <td class="text-secondary"><strong>{!! $doyen->name !!}</strong></td>
                                 <td class="text-secondary"><strong>{!! $doyen->prenom !!}</strong></td>
                                 <td class="text-secondary"><strong>{!! $doyen->poste !!}</strong></td>
-                                <td>{!! link_to_route('doyen.show', 'Voir', [$doyen->id], ['class' => 'btn btn-success btn-block']) !!}</td>
-                                <td>{!! link_to_route('doyen.edit', 'Modifier', [$doyen->id], ['class' => 'btn btn-warning btn-block']) !!}</td>
+                                <td>
+                                  <a href="{{ route('doyen.show',[$doyen->id])}}" class="btn btn-success btn-block">
+                                    <i class="fa fa-eye" aria-hidden="true">  Voir</i>
+                                  </a> 
+                                </td>
+                                <td>
+                                  <a href="{{ route('doyen.edit',[$doyen->id])}}" class="btn btn-warning btn-block">
+                                    <i class="fas fa-edit" aria-hidden="true">  Modifier</i>
+                                  </a> 
+                                </td>
                                 <td>
                                     {!! Form::open(['method' => 'DELETE', 'route' => ['doyen.destroy', $doyen->id]]) !!}
                                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
@@ -172,8 +190,16 @@
                                      @endif
                                  </div>
                                 </td>
-                                <td>{!! link_to_route('respDept.show', 'Voir', [$respDept->id], ['class' => 'btn btn-success btn-block']) !!}</td>
-                                <td>{!! link_to_route('respDept.edit', 'Modifier', [$respDept->id], ['class' => 'btn btn-warning btn-block']) !!}</td>
+                                <td>
+                                  <a href="{{ route('respDept.show',[$respDept->id]) }}" class="btn btn-success btn-block">
+                                    <i class="fa fa-eye" aria-hidden="true">  Voir</i>
+                                  </a> 
+                                </td>
+                                <td>
+                                  <a href="{{ route('respDept.edit',[$respDept->id]) }}" class="btn btn-warning btn-block">
+                                    <i class="fas fa-edit" aria-hidden="true">  Modifier</i>
+                                  </a> 
+                                </td>
                                 <td>
                                     {!! Form::open(['method' => 'DELETE', 'route' => ['respDept.destroy', $respDept->id]]) !!}
                                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
@@ -229,8 +255,16 @@
                                      @endif
                                  </div>
                                 </td>
-                                <td>{!! link_to_route('respCentInc.show', 'Voir', [$respCentInc->id], ['class' => 'btn btn-success btn-block']) !!}</td>
-                                <td>{!! link_to_route('respCentInc.edit', 'Modifier', [$respCentInc->id], ['class' => 'btn btn-warning btn-block']) !!}</td>
+                               <td>
+                                  <a href="{{ route('respCentInc.show',[$respCentInc->id]) }}" class="btn btn-success btn-block">
+                                    <i class="fa fa-eye" aria-hidden="true">  Voir</i>
+                                  </a> 
+                                </td>
+                                <td>
+                                  <a href="{{ route('respCentInc.edit',[$respCentInc->id]) }}" class="btn btn-warning btn-block">
+                                    <i class="fas fa-edit" aria-hidden="true">  Modifier</i>
+                                  </a> 
+                                </td>
                                 <td>
                                     {!! Form::open(['method' => 'DELETE', 'route' => ['respCentInc.destroy', $respCentInc->id]]) !!}
                                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
@@ -287,8 +321,16 @@
                                      @endif
                                  </div>
                                 </td>
-                                <td>{!! link_to_route('respForm.show', 'Voir', [$respForm->id], ['class' => 'btn btn-success btn-block']) !!}</td>
-                                <td>{!! link_to_route('respForm.edit', 'Modifier', [$respForm->id], ['class' => 'btn btn-warning btn-block']) !!}</td>
+                               <td>
+                                  <a href="{{ route('respForm.show',[$respForm->id]) }}" class="btn btn-success btn-block">
+                                    <i class="fa fa-eye" aria-hidden="true">  Voir</i>
+                                  </a> 
+                                </td>
+                                <td>
+                                  <a href="{{ route('respForm.edit',[$respForm->id]) }}" class="btn btn-warning btn-block">
+                                    <i class="fas fa-edit" aria-hidden="true">  Modifier</i>
+                                  </a> 
+                                </td>
                                 <td>
                                     {!! Form::open(['method' => 'DELETE', 'route' => ['respForm.destroy', $respForm->id]]) !!}
                                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
@@ -344,8 +386,16 @@
                                      @endif
                                  </div>
                                 </td>
-                                <td>{!! link_to_route('respEcoleDoct.show', 'Voir', [$respEcoleDoct->id], ['class' => 'btn btn-success btn-block']) !!}</td>
-                                <td>{!! link_to_route('respEcoleDoct.edit', 'Modifier', [$respEcoleDoct->id], ['class' => 'btn btn-warning btn-block']) !!}</td>
+                                <td>
+                                  <a href="{{ route('respEcoleDoct.show',[$respEcoleDoct->id])}}" class="btn btn-success btn-block">
+                                    <i class="fa fa-eye" aria-hidden="true">  Voir</i>
+                                  </a> 
+                                </td>
+                                <td>
+                                  <a href="{{ route('respEcoleDoct.edit',[$respEcoleDoct->id])}}" class="btn btn-warning btn-block">
+                                    <i class="fas fa-edit" aria-hidden="true">  Modifier</i>
+                                  </a> 
+                                </td>
                                 <td>
                                     {!! Form::open(['method' => 'DELETE', 'route' => ['respEcoleDoct.destroy', $respEcoleDoct->id]]) !!}
                                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
@@ -400,8 +450,16 @@
                                      @endif
                                  </div>
                                 </td>
-                                <td>{!! link_to_route('respCom.show', 'Voir', [$respCom->id], ['class' => 'btn btn-success btn-block']) !!}</td>
-                                <td>{!! link_to_route('respCom.edit', 'Modifier', [$respCom->id], ['class' => 'btn btn-warning btn-block']) !!}</td>
+                                <td>
+                                  <a href="{{ route('respCom.show',[$respCom->id])}}" class="btn btn-success btn-block">
+                                    <i class="fa fa-eye" aria-hidden="true">  Voir</i>
+                                  </a> 
+                                </td>
+                                <td>
+                                  <a href="{{ route('respCom.edit',[$respCom->id])}}" class="btn btn-warning btn-block">
+                                    <i class="fas fa-edit" aria-hidden="true">  Modifier</i>
+                                  </a> 
+                                </td>
                                 <td>
                                     {!! Form::open(['method' => 'DELETE', 'route' => ['respCom.destroy', $respCom->id]]) !!}
                                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}

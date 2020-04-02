@@ -9,7 +9,7 @@
   @endsection
 
   @section('apresHome')
-    MediaManage/img/update
+    Medias/img/update
   @endsection
 
 
@@ -36,7 +36,13 @@
                             {!! Form::file('image', ['class' => 'form-control']) !!}
                             {!! $errors->first('image', '<small class="help-block" style="color: red;">:message</small>') !!}
                         </div>
-                        {!! Form::submit('Envoyer !', ['class' => 'btn btn-info float-right']) !!}
+                        <div>
+                            <a href="javascript:history.back()" class="btn btn-info float-left">
+                                <i class="fa fa-chevron-circle-left"> Retour</i>
+                            </a>
+                            {!! Form::submit('Envoyer !', ['class' => 'btn btn-info float-right']) !!}
+                        </div>
+                        
                     {!! Form::close() !!}
                 </div>
             </div>

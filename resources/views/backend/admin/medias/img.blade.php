@@ -9,7 +9,7 @@
   @endsection
 
   @section('apresHome')
-    MediaManage/img
+    Medias/upload img
   @endsection
 
 

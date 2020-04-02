@@ -77,9 +77,9 @@
                         <label for="confirmePassword">Confirm Password</label>
                         {!! Form::password('password_confirmation', ['class' => 'form-control','id' => 'confirmePassword', 'placeholder' => 'Confirmation mot de passe']) !!}
                     </div>
-                    <a href="javascript:history.back()" class="btn btn-primary align-items-center  float-left">Retour
-                        <span class="glyphicon glyphicon-circle-arrow-left  "></span>
-                    </a>
+                     <a href="javascript:history.back()" class="btn btn-primary float-left">         <i class="fa fa-chevron-circle-left"> Retour</i>
+                            <span class="glyphicon glyphicon-circle-arrow-left "></span>
+                        </a>
                     <div> {!! Form::submit('Créer', ['class' => 'btn btn-primary float-right ']) !!}</div>
                    
                     {!! Form::close() !!}

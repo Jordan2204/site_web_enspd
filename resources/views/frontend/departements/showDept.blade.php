@@ -7,8 +7,9 @@
 
 
 @section('section_principale')
-		<div><h1 style="text-align: center;">BIENVENUE AU DEPARTEMENT</h1></div>
-		<div><h1 style="text-align: center;">{{ $dept->ABBR }}</h1></div>
+		<div>
+			<h1 style="text-align: center;">BIENVENUE AU DEPARTEMENT ({{ $dept->ABBR }})</h1>
+		</div><br>
 		<div><h2 style="text-align: center;">{{ $dept->nomDept }}</h6></div>
 		<div class="row justify-content-center">
 		<div  class="col-md-9">
@@ -18,9 +19,9 @@
 		</div>
 		</div>
 		<div class="row justify-content-center">
-		<div  class="col-md-3">
+		<div  class=" col-4 col-md-5">
 			<p style="text-align: center;">
-				<img src="/{{$media->chemin}}/{{$media->nom}}" style="display: block; margin-left: auto; margin-right: auto; border: 1px none #000000;" class="img-responsive" align="ligne">
+				<img src="/{{$media->chemin}}/{{$media->nom}}" style="display: block; margin-left: auto; margin-right: auto; border: 1px none #000000; " class="img-fluid" align="ligne">
 			</p>
 		</div>
 		</div><br>
