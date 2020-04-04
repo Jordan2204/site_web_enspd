@@ -169,6 +169,8 @@ Route::group(['prefix' => '/'], function () {
 });
 
 Route::group(['prefix' => 'admin'], function () {
+
+ 
   Route::resource('admin', 'AdminController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
   Route::resource('doyen', 'DoyenController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
   Route::resource('respDept', 'RespDeptController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');

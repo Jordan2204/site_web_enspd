@@ -25,7 +25,7 @@
                     {!! Form::open(['route' => 'infosfgiAdmin.store','files' => true, 'class' => 'form-horizontal panel']) !!}   
                    
                     <div class="form-group {!! $errors->has('titreFECB') ? 'has-error' : '' !!}">
-                        <label for="titreFECB">Titre</label>
+                        <label for="titreFECB">Titre <span style="color: red;">*</span></label>
                         {!! Form::text('titreFECB', null, ['class' => 'form-control','id' => 'titreFECB', 'placeholder' => 'Abreviation']) !!}
                         {!! $errors->first('titreFECB', '<small class="help-block">:message</small>') !!}
                         

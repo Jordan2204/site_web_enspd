@@ -27,6 +27,7 @@
                     @endif
                     {!! Form::open(['url' => 'respcom/insolitesManage', 'files' => true]) !!}
                         <div class="form-group {!! $errors->has('titre') ? 'has-error' : '' !!}">
+                           <label for="titre">Titre <span style="color: red;">*</span></label>
                             {!! Form::text('titre', null, ['class' => 'form-control ', 'placeholder' => 'titre']) !!}
                             {!! $errors->first('titre', '<small class="help-block">:message</small>') !!}
                         </div>
@@ -35,9 +36,9 @@
                             {!! Form::file('image', ['class' => 'form-control']) !!}
                             {!! $errors->first('image', '<small class="help-block">:message</small>') !!}
                         </div>
-                        <a href="javascript:history.back()" class="btn btn-info float-left">Retour
-                          <span class="glyphicon glyphicon-circle-arrow-left "></span>
-                       </a>
+                        <a href="javascript:history.back()" class="btn btn-info">
+                          <i class="fa fa-chevron-circle-left"> Retour</i>  
+                        </a>
                         {!! Form::submit('Envoyer !', ['class' => 'btn btn-info float-right']) !!}
                     {!! Form::close() !!}
                 </div>

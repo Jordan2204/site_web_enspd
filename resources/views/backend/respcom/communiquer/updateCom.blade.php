@@ -39,9 +39,9 @@
                                   style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ $communiquer->contenuCom }}
                         </textarea><br>
                         <div>
-                         <a href="javascript:history.back()" class="btn btn-primary">
-                          <span class=""></span> <span>Retour</span>
-                          </a>
+                        <a href="javascript:history.back()" class="btn btn-primary">
+                          <i class="fa fa-chevron-circle-left"> Retour</i>  
+                        </a>
                  {!! Form::submit('Update', ['class' => 'btn btn-primary float-right']) !!}
                 {!! Form::close() !!}
             

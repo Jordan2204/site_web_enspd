@@ -26,25 +26,26 @@
 						{!! Form::open(['route' => 'departement.store','files' => true , 'class' => 'form-horizontal panel']) !!}
 
 						   	<div class="form-group {!! $errors->has('ABBR') ? 'has-error' : '' !!}">
-		                        {!! Form::text('ABBR', null, ['class' => 'form-control', 'placeholder' => 'Abreviation']) !!}
-		                        {!! $errors->first('ABBR', '<small class="help-block">:message</small>') !!}
+                    <label for="ABBR">Abréviation <span style="color: red;">*</span></label>
+                      {!! Form::text('ABBR', null, ['class' => 'form-control', 'placeholder' => 'Abreviation']) !!}
+                      {!! $errors->first('ABBR', '<small class="help-block">:message</small>') !!}
 
-                    		</div>
-                    		<div class="form-group {!! $errors->has('nomDept') ? 'has-error' : '' !!}">
-		                        {!! Form::text('nomDept', null, ['class' => 'form-control', 'placeholder' => 'Nom']) !!}
-		                        {!! $errors->first('nomDept', '<small class="help-block">:message</small>') !!}
+              		</div>
+              		<div class="form-group {!! $errors->has('nomDept') ? 'has-error' : '' !!}">
+                    <label for="nomDept">Nom de département <span style="color: red;">*</span></label>
+                      {!! Form::text('nomDept', null, ['class' => 'form-control', 'placeholder' => 'Nom']) !!}
+                      {!! $errors->first('nomDept', '<small class="help-block">:message</small>') !!}
 
-                    		</div>
-                    		<div class="form-group {!! $errors->has('image') ? 'has-error' : '' !!}">
-                      		<label for="image">Image du département</label>
-                      
-                            {!! Form::file('image', ['class' => 'form-control']) !!}
-                            {!! $errors->first('image', '<small class="help-block" style="color: red;">:message</small>') !!}
-                        </div>
-      
-                    		<div>
-                    			{!! Form::submit('Créer', ['class' => 'btn btn-primary float-right ']) !!}
-                    		</div>
+              		</div>
+              		<div class="form-group {!! $errors->has('image') ? 'has-error' : '' !!}">
+                		<label for="image">Image du département <span style="color: red;">*</span></label>
+                
+                      {!! Form::file('image', ['class' => 'form-control']) !!}
+                      {!! $errors->first('image', '<small class="help-block" style="color: red;">:message</small>') !!}
+                  </div>
+              		<div>
+              			{!! Form::submit('Créer', ['class' => 'btn btn-primary float-right ']) !!}
+              		</div>
 						{!! Form::close() !!}
 					</div>
 				</div>

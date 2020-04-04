@@ -24,14 +24,14 @@
                 <div class="col-sm-12">
                     {!! Form::open(['route' => 'docPartenaires.store', 'class' => 'form-horizontal panel']) !!}   
                     <div class="form-group {!! $errors->has('nomDOC') ? 'has-warning' : '' !!}">
-                        <label for="nomDOC">Nom du Dossier</label>
+                        <label for="nomDOC">Nom du Dossier <span style="color: red;">*</span></label>
                         {!! Form::text('nomDOC', null, ['class' => 'form-control','id' => 'name', 'placeholder' => 'Nom']) !!}
                         {!! $errors->first('nomDOC', '<small style="color: red;" class="form-text">:message</small>') !!}
 
                     </div>
 
                     <div class="form-group {!! $errors->has('numBCA') ? 'has-warning' : '' !!}">
-                        <label for="prenom">Numero BCA</label>
+                        <label for="prenom">Numero BCA <span style="color: red;">*</span></label>
                         {!! Form::text('numBCA', null, ['class' => 'form-control','id' => 'prenom', 'placeholder' => 'numBCA']) !!}
                         {!! $errors->first('prenumBCAnom', '<small style="color: red;" class="form-text">:message</small>') !!}
                         
