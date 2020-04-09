@@ -116,7 +116,7 @@ class DepartementController extends Controller
                            FROM personnel per, typepersonnel_personnel tpp,departement dept, typepersonnel tp
 
                            WHERE per.Departement_idDepartement = dept.id and 
-                           per.id = tpp.Personnel_idPers and tpp.TypePersonnel_idTypePersonnel =tp.idTypePersonnel and per.id = ? and tp.libelleTypePersonnel = ?
+                           per.id = tpp.Personnel_idPers and tpp.TypePersonnel_idTypePersonnel =tp.idTypePersonnel and  dept.id = ? and tp.libelleTypePersonnel = ? 
       ',[$id,'RespAcad']);
         
 
@@ -131,6 +131,8 @@ class DepartementController extends Controller
     $dept = $this->departementRepository->getById($id);
     $media = $this->mediaRepository->getById($dept->media_id);
     $respDept = $this->respDeptRepository->getById($dept->id_responsable);
+
+   
     
     return view('frontend.departements.showDept',['dept' => $dept,'media' => $media,'respDept' =>$respDept,'respStage' => $respStage,'respAcad' => $respAcad]);
   }

@@ -47,7 +47,6 @@
                         <div class="icheck-primary d-inline ml-2">
                             {!! Form::checkbox('auth',1, null,['id'  => 'auth']) !!} Autorisation : 
                             <label for="auth"></label>
-                            
                         </div>
                         {!! $errors->first('auth', '<small class="help-block">:message</small>') !!}
                     </div>

@@ -14,7 +14,7 @@
 		{!! $labo->description !!}
 	</div> <br><br>
 
-    <div><h5 style="text-align: center;">OBJECTIFS</h5></div><br>
+    <div><h2 style="text-align: center;">OBJECTIFS</h2></div><br>
     <div>
         {!! $labo->objectif !!}
     </div>
@@ -22,7 +22,7 @@
 	<br><br>
 	<div class="row justify-content-center">
 	<div class="col-md-10">
-          <div><h5 style="text-align: center;">COORDONNATEUR</h5></div><br>
+          <div><h2 style="text-align: center;">COORDONNATEUR</h2></div><br>
           <div class="card card-primary">
                 <table class="table">
                     <thead>
@@ -48,7 +48,7 @@
                 </table>
            </div>
            <br><br>
-            <div><h5 style="text-align: center;">MEMBRES D'HONNEUR</h5></div><br>
+            <div><h2 style="text-align: center;">MEMBRES D'HONNEUR</h2></div><br>
            <div class="card card-primary">
                  <table class="table">
                     <thead>
@@ -74,7 +74,7 @@
                 </table>
            </div>
            <br><br>
-            <div><h5 style="text-align: center;">MEMBRES</h5></div><br>
+            <div><h2 style="text-align: center;">MEMBRES</h2></div><br>
            <div class="card card-primary">
                 <table class="table">
                     <thead>
@@ -100,7 +100,7 @@
                 </table>
            </div>
            <br><br>
-            <div><h5 style="text-align: center;">PARTENAIRES</h5></div><br>
+            <div><h2 style="text-align: center;">PARTENAIRES</h2></div><br>
            <div class="card card-primary">
                  <table class="table">
                     <thead>
@@ -123,7 +123,7 @@
 	</div>
 	<br><br>
 	
-	<div><h5 style="text-align: center;">STRUCTURE DE RATTACHEMENT</h5></div><br>
+	<div><h2 style="text-align: center;">STRUCTURE DE RATTACHEMENT</h2></div><br>
 	<div style="text-align: center;">
 		{!! $labo->strucRattach !!}
 	</div>

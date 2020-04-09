@@ -19,16 +19,22 @@
 		</div>
 		</div>
 		<div class="row justify-content-center">
-		<div  class=" col-4 col-md-5">
+		<div  class=" col-4 col-md-4">
 			<p style="text-align: center;">
 				<img src="/{{$media->chemin}}/{{$media->nom}}" style="display: block; margin-left: auto; margin-right: auto; border: 1px none #000000; " class="img-fluid" align="ligne">
 			</p>
 		</div>
 		</div><br>
 		<table style="size: 20;"  align="center">
+				
 				<tr>
-					<td><p><h4>Chef du Département : </h4></p></td>
-					<td><h3><strong>{{ $respDept->name }} {{ $respDept->prenom }}</strong></h3></td>
+					<td><p><h4>Chef du Département :  </h4></p></td>
+					<td><h3><strong>
+						@if (!empty($respDept->name))
+							 {{ $respDept->name }} {{ $respDept->prenom }}
+						@endif						
+						</strong></h3>
+					</td>
 				</tr>
 				<tr>
 					<td><p><h4>Responsable Académique : </h4></p></td>
@@ -52,24 +58,24 @@
 		
 		<div  class="contenu">
 
-			<div><i class="far fa-circle nav-icon"></i><strong>EN BREF</strong></div>
+			<div><h2><i class="far fa-circle nav-icon"></i><strong> BREF RESUME</strong></h2></div>
 			<div>  <?php echo "$dept->description"; ?> </div><br>
 
-			<div><i class="far fa-circle nav-icon"></i><strong> OPTIONS</strong></div>
+			<div><h2><i class="far fa-circle nav-icon"></i><strong> OPTIONS</strong></h2></div>
 			<div>  <?php echo "$dept->optionDept"; ?> </div><br>
 
 
-			<div><i class="far fa-circle nav-icon"></i><strong>DEBOUCHES</strong></div>
+			<div><h2><i class="far fa-circle nav-icon"></i><strong>DEBOUCHES</strong></h2></div>
 			<div>  <?php echo "$dept->deboucheDept"; ?> </div><br>
 
-			<div><i class="far fa-circle nav-icon"></i><strong> EMPLOIS DU TEMPS DES COURS</strong></div>
+			<div><h2><i class="far fa-circle nav-icon"></i><strong> EMPLOIS DU TEMPS DES COURS</strong></h2></div>
 			<div>  <?php echo "$dept->emploisDuTempsDept"; ?> </div><br>
 
 
-			<div><i class="far fa-circle nav-icon"></i><strong> COURS EN LIGNE</strong></div>
+			<div><h2><i class="far fa-circle nav-icon"></i><strong> COURS EN LIGNE</strong></h2></div>
 			<div>  <?php echo "$dept->coursEnLigneDept"; ?> </div><br>
 
-			<div><i class="far fa-circle nav-icon"></i><strong> CONTACT DEPARTEMENT</strong></div>
+			<div><h2><i class="far fa-circle nav-icon"></i><strong> CONTACT DEPARTEMENT</strong></h2></div>
 			<div>  <?php echo "$dept->contactDept"; ?> </div><br>
 
 		</div>

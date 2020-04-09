@@ -90,7 +90,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('admin/departement/create') }}" class="nav-link">
+                <a href="{{ url('admin/departementAdmin/create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Nouveau</p>
                 </a>

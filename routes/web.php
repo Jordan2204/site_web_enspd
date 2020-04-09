@@ -22,11 +22,14 @@ if(Auth::guest()){
 
     
       //Insolite 
-       $insolites = DB::table('medias')->where('description','insolite')->get();
-       $nbreInsolite = DB::select('select count(*) from medias where description = ?',['insolite']);
-       $numInsolite = rand(0,intval($nbreInsolite) - 1 );
-       $insolite =  $insolites[$numInsolite];
-
+       //$insolites = DB::table('medias')->where('description','insolite')->get();
+       $insolites = DB::select('SELECT * from medias where description = ?',['insolite']);
+       $nbreInsolite = DB::select('SELECT count(*) from medias where description = ?',['insolite']);
+        $numInsolite = rand(0,intval($nbreInsolite) - 1 );
+        $insolite =  $insolites[$numInsolite];
+     
+       
+      
        //Communiqués
         $comET = DB::table('communiquer')->where('destinataireCom','etudiants')->value('id');
         $comPU = DB::table('communiquer')->where('destinataireCom','public')->value('id');
@@ -64,13 +67,13 @@ if(Auth::guest()){
 
        //Les news
         $mediasAgenda = DB::select("
-              select ns.pos,ns.numPos,md.id,md.chemin,md.nom,md.description
+              select md.id,md.chemin,md.nom,md.description
               from news as ns, medias as md
               where md.id = ns.media_id and ns.categorie = ?
               ",['agenda']);
 
         $mediasActu = DB::select("
-              select ns.pos,ns.numPos,md.id,md.chemin,md.nom,md.description
+              select md.id,md.chemin,md.nom,md.description
               from news as ns, medias as md
               where md.id = ns.media_id and ns.categorie = ?
               ",['actualites']);
@@ -197,7 +200,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 //Gestion des départements
-  Route::resource('departement', 'DepartementController', ['except' => ['show', 'index']])->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::resource('departementAdmin', 'DepartementController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
 
 //Gestion des informations sur la FGI
    Route::resource('infosfgiAdmin', 'InfosFGIController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
@@ -280,12 +283,16 @@ Route::group(['prefix' => 'respform'], function () {
 });
 
 Route::group(['prefix' => 'respdept'], function () {
-  Route::resource('departement', 'DepartementController',['except' => ['show', 'create', 'store']])->middleware('App\Http\Middleware\RedirectIfNotRespdept');
+  Route::resource('departement', 'DepartementController', ['except' => ['show', 'index','store']]);
   //Creer le responsable
   Route::post('responsable','PersonnelController@store')->name('personnel.respdept.store')->middleware('App\Http\Middleware\RedirectIfNotRespdept');
 
  
   Route::resource('personnelDept','PersonnelController')->middleware('App\Http\Middleware\RedirectIfNotRespdept');
+  
+  //Supprimer le responsable
+  Route::delete('/personnel/destroyD/{idPers}/{choixM}','PersonnelController@destroyP')->name('personnel.destroyD')->middleware('App\Http\Middleware\RedirectIfNotRespdept');
+
    
   Route::get('responsablesManage','DepartementController@responsablesManage')->middleware('App\Http\Middleware\RedirectIfNotRespdept');
 
@@ -379,8 +386,8 @@ Route::group(['prefix' => 'respcom'], function () {
   Route::post('/logout', 'RespcomAuth\LoginController@logout')->name('logout');
 
   //Gestion des medias
-  Route::resource('mediasRespcom', 'MediaController')->middleware('App\Http\Middleware\RedirectIfRespcom');
-  Route::resource('typemedia', 'TypeMediaController')->middleware('App\Http\Middleware\RedirectIfRespcom');
+  Route::resource('mediasRespcom', 'MediaController')->middleware('App\Http\Middleware\RedirectIfNotRespcom');
+  Route::resource('typemedia', 'TypeMediaController')->middleware('App\Http\Middleware\RedirectIfNotRespcom');
   Route::get('mediasManage/img', 'MediaController@getFormImg')->middleware('App\Http\Middleware\RedirectIfRespcom');
   Route::get('mediasManage/file', 'MediaController@getFormFile')->middleware('App\Http\Middleware\RedirectIfRespcom');
   Route::get('mediasManage/video', 'MediaController@getFormVideo');

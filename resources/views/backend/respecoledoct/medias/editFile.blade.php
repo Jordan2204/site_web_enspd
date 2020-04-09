@@ -1,4 +1,4 @@
-@extends('respform/layouts/templateRespForm')
+@extends('respecoledoct/layouts/templateRespEcoleDoct')
 
  @section('title')
     Responsable des formations

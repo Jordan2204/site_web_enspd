@@ -1,7 +1,7 @@
 
  <div class="row justify-content-center align-items-center">
 
-        <div class="col-md-4 col-sm-6 col-xm-8">
+        <div class="col-md-6 col-sm-6 col-xm-8">
             <div class="card card-primary">   
                 <div class="card-header">
                     <h3 class="card-title">Fiche d'utilisateur</h3>
@@ -22,6 +22,10 @@
                                 <td><p>  {{ $respDept->poste }}</p></td>
                             </tr>
                             <tr>
+                                <td>Autorisation de modification :</td>
+                                <td><p>  {{ $respDept->auth }}</p></td>
+                            </tr>
+                            <tr>
                                 <td>Email :</td>
                                 <td><p>  {{ $respDept->email }}</p></td>
                             </tr>
@@ -30,8 +34,8 @@
 
                 </div>
             </div>              
-            <a href="javascript:history.back()" class="btn btn-primary">
-                <span class="glyphicon glyphicon-circle-arrow-left" ></span> Retour
+            <a href="javascript:history.back()" class="btn btn-info">
+                <i class="fa fa-chevron-circle-left"> Retour</i>  
             </a>
             @if( session('role') == 'admin')
             {!! link_to_route('respDept.edit', 'Modifier', [$respDept->id], ['class' => 'btn btn-warning  float-right']) !!}

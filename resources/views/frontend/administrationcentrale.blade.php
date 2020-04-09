@@ -11,7 +11,7 @@
 
 		@foreach ($persoAdminCents as $persoAdminCent)
 			<h4 style="text-align: center;">{{ strtoupper($persoAdminCent->postePers) }}</h4>
-			<p style="text-align: center;"><img src="/{{ $persoAdminCent->chemin }}/{{ $persoAdminCent->nom }}" alt="img-admin-cent" style="width: 100%; max-width: 250px; height: auto;" class="img-fluid img-thumbnail"><br><strong>{{ $persoAdminCent->nomPers }}</strong></p>
+			<p style="text-align: center;"><img src="/{{ $persoAdminCent->chemin }}/{{ $persoAdminCent->nom }}" alt="img-admin-cent" style="width: 100%; max-width: 250px; height: auto;" class="img-fluid img-thumbnail"><br><strong>{{ $persoAdminCent->gradePers }} {{ $persoAdminCent->nomPers }} {{ $persoAdminCent->prenomPers }}</strong></p>
 			<p style="text-align: center;">•</p>
 		@endforeach
 @endsection

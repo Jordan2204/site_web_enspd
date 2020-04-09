@@ -8,16 +8,19 @@
 @section('section_principale')
     <div align="center">
         <h1 style="text-align: center;">LOCALISATION DE LA FACULTE DE GENIE INDUSTRIEL(FGI) </h1><br> 
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1GbPvCjhaoxX2KaPqmJ-l2L6yb7Ub_Y_X" width="640" height="480">
-            
-        </iframe><br><br>
+       <br> 
+       <!-- > <div class="row justify content-center"><br> <!-->
+            <iframe  src="https://www.google.com/maps/d/u/0/embed?mid=1GbPvCjhaoxX2KaPqmJ-l2L6yb7Ub_Y_X" width="700" height="500">
+            </iframe><br><br>
+       <!-- > </div><!-->
+        
     </div>
     <div>
         <h1 style="text-align: center;">COMMENT NOUS CONCTACTER</h1><br>
         <p class="kt-contact-description">Vous avez une question ? Besoin de renseignement ? Prenez contact avec la <strong>Faculté de Génie Industriel</strong> via le formulaire de contact ci-dessous, et nous vous donnerons une réponse dans un court délai.</p>
     </div>
     <div class="contact">
-        <form method="POST" action="http://fgi-udo.cm/contact/send"><input type="hidden" name="_token" value="t0HxmcxAgbk0KAB7CqoJWSCU9ZSKIBUnMuwiWv0B">
+        <form method="POST" action="http://fgi-udo.cm/contact/send"><input type="hidden" >
         <div class="row">
             <div class="col-sm-12 col-md-6">
                 <div class="form-group">

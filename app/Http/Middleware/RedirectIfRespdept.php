@@ -18,7 +18,7 @@ class RedirectIfRespdept
 	public function handle($request, Closure $next, $guard = 'respdept')
 	{
 	    if (Auth::guard($guard)->check()) {
-	        return redirect('respdept/homeRespdept');
+	        return redirect('respdept/homeRespDept');
 	    }
 
 	    return $next($request);

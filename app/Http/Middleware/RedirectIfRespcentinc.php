@@ -18,7 +18,7 @@ class RedirectIfRespcentinc
 	public function handle($request, Closure $next, $guard = 'respcentinc')
 	{
 	    if (Auth::guard($guard)->check()) {
-	        return redirect('respcentinc/homeRespcentinc');
+	        return redirect('respcentinc/homeRespCentinc');
 	    }
 
 	    return $next($request);

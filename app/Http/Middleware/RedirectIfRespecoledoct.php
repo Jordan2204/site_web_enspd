@@ -18,7 +18,7 @@ class RedirectIfRespecoledoct
 	public function handle($request, Closure $next, $guard = 'respecoledoct')
 	{
 	    if (Auth::guard($guard)->check()) {
-	        return redirect('respecoledoct/homeRespecoledoct');
+	        return redirect('respecoledoct/homeRespEcoleDoct');
 	    }
 
 	    return $next($request);

@@ -19,7 +19,7 @@
             <!-- Authentication Links -->
             <li class="dropdown">
                   <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false"><i class="nav-icon fas fa-user"></i>
-                          <span class="caret"></span> {{ session('prenom') }} {{ session('name') }}
+                          <span class="caret"></span>  {{ session('name') }} {{ session('prenom') }}
                   </a>
 
                   <ul class="dropdown-menu" role="menu">

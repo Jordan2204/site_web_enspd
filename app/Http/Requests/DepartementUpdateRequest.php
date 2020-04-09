@@ -25,7 +25,7 @@ class DepartementUpdateRequest extends FormRequest
     {
         return [
             'nomDept' => 'required|max:45',
-            'respDept' => 'required|max:45',
+            
             
         ];
     }

@@ -23,7 +23,7 @@
 	            <div class="card-body"> 
 	                <div class="col-sm-12">
 
-						{!! Form::open(['route' => 'departement.store','files' => true , 'class' => 'form-horizontal panel']) !!}
+						{!! Form::open(['route' => 'departementAdmin.store','files' => true , 'class' => 'form-horizontal panel']) !!}
 
 						   	<div class="form-group {!! $errors->has('ABBR') ? 'has-error' : '' !!}">
                     <label for="ABBR">Abréviation <span style="color: red;">*</span></label>

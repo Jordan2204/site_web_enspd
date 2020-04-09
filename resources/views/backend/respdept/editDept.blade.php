@@ -15,8 +15,9 @@
 
 @section('content')
     <div class="row justify-content-center align-items-center">
+      <div class="col-lg-9 col-sm-7 col-xm-9">
+           {!! Form::model($departement, ['route' => ['departement.update', $departement->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
 
-         <div class="col-lg-9 col-sm-7 col-xm-9">
             <div class="card card-primary">   
                 <div class="card-header">
                     <h3 class=" card-title" align="align-center">Modification du departement</h3>
@@ -24,14 +25,13 @@
 
                 <div class="card-body "> 
                     <div class="col-sm-12">
-                        {!! Form::model($departement, ['route' => ['departement.update', $departement->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
                         <div class="form-group {!! $errors->has('nomDept') ? 'has-error' : '' !!}">
                             <label for="nomDept">Nom du departement</label>                        {!! Form::text('nomDept', null, ['class' => 'form-control','id' => 'nomDept', 'placeholder' => 'Nom Departement']) !!}
                             {!! $errors->first('nomDept', '<small class="help-block">:message</small>') !!}
                         </div>
        
                         <div class="form-group {!! $errors->has('infoDept') ? 'has-error' : '' !!}">
-                            <label for="respStage">Domaines de formation </label>    
+                            <label for="infoDept">Domaines de formation </label>    
                             {!! Form::text('infoDept', null, ['class' => 'form-control','id' => 'infoDept', 'placeholder' => 'Possibilités offertes par le départment']) !!}
                             {!! $errors->first('infoDept', '<small class="help-block">:message</small>') !!}
                         </div>
@@ -192,14 +192,12 @@
                              {!! $errors->first('contactDept', '<small class="help-block">:message</small>') !!}
                         </div>
                           
-                        <div>
-                            <a href="javascript:history.back()" class="btn btn-primary">
-                                    <span class=""></span> <span>Retour</span>
-                            </a>
-                             {!! Form::submit('Envoyer', ['class' => 'btn btn-primary float-right']) !!}
-                            {!! Form::close() !!}
-                        
-                        </div>
-                    </div>
+                          <a href="javascript:history.back()" class="btn btn-primary">
+                                  <span class=""></span> <span>Retour</span>
+                          </a>
+                           {!! Form::submit('Envoyer', ['class' => 'btn btn-primary float-right']) !!}
+                   
+                      {!! Form::close() !!}
+                     </div>
                </div>
 @endsection
