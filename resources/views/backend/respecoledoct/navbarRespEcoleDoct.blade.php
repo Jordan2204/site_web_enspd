@@ -4,9 +4,6 @@
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="{{ url('/admin/homeAdmin') }}" class="nav-link">Home</a>
-        </li>
       </ul>
 
     <!-- Right navbar links -->
@@ -22,7 +19,7 @@
             <!-- Authentication Links -->
             <li class="dropdown">
                   <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false"><i class="nav-icon fas fa-user"></i>
-                          <span class="caret"></span> {{ session('prenom') }} {{ session('name') }}
+                          <span class="caret"></span>  {{ session('name') }} {{ session('prenom') }}
                   </a>
 
                   <ul class="dropdown-menu" role="menu">

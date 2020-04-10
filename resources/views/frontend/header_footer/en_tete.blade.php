@@ -10,7 +10,7 @@
        Pour aligner la nav-bar gauche : mr-auto , droite : ml-auto :
    -->
 <header class="header">
-       <img src="/images/static_header_footer/header.png" alt="header" class="img-fluid">
+       <img src="/storage/images/header.png" alt="header" class="img-fluid">
 </header>
 
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="bootnavbar">

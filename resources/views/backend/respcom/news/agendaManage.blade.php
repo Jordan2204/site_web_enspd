@@ -21,7 +21,7 @@
     </div>
     <div class="row">
         @foreach ( $mediasAgenda as $mediaAgenda)
-           <div class="col-md-10 col-sm-10 col-xm-10 col-lg-10">
+           <div class="col-md-4 col-sm-4 col-xm-4 col-lg-4">
             <div class="card card-primary">   
                 <div class="card-header">
                     <!-- tools card -->

@@ -64,19 +64,29 @@
                                 <td class="text-secondary"><strong>{!! $mbresH->lieuDeServicePers !!}</strong></td>
                                 <td class="text-secondary"><strong>{!! $mbresH->nomLabo !!}</strong></td>
                                
-                                <td>{!! link_to_route('personnel.show', 'Voir', [$mbresH->id], ['class' => 'btn btn-success btn-block']) !!}</td>
+                                <td>
+                                  <a href="{{ route('personnel.show',[$mbresH->id])}}" class="btn btn-success btn-block">
+                                    <i class="fa fa-eye" aria-hidden="true">  Voir</i>
+                                  </a> 
+                                </td>
 
                                 @if (empty($mbresH->postePers))
-                                 <td>{!! link_to_route('personnel.edit', 'Modifier', [$mbresH->id], ['class' => 'btn btn-warning btn-block ']) !!}</td>
-                                <td>
+                                 <td>
+                                  <a href="{{ route('personnel.edit',[$mbresH->id])}}" class="btn btn-warning btn-block">
+                                    <i class="fa fa-edit" aria-hidden="true">  Modifier</i>
+                                  </a> 
+                                </td>
 
                                 @else
 
-                                <td>{!! link_to_route('personnel.edit', 'Modifier', [$mbresH->id], ['class' => 'btn btn-warning btn-block disabled']) !!}</td>
                                 <td>
+                                  <a href="{{ route('personnel.edit',[$mbresH->id])}}" class="btn btn-warning btn-block">
+                                    <i class="fa fa-edit" aria-hidden="true">  Modifier</i>
+                                  </a> 
+                                </td>
 
                                 @endif
-
+                                <td>
                                     {!! Form::open(['method' => 'DELETE', 'route' => ['personnel.destroyP', $mbresH->id,'MbH' ]]) !!}
                                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
                                     {!! Form::close() !!}
@@ -127,20 +137,31 @@
                                 <td class="text-secondary"><strong>{!! $mbre->prenomPers !!}</strong></td>
                                  <td class="text-secondary"><strong>{!! $mbre->lieuDeServicePers !!}</strong></td>
                                 <td class="text-secondary"><strong>{!! $mbre->nomLabo !!}</strong></td>
-  
-                                <td>{!! link_to_route('personnel.show', 'Voir', [$mbre->id], ['class' => 'btn btn-success btn-block']) !!}</td>
-
-                                @if($mbre->postePers == '')
-                                 <td>{!! link_to_route('personnel.edit', 'Modifier', [$mbre->id], ['class' => 'btn btn-warning btn-block ']) !!}</td>
+                                
                                 <td>
+                                  <a href="{{ route('personnel.show',[$mbre->id])}}" class="btn btn-success btn-block">
+                                    <i class="fa fa-eye" aria-hidden="true">  Voir</i>
+                                  </a> 
+                                </td>
+
+                                @if (empty($mbre->postePers))
+                                 <td>
+                                  <a href="{{ route('personnel.edit',[$mbre->id])}}" class="btn btn-warning btn-block">
+                                    <i class="fa fa-edit" aria-hidden="true">  Modifier</i>
+                                  </a> 
+                                </td>
 
                                 @else
 
-                                <td>{!! link_to_route('personnel.edit', 'Modifier', [$mbre->id], ['class' => 'btn btn-warning btn-block disabled']) !!}</td>
                                 <td>
+                                  <a href="{{ route('personnel.edit',[$mbre->id])}}" class="btn btn-warning btn-block">
+                                    <i class="fa fa-edit" aria-hidden="true">  Modifier</i>
+                                  </a> 
+                                </td>
 
                                 @endif
-                                    {!! Form::open(['method' => 'DELETE', 'route' => ['personnel.destroyP', $mbre->id,'Mb']]) !!}
+                                <td>
+                                    {!! Form::open(['method' => 'DELETE', 'route' => ['personnel.destroyP', $mbre->id,'Mb' ]]) !!}
                                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
                                     {!! Form::close() !!}
                                 </td>
@@ -187,13 +208,34 @@
                                 <td class="text-secondary"><strong>{!! $coord->prenomPers !!}</strong></td>
                                 <td class="text-secondary"><strong>{!! $coord->lieuDeServicePers !!}</strong></td>
                                 <td class="text-secondary"><strong>{!! $coord->nomLabo !!}</strong></td>
-                                <td>{!! link_to_route('personnel.show', 'Voir', [$coord->id], ['class' => 'btn btn-success btn-block']) !!}</td>
-                                <td>{!! link_to_route('personnel.edit', 'Modifier', [$coord->id], ['class' => 'btn btn-warning btn-block']) !!}</td>
                                 <td>
-                                    {!! Form::open(['method' => 'DELETE', 'route' => ['personnel.destroyP', $coord->id,'Coord']]) !!}
+                                  <a href="{{ route('personnel.show',[$coord->id])}}" class="btn btn-success btn-block">
+                                    <i class="fa fa-eye" aria-hidden="true">  Voir</i>
+                                  </a> 
+                                </td>
+
+                                @if (empty($coord->postePers))
+                                 <td>
+                                  <a href="{{ route('personnel.edit',[$coord->id])}}" class="btn btn-warning btn-block">
+                                    <i class="fa fa-edit" aria-hidden="true">  Modifier</i>
+                                  </a> 
+                                </td>
+
+                                @else
+
+                                <td>
+                                  <a href="{{ route('personnel.edit',[$coord->id])}}" class="btn btn-warning btn-block">
+                                    <i class="fa fa-edit" aria-hidden="true">  Modifier</i>
+                                  </a> 
+                                </td>
+
+                                @endif
+                                <td>
+                                    {!! Form::open(['method' => 'DELETE', 'route' => ['personnel.destroyP', $mbre->id,'Coord' ]]) !!}
                                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
                                     {!! Form::close() !!}
                                 </td>
+                                
                             </tr>
                         @endforeach
                     </tbody>
@@ -233,8 +275,20 @@
                                 <td class="text-secondary"><strong>{!! $partnaire->raison_socialePLabo !!}</strong></td>
                                 <td class="text-secondary"><strong>{!! $partnaire->villePLabo !!}</strong></td>
                                 <td class="text-secondary"><strong>{!! $partnaire->nomLabo!!}</strong></td>
-                                <td>{!! link_to_route('partenairelabo.show', 'Voir', [$partnaire->id], ['class' => 'btn btn-success btn-block']) !!}</td>
-                                <td>{!! link_to_route('partenairelabo.edit', 'Modifier', [$partnaire->id], ['class' => 'btn btn-warning btn-block']) !!}</td>
+                                
+                                <td>
+                                  <a href="{{ route('partenairelabo.show',[$partnaire->id])}}" class="btn btn-success btn-block">
+                                    <i class="fa fa-eye" aria-hidden="true">  Voir</i>
+                                  </a> 
+                                </td>
+
+                                <td>
+                                  <a href="{{ route('partenairelabo.edit',[$partnaire->id])}}" class="btn btn-warning btn-block">
+                                    <i class="fa fa-edit" aria-hidden="true">  Modifier</i>
+                                  </a> 
+                                </td>
+
+
                                 <td>
                                     {!! Form::open(['method' => 'DELETE', 'route' => ['partenairelabo.destroy', $partnaire->id]]) !!}
                                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}

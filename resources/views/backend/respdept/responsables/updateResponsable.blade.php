@@ -41,11 +41,11 @@
                     <div class="form-group {!! $errors->has('respStage') ? 'has-error' : '' !!}">
                          <div class="icheck-primary d-inline ml-2">
                               @if(!empty($etaitrespStage))
-                               <input type="checkbox" name="respStage" checked> Responsable Stages :
-                               <label for="auth"></label>
+                               <input id="auth1" type="checkbox" name="respStage" checked> Responsable Stages :
+                               <label for="auth1"></label>
                               @else
-                                {!! Form::checkbox('respStage',1, null,['id'  => 'auth']) !!} Responsable Stage
-                                <label for="auth"></label>
+                                {!! Form::checkbox('respStage',1, null,['id'  => 'auth1']) !!} Responsable Stage
+                                <label for="auth1"></label>
                               @endif
                          </div>
                         {!! $errors->first('respStage', '<small class="help-block">:message</small>') !!}
@@ -53,11 +53,11 @@
                      <div class="form-group {!! $errors->has('respAcad') ? 'has-error' : '' !!}">
                          <div class="icheck-primary d-inline ml-2">
                               @if(!empty($etaitrespAcad))
-                               <input type="checkbox" name="respAcad" checked> Responsable Académique :
-                               <label for="auth"></label>
+                               <input id="auth2" type="checkbox" name="respAcad" checked> Responsable Académique :
+                               <label for="auth2"></label>
                               @else
-                                {!! Form::checkbox('respAcad',1, null,['id'  => 'auth']) !!} Responsable Académique
-                                <label for="auth"></label>
+                                {!! Form::checkbox('respAcad',1, null,['id'  => 'auth2']) !!} Responsable Académique
+                                <label for="auth2"></label>
                               @endif
                         </div>
                         {!! $errors->first('RespAcad', '<small class="help-block">:message</small>') !!}

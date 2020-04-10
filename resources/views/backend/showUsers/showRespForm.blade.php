@@ -1,7 +1,7 @@
 
  <div class="row justify-content-center align-items-center">
 
-        <div class="col-md-4 col-sm-6 col-xm-8">
+        <div class="col-md-6 col-sm-6 col-xm-8">
             <div class="card card-primary">   
                 <div class="card-header">
                     <h3 class="card-title">Fiche d'utilisateur</h3>
@@ -20,6 +20,10 @@
                             <tr>
                                 <td>Poste :</td>
                                 <td><p>  {{ $respForm->poste }}</p></td>
+                            </tr>
+                            <tr>
+                                <td>Autorisation de modification :</td>
+                                <td><p>  {{ $respForm->auth }}</p></td>
                             </tr>
                             <tr>
                                 <td>Email :</td>

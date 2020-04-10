@@ -25,6 +25,7 @@
                     {!! Form::open(['route' => 'citation.store', 'class' => 'form-horizontal panel']) !!}   
                     
                     <div class="form-group {!! $errors->has('nomAuteur') ? 'has-error' : '' !!}">
+                      <label for="nomAuteur">Nom de l'auteur <span style="color: red;">*</span></label>
                         {!! Form::text('nomAuteur', null, ['class' => 'form-control', 'placeholder' => 'Auteur']) !!}
                         {!! $errors->first('nomAuteur', '<small class="help-block">:message</small>') !!}
                         
@@ -35,8 +36,8 @@
                       </div>
 
                     <div>
-                      <a href="javascript:history.back()" class="btn btn-primary float-left">Retour
-                        <span class="glyphicon glyphicon-circle-arrow-left "></span>
+                      <a href="javascript:history.back()" class="btn btn-primary">
+                          <i class="fa fa-chevron-circle-left"> Retour</i>  
                       </a>
 
                       {!! Form::submit('Créer', ['class' => 'btn btn-primary float-right ']) !!}</div>

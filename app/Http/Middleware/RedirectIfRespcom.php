@@ -18,7 +18,7 @@ class RedirectIfRespcom
 	public function handle($request, Closure $next, $guard = 'respcom')
 	{
 	    if (Auth::guard($guard)->check()) {
-	        return redirect('respcom/homeRespcom');
+	        return redirect('respcom/homeRespCom');
 	    }
 
 	    return $next($request);

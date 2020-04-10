@@ -26,29 +26,35 @@
 		              <div class="card-body">
 		                <div id="myCarousel" class="carousel slide" data-ride="carousel">
 		                  <ol class="carousel-indicators">
+		                  	<?php 
+		                  		$i = 0;
+		                  	 	$tab = array("First","Second","Third" );
+		                  	  ?>
 		                  	@foreach ( session('mediasActu') as $mediaActu)
-		                    <li data-target="#myCarousel" data-slide-to="{{ $mediaActu->numPos }}" class="active"></li>
+		                    <li data-target="#myCarousel" data-slide-to="{{ $i }}" class="active"></li>
 		                    @endforeach
 		                   </ol>
 		                   <div class="carousel-inner" role="listbox">
 		                   @foreach ( session('mediasActu') as $mediaActu)
-		                  	@if( $mediaActu->numPos == '0')
+		                  	@if( $i == '0')
 		                    <div class="carousel-item active">
-		                      <img class="{{ $mediaActu->pos }}-slide" src="/{{ $mediaActu->chemin }}/{{ $mediaActu->nom }}" alt="{{ $mediaActu->pos }} slide">
+		                      <img class="{{ $tab[$i] }}-slide" src="/{{ $mediaActu->chemin }}/{{ $mediaActu->nom }}" alt="{{ $i }} slide">
 		                      <div class="carousel-caption">
 		                      	<p class="lg">Actu</p>
-		                      	<p>( {{ $mediaActu->pos }}-slide)</p>
+		                      	<p>( {{ $tab[$i] }}-slide)</p>
 		                      </div>
 		                    </div>
 		                    @else
 		                     <div class="carousel-item">
-		                      <img class="{{ $mediaActu->pos }}-slide" src="/{{ $mediaActu->chemin }}/{{ $mediaActu->nom }}" alt="{{ $mediaActu->pos }} slide">
+		                      <img class="{{ $tab[$i] }}-slide" src="/{{ $mediaActu->chemin }}/{{ $mediaActu->nom }}" alt="{{ $i }} slide">
 		                      <div class="carousel-caption">
 		                      	<p class="lg">Actu</p>
-		                      	<p>( {{ $mediaActu->pos }}-slide)</p>
+		                      	<p>( {{ $tab[$i] }}-slide)</p>
 		                      </div>
 		                    </div>
 		                    @endif
+
+		                    <?php $i += 1; ?>
 		                     @endforeach
 		                     </div>
 		                  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
@@ -89,21 +95,27 @@
 		              <div class="card-body">
 		                <div id="myCarousel2" class="carousel slide" data-ride="carousel">
 		                  <ol class="carousel-indicators">
+		                  	<?php 
+		                  		$i = 0;
+		                  	 	$tab = array("First","Second","Third" );
+		                  	  ?>
 		                  	@foreach ( session('mediasAgenda') as $mediaAgenda)
-		                    <li data-target="#myCarousel" data-slide-to="{{ $mediaAgenda->numPos }}" class="active"></li>
+		                    <li data-target="#myCarousel" data-slide-to="{{ $i }}" class="active"></li>
 		                    @endforeach
 		                   </ol>
 		                   <div class="carousel-inner">
 		                   @foreach ( session('mediasAgenda') as $mediaAgenda)
-		                  	@if( $mediaAgenda->numPos == '0')
+		                  	@if( $i == '0')
 		                    <div class="carousel-item active">
-		                      <img class="{{ $mediaAgenda->pos }}-slide" src="/{{ $mediaAgenda->chemin }}/{{ $mediaAgenda->nom }}" alt="{{ $mediaAgenda->pos }} slide">
+		                      <img class="{{ $tab[$i] }}-slide" src="/{{ $mediaAgenda->chemin }}/{{ $mediaAgenda->nom }}" alt="{{ $tab[$i] }} slide">
 		                    </div>
 		                    @else
 		                     <div class="carousel-item">
-		                      <img class="{{ $mediaAgenda->pos }}-slide" src="/{{ $mediaAgenda->chemin }}/{{ $mediaAgenda->nom }}" alt="{{ $mediaAgenda->pos }} slide">
+		                      <img class="{{ $tab[$i] }}-slide" src="/{{ $mediaAgenda->chemin }}/{{ $mediaAgenda->nom }}" alt="{{ $tab[$i] }} slide">
 		                    </div>
 		                    @endif
+
+		                    <?php $i += 1; ?>
 		                     @endforeach
 		                     </div>
 		                  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">

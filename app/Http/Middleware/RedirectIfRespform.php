@@ -18,7 +18,7 @@ class RedirectIfRespform
 	public function handle($request, Closure $next, $guard = 'respform')
 	{
 	    if (Auth::guard($guard)->check()) {
-	        return redirect('respform/homeRespform');
+	        return redirect('respform/homeRespForm');
 	    }
 
 	    return $next($request);

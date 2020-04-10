@@ -29,7 +29,7 @@
 
        		<div class="col-6 col-sm-4 col-md-3">
        			<div class="custom">
-	       			<img src="/images/PngI2wwUjU.png" alt="LOGO-FGI et UDO" class="img-responsive" style="border: 1px none #000000;">
+	       			<img src="/storage/images/PngI2wwUjU.png" alt="LOGO-FGI et UDO" class="img-responsive" style="border: 1px none #000000;">
 
 	       				La Faculté de Génie Industriel (FGI)<br>est un Etablissement de<br>
 	       				<a href=""> l'Université de Douala</a><br>

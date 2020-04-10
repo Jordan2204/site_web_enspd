@@ -24,13 +24,13 @@
                 <div class="col-sm-12">
                     {!! Form::open(['route' => ['personnelDept.store', 'class' => 'form-horizontal panel']]) !!}
                     <div class="form-group {!! $errors->has('gradePers') ? 'has-error' : '' !!}">
-                        <label for="namePers">Nom</label>
+                        <label for="namePers">Grade </label>
                         {!! Form::text('gradePers', null, ['class' => 'form-control','id' => 'namePers', 'placeholder' => 'Grade']) !!}
                         {!! $errors->first('gradePers', '<small class="help-block">:message</small>') !!}
 
                     </div>
                     <div class="form-group {!! $errors->has('nomPers') ? 'has-error' : '' !!}">
-                        <label for="namePers">Nom</label>
+                        <label for="namePers">Nom <span style="color: red;">*</span></label>
                         {!! Form::text('nomPers', null, ['class' => 'form-control','id' => 'namePers', 'placeholder' => 'Nom']) !!}
                         {!! $errors->first('nomPers', '<small class="help-block">:message</small>') !!}
 

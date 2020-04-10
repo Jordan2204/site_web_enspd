@@ -154,8 +154,7 @@ class PersonnelController extends Controller
 
                 $idPers = DB::table('personnel')->where('matPers',$request->input('matPers'))->value('id');
                
-               return "$idRespAcad,$idRespStage";
-                DB::insert('INSERT INTO typepersonnel_personnel VALUES(?,?,?,?) ',[$idRespAcad, $idPers,1,null]);
+                 DB::insert('INSERT INTO typepersonnel_personnel VALUES(?,?,?,?) ',[$idRespAcad, $idPers,1,null]);
                 DB::insert('INSERT INTO typepersonnel_personnel VALUES(?,?,?,?) ',[$idRespStage, $idPers,1,null]);
 
 
@@ -275,7 +274,6 @@ class PersonnelController extends Controller
         }elseif( session('role') == 'respecoledoct')
         { 
             
-            return 'ok';
             $this->personnelRepository->update($id, $request->all()); 
 
 
@@ -336,13 +334,13 @@ class PersonnelController extends Controller
             $request->request->add(['postePers' => 'Responsable Stage']);
              //IL n'était pas responsable de stage
             if (empty($etaitrespStage)) {
-                DB::insert('INSERT INTO typepersonnel_personnel VALUES(?,?,?,?) ',[$idRespStage, $idPers,1,null]);
+                DB::insert('INSERT INTO typepersonnel_personnel VALUES(?,?,?,?) ',[$idRespStage, $id,1,null]);
             }
             //IL était pas responsable académique
             if (!empty($etaitrespAcad)) {
-                DB::delete('DELETE FROM typepersonnel_personnel WHERE Personnel_idPers = ? AND TypePersonnel_idTypePersonnel = ? ',[$idPers,$idRespAcad]);
+                DB::delete('DELETE FROM typepersonnel_personnel WHERE Personnel_idPers = ? AND TypePersonnel_idTypePersonnel = ? ',[$id,$idRespAcad]);
             }
-              $pers = $this->personnelRepository->store($id,$request->all());
+              $pers = $this->personnelRepository->update($id,$request->all());
          
             }
         if ($request->input('respAcad')) {
@@ -374,26 +372,10 @@ class PersonnelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id,Request $request)
+    public function destroy($id)
     {
        
-    if($choixM == 'Multi')
-        {
-           echo 'ok';
-        }else
-        {
-            $idType = DB::table('typepersonnel')->where('libelleTypePersonnel',$choixM)->value('idTypePersonnel');
-
-            if( session('role') == 'respecoledoct')
-            { 
-                DB::delete('DELETE * from typepersonnel_personnel where Personnel_idPers = ? AND TypePersonnel_idTypePersonnel = ? ',[$id, $idType]);
-                DB::update('UPDATE personnel set Labo_idLabo = ? WHERE id = ?',[0,$id]);
-
-            }elseif(session('role') == 'respdept')
-            {
-               DB::delete('DELETE * from typepersonnel_personnel where Personnel_idPers = ? AND TypePersonnel_idTypePersonnel = ? ',[$id, $idType]);
-            }
-        }
+        $this->personnelRepository->destroy($id);
     
         return back();
     }
@@ -432,6 +414,18 @@ class PersonnelController extends Controller
             }
                      
         }
+
+        $perso = DB::select(' SELECT per.id,per.gradePers,per.nomPers, per.prenomPers
+
+           FROM personnel per, typepersonnel_personnel tpp
+
+           WHERE per.id = tpp.Personnel_idPers and per.id = ?',[$id]);
+       
+        if (empty($perso)) {
+
+            $this->destroy($id);
+        }
+
          return back();
     }
 

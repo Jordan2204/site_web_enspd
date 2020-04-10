@@ -12,7 +12,7 @@
     <a href="{{ url('/respform/homeRespForm') }}" class="brand-link">
       <img src="/{{ session('iconeFGI')->chemin }}/{{ session('iconeFGI')->nom }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Acceuil RespForm</span>
+      <span class="brand-text font-weight-light">FGI de l'UDo</span>
     </a>
 
     <!-- Sidebar -->
@@ -70,7 +70,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Mettre a jour l'image
+                Mettre a jour les images
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right"></span>
               </p>

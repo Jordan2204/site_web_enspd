@@ -2,15 +2,15 @@
 
 @section('title')
    Resp Com | Création d'une new
-  @endsection
+@endsection
 
-  @section('dashboard')
+@section('dashboard')
     Création des News
-  @endsection
+@endsection
 
-  @section('apresHome')
-   Create/News
-  @endsection
+@section('apresHome')
+    Create / News
+@endsection
 
 @section('content')
     <div class="row justify-content-center align-items-center">
@@ -27,19 +27,14 @@
                     @endif
                     {!! Form::open(['url' => 'respcom/newsManage', 'files' => true]) !!}
                         <div class="form-group {!! $errors->has('titre') ? 'has-error' : '' !!}">
+                            <label for="titre">Titre <span style="color: red;">*</span></label>
                             {!! Form::text('titre', null, ['class' => 'form-control ', 'placeholder' => 'titre']) !!}
                             {!! $errors->first('titre', '<small class="help-block">:message</small>') !!}
                         </div>
-                        <div class="form-group {!! $errors->has('NumPos') ? 'has-error' : '' !!}">
-                            {!! Form::text('NumPos', null, ['class' => 'form-control ', 'placeholder' => 'NumPos']) !!}
-                            {!! $errors->first('NumPos', '<small class="help-block">:message</small>') !!}
-                        </div>
-                        <div class="form-group {!! $errors->has('pos') ? 'has-error' : '' !!}">
-                            {!! Form::text('pos', null, ['class' => 'form-control ', 'placeholder' => 'pos']) !!}
-                            {!! $errors->first('pos', '<small class="help-block">:message</small>') !!}
-                        </div>
+               
                         <label>Sources</label>
                         <div class="form-group {!! $errors->has('image') ? 'has-error' : '' !!}">
+                            <label for="image">Image <span style="color: red;">*</span></label>
                             {!! Form::file('image', ['class' => 'form-control']) !!}
                             {!! $errors->first('image', '<small class="help-block">:message</small>') !!}
                         </div>
@@ -49,17 +44,20 @@
                             {!! $errors->first('url', '<small class="help-block">:message</small>') !!}
                         </div>
                         <div class="form-group {!! $errors->has('categorie') ? 'has-error' : '' !!}">
-                            <label for="categorie">Catégorie : </label>
-                            <select name="categorie">
-                                <option value="agenda">Agenda</option>
-                                <option value="actualites">Actualités</option>
-                             </select>
+                            <label for="categorie">Catégorie : <span style="color: red;">*</span></label>
+                             <select name="categorie" class="form-control select2bs4 select2-hidden-accessible" style="width: 100%; "data-select2-id="17" tabindex="-1" aria-hidden="true">
+                                    <option  data-select2-id="30" value="agenda" selected="selected">Agenda</option>
+                                    <option  data-select2-id="31" value="actualites">Actualités</option>
+                                   
+                            </select>
                         </div>
-                        <a href="javascript:history.back()" class="btn btn-info float-left">Retour
-                            <span class="glyphicon glyphicon-circle-arrow-left "></span>
-                        </a>
+                        <div>
+                            <a href="javascript:history.back()" class="btn btn-info">
+                                 <i class="fa fa-chevron-circle-left"> Retour</i>  
+                            </a>
+                            {!! Form::submit('Créer !', ['class' => 'btn btn-info float-right']) !!}
+                        </div>
                         
-                        {!! Form::submit('Envoyer !', ['class' => 'btn btn-info float-right']) !!}
                     {!! Form::close() !!}
                 </div>
             </div>

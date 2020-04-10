@@ -48,10 +48,19 @@
                                 <td class="text-secondary"><strong>{{ $resp->prenomPers }}</strong></td>
                                 <td class="text-secondary"><strong>{{ $resp->postePers }}</strong></td>
                              
-                                <td>{!! link_to_route('personnelDept.show', 'Voir', [$resp->id], ['class' => 'btn btn-success btn-block']) !!}</td>
-                                <td>{!! link_to_route('personnelDept.edit', 'Modifier', [$resp->id], ['class' => 'btn btn-warning btn-block']) !!}</td>
+                                 <td>
+                                  <a href="{{ route('personnelDept.show',[$resp->id])}}" class="btn btn-success btn-block">
+                                    <i class="fa fa-eye" aria-hidden="true">  Voir</i>
+                                  </a> 
+                                </td>
                                 <td>
-                                    {!! Form::open(['method' => 'DELETE', 'route' => ['personnelDept.destroy',$resp->id,'R']]) !!}
+                                  <a href="{{ route('personnelDept.edit',[$resp->id])}}" class="btn btn-warning btn-block">
+                                    <i class="fas fa-edit" aria-hidden="true">  Modifier</i>
+                                  </a> 
+                                </td>
+  
+                                <td>
+                                    {!! Form::open(['method' => 'DELETE', 'route' => ['personnel.destroyD',$resp->id,'R']]) !!}
                                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
                                     {!! Form::close() !!}
                                 </td>

@@ -309,7 +309,6 @@ class MediaController extends Controller
    */
   public function destroy($id)
   {
-
     $insolite =  DB::table('medias')->where('id', $id)->first();
     $image_path = $insolite->chemin.'/'.$insolite->nom;
 

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>PLATEFORME D'ADMINITRATION DE LA FGI</title>
+    <title>PLATEFORME D'ADMINISTRATION DE LA FGI</title>
 
     @include('backend.include.style')
    

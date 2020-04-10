@@ -3,7 +3,7 @@
     <a href="{{ url('/admin/homeAdmin') }}" class="brand-link">
       <img src="/{{ session('iconeFGI')->chemin }}/{{ session('iconeFGI')->nom }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">ACCUEIL Admin</span>
+      <span class="brand-text font-weight-light">FGI de l'UDo</span>
     </a>
 
     <!-- Sidebar -->
@@ -90,7 +90,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('admin/departement/create') }}" class="nav-link">
+                <a href="{{ url('admin/departementAdmin/create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Nouveau</p>
                 </a>

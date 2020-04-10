@@ -24,7 +24,7 @@
                 <div class="col-sm-12">
                     {!! Form::open(['route' => 'doyen.store', 'class' => 'form-horizontal panel']) !!}   
                     <div class="form-group {!! $errors->has('name') ? 'has-error' : '' !!}">
-                        <label for="name">Nom</label>
+                        <label for="name">Nom <span style="color: red;">*</span></label>
                         {!! Form::text('name', null, ['class' => 'form-control','id' => 'name', 'placeholder' => 'Nom']) !!}
                         {!! $errors->first('name', '<small class="help-block">:message</small>') !!}
 
@@ -43,17 +43,17 @@
                         
                     </div>
                     <div class="form-group {!! $errors->has('email') ? 'has-error' : '' !!}">
-                        <label for="email">Email</label>
+                        <label for="email">Email <span style="color: red;">*</span></label>
                         {!! Form::email('email', null, ['class' => 'form-control','id' => 'email', 'placeholder' => 'Email']) !!}
                         {!! $errors->first('email', '<small class="help-block">:message</small>') !!}
                     </div>
                     <div class="form-group {!! $errors->has('password') ? 'has-error' : '' !!}">
-                        <label for="password">Password</label>
+                        <label for="password">Password <span style="color: red;">*</span></label>
                         {!! Form::password('password', ['class' => 'form-control','id' => 'password', 'placeholder' => 'Mot de passe']) !!}
                         {!! $errors->first('password', '<small class="help-block">:message</small>') !!}
                     </div>
                     <div class="form-group">
-                        <label for="confirmePassword">Confirm Password</label>
+                        <label for="confirmePassword">Confirm Password <span style="color: red;">*</span></label>
                         {!! Form::password('password_confirmation', ['class' => 'form-control','id' => 'confirmePassword', 'placeholder' => 'Confirmation mot de passe']) !!}
                     </div>
                     <div>
