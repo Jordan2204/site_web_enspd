@@ -16,7 +16,7 @@
 	
     <div class="row justify-content-center" >
        @if(session()->has('ok'))
-            <div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
+            <button  id="update" hidden class="toastrDefaultSuccess">ok</button>
        @endif
     </div>
     <div class="row">

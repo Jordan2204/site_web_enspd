@@ -62,8 +62,8 @@
                         {!! Form::text('observations', null, ['class' => 'form-control','id' => 'observations', 'placeholder' => 'observations']) !!}
                         {!! $errors->first('infosActu', '<small style="color: red;" class="form-text">:message</small>') !!}
                     </div>
-                    <a href="javascript:history.back()" class="btn btn-primary align-items-center float-left">Retour
-                       <span class="glyphicon glyphicon-circle-arrow-left "></span>
+                    <a href="javascript:history.back()" class="btn btn-primary float-left">
+                        <i class="fa fa-chevron-circle-left"> Retour</i>
                      </a>
                     <div>{!! Form::submit('Envoyer', ['class' => 'btn btn-primary float-right ']) !!}</div>
                    

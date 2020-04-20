@@ -157,8 +157,8 @@ Route::group(['prefix' => '/'], function () {
   //Route::resource('doctsfgi', 'InfosFGIController');
   // Route::resource('concorat1', 'Doctorat1Controller');
   //Route::resource('masteriirech', 'MasterIIRechController');
-  Route::resource('contactNA', 'ContactController');
-
+    Route::resource('contactNA', 'ContactController');
+  
   //Route::resource('etudiantconcours', 'EtudiantConcoursController');
   Route::resource('centredincubationNA', 'CentreDincubationController');
   //Route::resource('miseajour', 'MiseAJourController');

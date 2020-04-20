@@ -48,12 +48,12 @@
              <div class="container-fluid">
                 <div class="row">
                   <!--Aside gauche-->
-                    <div  id="block-1" class="col-9 col-sm-12 col-lg-2 art-layout-cell art-sidebar2"  style="border:1px solid blue;">
+                    <div  id="block-1" class="col-12 col-sm-3 col-md-2 art-layout-cell art-sidebar2"  style="border:1px solid blue;">
                       <div class="row">
                               <!--Image du doyen-->
                              <p>&nbsp;</p>
                             @if( url()->current() == 'http://fgi-udo.local') 
-                              <div class="col-5 col-sm-6 col-lg-12">
+                              <div class="col-5 col-sm-12 col-lg-12">
                                 <div class="art-blockcontent">
                                   <p align="center"><strong>LE {{ strtoupper(session('doyen')->postePers) }}</strong></p>
                                   <p><img src="/{{ session('lineChemin') }}/{{ session('lineNom') }}" class="img-fluid" ></p>
@@ -62,7 +62,7 @@
                                 </div>
                                </div>
                             @endif
-                            <div class="col-5 col-sm-6 col-lg-12">
+                            <div class="col-5 col-sm-12 col-lg-12">
                               <div class="art-block clearfix">
                                 <div class="art-blockcontent">
                                   <div class="custom">
@@ -71,7 +71,7 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="col-6 col-sm-6 col-lg-12">
+                            <div class="col-6 col-sm-12 col-lg-12">
                               <div class="art-vmenublock clearfix">
                                 <div class="art-vmenublockcontent">
                                 <ul class="art-vmenu nav-bar">
@@ -102,7 +102,7 @@
                               </div>
                             </div>
 
-                            <div class="col-4 col-sm-6 col-lg-12">
+                            <div class="col-4 col-sm-12 col-lg-12">
                             <div class="art-block clearfix"><div class="art-blockcontent">
                               <div class="custom">
                               <p style="text-align: center;">&nbsp;</p>
@@ -124,7 +124,7 @@
                        </div>
                      </div>
                     </div>
-                    <div class="col-4 col-sm-6 col-lg-12">
+                    <div class="col-4 col-sm-12 col-lg-12">
                       <div class="art-block clearfix"><div class="art-blockcontent">
                         <div class="custom">
                         <p class="Pcustum"><span style="color: #242b2d;"><span  class="spanCustum">Vie du Campus</span><img class="art-lightbox" src="/{{ session('lineChemin') }}/{{ session('lineNom') }}" width="90%" style="margin-bottom: 0px; border: rgb(187, 197, 201); width: auto; max-width: 100%; height: auto;"></span></span></p>
@@ -136,7 +136,7 @@
               </div>
               
                      <!--Article : section principale-->
-                    <div id="block-2" class="col-9 col-sm-12 col-lg-8  ">
+                    <div id="block-2" class="col-12 col-sm-6 col-lg-8  ">
                        <div class="art-post">
                            <div class="art-postcontent clearfix">
                               <div class="article">
@@ -147,9 +147,9 @@
                     </div>
                    
                     <!--Aside droite-->
-                    <div id="block-3" class=" col-9 col-sm-12 col-lg-2 art-layout-cell art-sidebar2 ustify-content-center" style="border:1px solid blue;">
+                    <div id="block-3" class=" col-12 col-sm-3 col-lg-2 art-layout-cell art-sidebar2 ustify-content-center" style="border:1px solid blue;">
                     <div class="row">
-                      <div class="col-6 col-sm-6 col-lg-12">
+                      <div class="col-6 col-sm-12 col-lg-12">
                             <div class="art-block clearfix"><div class="art-blockcontent"><div class="custom">
                                 <p>&nbsp;</p>
                             <p class="Pcustum"><span style="color: #242b2d;"><span class="spanCustum">Insolite</span><img class=" img-fluid art-lightbox img-thumbnail" src="/{{ session('lineChemin') }}/{{ session('lineNom') }}" border="0" alt="" width="90%" height="" 
@@ -159,7 +159,7 @@
                                 <img class=" img-fluid art-lightbox" src="/{{ session('insoliteChemin') }}/{{ session('insoliteNom') }}" border="0" alt="" width="90%" height="" style="margin-right: 0px; margin-left: 0px; border-color: #bbc5c9; border-style: solid;"></p>
                             <p style="text-align: center;">&nbsp;</p></div></div></div>
                       </div>
-                      <div class="col-5 col-sm-6 col-lg-12">
+                      <div class="col-5 col-sm-12 col-lg-12">
                      
                            <div class="art-block clearfix"><div class="art-blockcontent"><div class="custom">
                                 <p style="text-align: center;"><span class="spanCustum">Petites phrases de...</span><img src="/{{ session('lineChemin') }}/{{ session('lineNom') }}" class="art-lightbox" style="margin-bottom: 0px; border: #bbc5c9;" width="90%"></p></div></div></div>
@@ -169,7 +169,7 @@
                             <p style="text-align: justify;">{{ session('citationCitation') }}</p>
                             </div></div></div>
                       </div>
-                      <div class="col-4 col-sm-6 col-lg-12">
+                      <div class="col-4 col-sm-12 col-lg-12">
                           <div class="art-block clearfix"><div class="art-blockcontent"><div class="custom">
 
                             <p class="Pcustum"><span style="color: #242b2d;"><span style="color: #304050; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 13px;"><span class="spanCustum">Suivez-nous sur les réseaux sociaux</span><img src="/{{ session('lineChemin') }}/{{ session('lineNom') }}" alt="" width="50%" class="art-lightbox" style="margin: 7px; border: 1px none #000000;"></span></span></p>

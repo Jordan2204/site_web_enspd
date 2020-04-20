@@ -14,6 +14,11 @@
 
 
 @section('content')
+    <div class="row justify-content-center" >
+       @if(session()->has('ok'))
+            <button  id="update" hidden class="toastrDefaultSuccess">ok</button>
+       @endif
+    </div>
     <div class="row justify-content-center align-items-center">
       <div class="col-lg-9 col-sm-7 col-xm-9">
            {!! Form::model($departement, ['route' => ['departement.update', $departement->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}

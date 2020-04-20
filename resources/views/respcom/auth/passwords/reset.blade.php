@@ -1,4 +1,4 @@
-@extends('respcom.layouts.auth')
+@extends('layouts.authMail')
 
 @section('content')
 <div class="container">

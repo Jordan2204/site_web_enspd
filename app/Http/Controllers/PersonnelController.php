@@ -250,7 +250,9 @@ class PersonnelController extends Controller
         }elseif (session('role') == 'admin') {
 
             $adminCent = DB::table('personnel')->where('id',$id)->first();
-             return view('backend.admin.adminCent.editAdmincent',compact('adminCent'));
+            $alert = "Mise a du doyen $adminCent->nomPers $adminCent->prenomPers effectué"; 
+            session(['ok' =>  $alert ]);
+            return view('backend.admin.adminCent.editAdmincent',compact('adminCent','ok'));
             
         }
        

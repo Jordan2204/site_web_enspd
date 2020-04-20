@@ -2,22 +2,15 @@
 
 namespace App\Repositories;
 
-use App\Email;
+use App\Contact;
 
-class EmailRepository implements EmailRepositoryInterface
+class ContactsRepository extends ResourceRepository
 {
 
-    protected $email;
-
-    public function __construct(Email $email)
+  public function __construct(Contact $contact)
     {
-        $this->email = $email;
-    }
-
-    public function save($mail)
-    {
-        $this->email->email = $mail;
-        $this->email->save();
+        $this->model = $contact;
+ 
     }
 
 }

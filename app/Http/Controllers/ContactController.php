@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Mail;
+use App\Http\Requests\ContactRequest;
+use App\Repositories\ContactsRepository;
 
 class ContactController extends Controller 
 {
@@ -12,6 +15,13 @@ class ContactController extends Controller
    *
    * @return Response
    */
+  protected $contactsRepository;
+
+  public function __construct(ContactsRepository $contactsRepository)
+  {
+    $this->contactsRepository = $contactsRepository;
+  }
+
   public function index()
   {
     return view('frontend.contact');
@@ -32,10 +42,20 @@ class ContactController extends Controller
    *
    * @return Response
    */
-  public function store(Request $request)
+  public function store(ContactRequest $request)
   {
+
+     Mail::send('frontend.email_contact', $request->all(), function($message) 
+        {
+            $message->to('Admin@fgi-udo.local')->subject('Contact');
+        });
     
-  }
+
+      $this->contactsRepository->store($request->all());
+
+      return view('frontend.confirm');
+    }
+  
 
   /**
    * Display the specified resource.

@@ -14,7 +14,13 @@
 
 @section('content')
 	<div class="rows">
-		<div class="card-body col-sm-offset-4 col-sm-12">
+    <!-- Alerte --->
+    @if(session()->has('ok'))
+     <div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
+      
+    @endif
+    <!-- Alerte --->
+    <div class="card-body col-sm-offset-4 col-sm-12">
            <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
               <li class="nav-item">
                 <a class="nav-link" id="custom-content-below-profile-tab" data-toggle="pill" href="#custom-content-below-profile" role="tab" aria-controls="custom-content-below-profile" aria-selected="false">Admin <span class="badge badge-danger">{!! $admins->count() !!}</span></a>
@@ -39,14 +45,14 @@
               </li>
             </ul>
 
+
+
+                     
             <div class="tab-content" id="custom-content-below-tabContent">
               <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel" aria-labelledby="custom-content-below-profile-tab">
                 
 
-                   @if(session()->has('ok'))
-                     <div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
-                     
-                  @endif
+               
                <div class="card card-primary">
                 <div class="card-header">
                   <h3 class="card-title">Liste des utilisateurs</h3>
@@ -98,11 +104,6 @@
      
         <div class="tab-pane fade" id="custom-content-below-messages" role="tabpanel" aria-labelledby="custom-content-below-messages-tab">
                 
-                   @if(session()->has('ok'))
-                     <div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
-                     
-                     
-                  @endif
                <div class="card card-primary">
                 <div class="card-header">
                   <h3 class="card-title">Liste des utilisateurs</h3>
@@ -151,9 +152,6 @@
         </div>
   
      <div class="tab-pane fade" id="custom-content-below-settings" role="tabpanel" aria-labelledby="custom-content-below-settings-tab">
-                   @if(session()->has('ok'))
-                     <div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
-                  @endif
                <div class="card card-primary">
                 <div class="card-header">
                   <h3 class="card-title">Liste des utilisateurs</h3>
@@ -216,9 +214,7 @@
         </div>
     
        <div class="tab-pane fade" id="custom-content-below-respCentIncs" role="tabpanel" aria-labelledby="custom-content-below-respCentIncs-tab">
-                   @if(session()->has('ok'))
-                     <div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
-                  @endif
+                  
                <div class="card card-primary">
                 <div class="card-header">
                   <h3 class="card-title">Liste des utilisateurs</h3>
@@ -270,6 +266,7 @@
                                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
                                     {!! Form::close() !!}
                                 </td>
+                              
                             </tr>
                         <?php $i += 1; ?>
                         @endforeach
@@ -282,9 +279,6 @@
      
        <div class="tab-pane fade" id="custom-content-below-RespForm" role="tabpanel" aria-labelledby="custom-content-below-RespForm-tab">
 
-                   @if(session()->has('ok'))
-                     <div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
-                  @endif
                 <div class="card card-primary">
                 <div class="card-header">
                   <h3 class="card-title">Liste des utilisateurs</h3>
@@ -348,9 +342,6 @@
    
         <div class="tab-pane fade" id="custom-content-below-RespDoct" role="tabpanel" aria-labelledby="custom-content-below-RespDoct-tab">
 
-                   @if(session()->has('ok'))
-                     <div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
-                  @endif
                 <div class="card card-primary">
                 <div class="card-header">
                   <h3 class="card-title">Liste des utilisateurs</h3>
@@ -411,9 +402,7 @@
          </div>
  
           <div class="tab-pane fade" id="custom-content-below-Respcom" role="tabpanel" aria-labelledby="custom-content-below-Respcom-tab">
-                   @if(session()->has('ok'))
-                     <div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
-                  @endif
+                
                 <div class="card card-primary">
                 <div class="card-header">
                   <h3 class="card-title">Liste des utilisateurs</h3>

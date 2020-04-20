@@ -146,7 +146,7 @@ class DepartementController extends Controller
   public function edit($id)
   {
     $departement = $this->departementRepository->getById($id);
-
+    
     return view('backend.respdept.editDept', compact('departement'));
   }
 
@@ -159,8 +159,9 @@ class DepartementController extends Controller
   public function update(DepartementUpdateRequest $request, $id)
     {
         $this->departementRepository->update($id, $request->all());
-        
-        return back();
+        $departement = $this->departementRepository->getById($id);
+   
+       return back()->withOk("Mise a du département  $departement->nomDept effectué");
     }
 
   /**
