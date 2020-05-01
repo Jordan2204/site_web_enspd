@@ -20,6 +20,7 @@ class InfosFGIController extends Controller
 
   protected $infosFGIRepository;
   protected $mediaRepository;
+  protected $nbrPerPage = 10;
 
   public function __construct(InfosFGIRepository $infosFGIRepository, MediaRepository $mediaRepository)
     {
@@ -37,6 +38,20 @@ class InfosFGIController extends Controller
    */
   public function index()
   {
+
+     $infosFGI = DB::select("
+      SELECT  info.id as idInfo,info.titreFECB, md.id as idMD,md.chemin,md.nom,md.description
+      FROM formenseigchoixbref info, medias md
+      where md.id = info.media_id 
+      ");
+    
+     if (session('role') == 'admin') {
+       return view('backend.admin.infosFGI.indexInfosFGI',compact('infosFGI'));
+
+      }elseif (session('role') == 'respform') {
+       return view('backend.respform.indexInfosFGI',compact('infosFGI'));
+
+      }
     
   }
 
@@ -105,7 +120,13 @@ class InfosFGIController extends Controller
   {
     $infosFGI = $this->infosFGIRepository->getById($id);
 
-    return view('backend.respform.editInfosFGI',compact('infosFGI'));
+   if (session('role') == 'admin') {
+     return view('backend.admin.infosFGI.editInfosFGI',compact('infosFGI'));
+
+    }elseif (session('role') == 'respform') {
+     return view('backend.respform.editInfosFGI',compact('infosFGI'));
+
+    }
   }
 
   /**s

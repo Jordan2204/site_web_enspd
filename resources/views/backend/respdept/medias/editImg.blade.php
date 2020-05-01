@@ -5,7 +5,7 @@
   @endsection
 
   @section('dashboard')
-    Gestion des Media
+   <i class="fas fa-copy"></i> Gestion des Media
   @endsection
 
   @section('apresHome')
@@ -32,8 +32,7 @@
                             {!! $errors->first('image', '<small class="help-block" style="color: red;">:message</small>') !!}
                         </div>
                         <div>
-                            <a href="javascript:history.back()" class="btn btn-info float-left">Retour
-                             <span class="glyphicon glyphicon-circle-arrow-left "></span>
+                            <a href="javascript:history.back()" class="btn btn-info float-left"><i class="fas fa-chevron-circle-left"></i> Retour
                             </a>
                         {!! Form::submit('Envoyer !', ['class' => 'btn btn-info float-right']) !!}
                     {!! Form::close() !!}

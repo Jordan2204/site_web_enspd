@@ -24,7 +24,15 @@ class NewsController extends Controller
    */
   public function create()
   {
-    return view('backend.respcom.create.createNews');
+    if (session('role') == 'admin') {
+     
+     return view('backend.admin.new.createNews');
+
+    }elseif (session('role') == 'respcom') {
+      
+      return view('backend.respcom.create.createNews');
+
+    }
   }
 
   /**

@@ -4,23 +4,29 @@
       <script src="/vendor/AdminLTE-3.0.1/plugins/jquery/jquery.min.js"></script>
       <!-- jQuery UI 1.11.4 -->
       <script src="/vendor/AdminLTE-3.0.1/plugins/jquery-ui/jquery-ui.min.js"></script>
+      <!-- JQVMap -->
+      <script src="/vendor/AdminLTE-3.0.1/plugins/jqvmap/jquery.vmap.min.js"></script>
+      <script src="/vendor/AdminLTE-3.0.1/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+      <!-- jQuery Knob Chart -->
+      <script src="/vendor/AdminLTE-3.0.1/plugins/jquery-knob/jquery.knob.min.js"></script>
+       <!-- FLOT CHARTS -->
+      <script src="/vendor/AdminLTE-3.0.1/plugins/flot/jquery.flot.js"></script>
+      <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+      <script src="/vendor/AdminLTE-3.0.1/plugins/flot-old/jquery.flot.resize.min.js"></script>
+      <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+      <script src="/vendor/AdminLTE-3.0.1/plugins/flot-old/jquery.flot.pie.min.js"></script>
+     
+      
       <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
       <script>
       $.widget.bridge('uibutton', $.ui.button)
       </script>
       <!-- Bootstrap 4 -->
       <script src="/vendor/AdminLTE-3.0.1/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-      <!-- Scripts -->
-      <script src="/js/app.js"></script>
       <!-- ChartJS -->
       <script src="/vendor/AdminLTE-3.0.1/plugins/chart.js/Chart.min.js"></script>
       <!-- Sparkline -->
       <script src="/vendor/AdminLTE-3.0.1/plugins/sparklines/sparkline.js"></script>
-      <!-- JQVMap -->
-      <script src="/vendor/AdminLTE-3.0.1/plugins/jqvmap/jquery.vmap.min.js"></script>
-      <script src="/vendor/AdminLTE-3.0.1/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-      <!-- jQuery Knob Chart -->
-      <script src="/vendor/AdminLTE-3.0.1/plugins/jquery-knob/jquery.knob.min.js"></script>
       <!-- daterangepicker -->
       <script src="/vendor/AdminLTE-3.0.1/plugins/moment/moment.min.js"></script>
       <script src="/vendor/AdminLTE-3.0.1/plugins/daterangepicker/daterangepicker.js"></script>
@@ -30,25 +36,18 @@
       <script src="/vendor/AdminLTE-3.0.1/plugins/summernote/summernote-bs4.min.js"></script>
       <!-- overlayScrollbars -->
       <script src="/vendor/AdminLTE-3.0.1/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-      <!-- AdminLTE App -->
-      <script src="/vendor/AdminLTE-3.0.1/dist/js/adminlte.js"></script>
-      <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-      <script src="/vendor/AdminLTE-3.0.1/dist/js/pages/dashboard.js"></script>
-      <!-- AdminLTE for demo purposes -->
-      <script src="/vendor/AdminLTE-3.0.1/dist/js/demo.js"></script>
       <script src="/vendor/AdminLTE-3.0.1/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
       <script src="/vendor/AdminLTE-3.0.1/plugins/sweetalert2/sweetalert2.min.js"></script>
       <script src="/vendor/AdminLTE-3.0.1/plugins/toastr/toastr.min.js"></script>
       <!-- DataTables -->
       <script src="/vendor/AdminLTE-3.0.1/plugins/datatables/jquery.dataTables.js"></script>
       <script src="/vendor/AdminLTE-3.0.1/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
-      <!-- FLOT CHARTS -->
-      <script src="/vendor/AdminLTE-3.0.1/plugins/flot/jquery.flot.js"></script>
-      <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
-      <script src="/vendor/AdminLTE-3.0.1/plugins/flot-old/jquery.flot.resize.min.js"></script>
-      <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
-      <script src="/vendor/AdminLTE-3.0.1/plugins/flot-old/jquery.flot.pie.min.js"></script>
-     
+      <!-- AdminLTE App -->
+      <script src="/vendor/AdminLTE-3.0.1/dist/js/adminlte.js"></script>
+      <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+      <script src="/vendor/AdminLTE-3.0.1/dist/js/pages/dashboard.js"></script>
+      <!-- AdminLTE for demo purposes -->
+      <script src="/vendor/AdminLTE-3.0.1/dist/js/demo.js"></script>
       
       <!-- page script -->
       <script>
@@ -230,5 +229,19 @@
   $(document).ready(function (){
     document.getElementById("update").click();
   });
- 
+
+    /** add active class and stay opened when selected */
+  var url = window.location;
+
+  // for sidebar menu entirely but not cover treeview
+  $('ul.nav-sidebar a').filter(function() {
+      return this.href == url;
+  }).addClass('active');
+
+  // for treeview
+  $('ul.nav-treeview a').filter(function() {
+      return this.href == url;
+  }).parentsUntil(".nav-sidebar > .nav-treeview").addClass('menu-open').prev('a').addClass('active');
+   
 </script>
+

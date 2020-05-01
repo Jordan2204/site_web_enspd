@@ -5,7 +5,7 @@
   @endsection
 
   @section('dashboard')
-    Gestion des Responsables
+    <i class="fas fa-users"></i> Gestion des Responsables
   @endsection
 
   @section('apresHome')
@@ -70,7 +70,8 @@
                 </table>
            </div>
             <div class="row justify-content-center">
-              <a href="/respdept/personnelDept/create" class="btn btn-info float-left">Nouveau</a>
+              <a href="/respdept/personnelDept/create" class="btn btn-info float-left">
+                <i class="fas fa-plus"> Nouveau</i></a>
             </div>
           
           </div>

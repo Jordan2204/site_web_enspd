@@ -1,4 +1,6 @@
         
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="/{{ session('iconeFGI')->chemin }}/{{ session('iconeFGI')->nom }}">
         <link rel="stylesheet" href="/css/bootnavbar.css">
         <script src="/vendor/ckeditor-4-13/ckeditor.js"></script>
@@ -6,11 +8,8 @@
         <script src="/vendor/ckeditor-4-13/config.js"></script>
         <link rel="stylesheet" href="/vendor/ckeditor-4-13/samples/toolbarconfigurator/lib/codemirror/neo.css">
         
-         <!-- Theme style -->
-        <!-- Tell the browser to be responsive to screen width -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="/vendor/AdminLTE-3.0.1/plugins/fontawesome-free/css/all.min.css">
+         <link rel="stylesheet" href="/vendor/AdminLTE-3.0.1/plugins/fontawesome-free/css/all.min.css">
         <!-- Ionicons -->
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <!-- Tempusdominus Bbootstrap 4 -->

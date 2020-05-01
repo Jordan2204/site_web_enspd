@@ -6,11 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
-use App\Repositories\MembresLaboRepository;
 use App\Repositories\LaboRepository;
 use App\Repositories\PartenaireLaboRepository;
 
-use App\MembresLabo;
 use App\PartenaireLabo;
 use App\Labo;
 use App\Medias;
@@ -27,10 +25,9 @@ class LaboController extends Controller
   
   protected $nbrPerPage = 10;
 
-  public function __construct(LaboRepository $laboRepository, MembresLaboRepository $membresLaboRepository,PartenaireLaboRepository $partenaireLaboRepository)
+  public function __construct(LaboRepository $laboRepository,PartenaireLaboRepository $partenaireLaboRepository)
   {
         $this->laboRepository = $laboRepository;
-        $this->membresLaboRepository = $membresLaboRepository;
         $this->partenaireLaboRepository = $partenaireLaboRepository;
 
        $this->mbresHs = DB::select('SELECT p.id,p.gradePers,p.nomPers,p.prenomPers,p.lieuDeServicePers,p.postePers,l.nomLabo
@@ -58,9 +55,15 @@ class LaboController extends Controller
   public function membersManage()
   {
     
+    if (session('role') == 'admin') {
 
-        return view('backend.respecoledoct.membersManage',['mbresHs' => $this->mbresHs ,'mbres' => $this->mbres , 
+      return view('backend.admin.labo.membersManage',['mbresHs' => $this->mbresHs ,'mbres' => $this->mbres , 
             'coords' => $this->coords, 'partnaires' => $this->partnaires ]);
+    }elseif (session('role') == 'respecoledoct') {
+
+      return view('backend.respecoledoct.membersManage',['mbresHs' => $this->mbresHs ,'mbres' => $this->mbres , 
+            'coords' => $this->coords, 'partnaires' => $this->partnaires ]);
+    }
   }
 
   /**
@@ -127,8 +130,16 @@ class LaboController extends Controller
   {
     $labo = $this->laboRepository->getById($id);
 
-    return view('backend.respecoledoct.labo.updateLabo',compact('labo'));
+    if (session('role') == 'admin') {
+
+      return view('backend.admin.labo.updateLabo',compact('labo'));
+
+   }elseif (session('role') == 'respecoledoct') {
+
+     return view('backend.respecoledoct.labo.updateLabo',compact('labo'));
   }
+
+   }
 
   /**
    * Update the specified resource in storage.

@@ -59,7 +59,16 @@ class PersonnelController extends Controller
         $choixM = $request->input('ChoixM');
         $personnels = $this->personnelRepository->getPaginate($this->nbrPerPage);
         $links = $personnels->render();
-        return view('backend.respecoledoct.searchPersonnel',compact('personnels','link','choixM'));
+
+        if (session('role') == 'admin') {
+           
+            return view('backend.admin.labo.searchPersonnel',compact('personnels','link','choixM'));
+
+        }elseif (session('role') == 'respecoledoct') {
+
+            return view('backend.respecoledoct.searchPersonnel',compact('personnels','link','choixM'));
+        }
+      
     }
 
    
@@ -69,8 +78,14 @@ class PersonnelController extends Controller
 
         DB::update('UPDATE personnel SET Labo_idLabo = ? where id = ? ',[1,$perId]);
         DB::insert('INSERT INTO typepersonnel_personnel VALUES(?,?,?,?) ',[$idM, $perId,1,null]);
+        if (session('role') == 'admin') {
 
-         return redirect('respecoledoct/membersManage')->withOk("Le Membre " . " a été créer.");
+            return redirect('admin/membersManage')->withOk("Le Membre " . " a été créer.");
+        }elseif (session('role') === 'respecoledoct') {
+
+            return redirect('respecoledoct/membersManage')->withOk("Le Membre " . " a été créer.");
+        }
+        
     }
 
     /**
@@ -89,9 +104,13 @@ class PersonnelController extends Controller
 
             return view('backend.respdept.responsables.createResponsable');
 
-        }elseif(url()->current() == 'http://fgi-udo.local/admin/personnel/create') {
+        }elseif(url()->current() == 'http://fgi-udo.local/admin/adminCent/create') {
 
             return view('backend.admin.adminCent.createAdminCent');
+
+        }elseif(url()->current() == 'http://fgi-udo.local/admin/PersonnelAdmin/create') {
+
+            return view('backend.admin.labo.createMembre');
         }
        
     }
@@ -198,9 +217,10 @@ class PersonnelController extends Controller
      */
     public function show($id)
     {
+        $membre = $this->personnelRepository->getById($id);
+         
           if( session('role') == 'respecoledoct')
         {
-            $membre = $this->personnelRepository->getById($id);
           
             return view('backend.respecoledoct.showMembre',compact('membre'));
 
@@ -208,6 +228,10 @@ class PersonnelController extends Controller
             $resp = $this->personnelRepository->getById($id);
 
             return view('backend.respdept.responsables.showResponsable', compact('resp'));
+        }elseif(session('role') == 'admin'){
+            $resp = $this->personnelRepository->getById($id);
+
+            return view('backend.admin.labo.showMembre', compact('membre'));
         }
     }
 
@@ -250,9 +274,19 @@ class PersonnelController extends Controller
         }elseif (session('role') == 'admin') {
 
             $adminCent = DB::table('personnel')->where('id',$id)->first();
-            $alert = "Mise a du doyen $adminCent->nomPers $adminCent->prenomPers effectué"; 
-            session(['ok' =>  $alert ]);
-            return view('backend.admin.adminCent.editAdmincent',compact('adminCent','ok'));
+            $membre = DB::table('personnel')->where('id',$id)->first();
+            $urlPage = 'http://fgi-udo.local/admin/personnelAdmin/'.$id.'/edit';
+            $urlPage2 = 'http://fgi-udo.local/admin/adminCent/'.$id.'/edit';
+          
+            if (url()->current() == $urlPage) {
+
+                return view('backend.admin.labo.editMembre',compact('membre'));
+           
+            }elseif (url()->current() == $urlPage2) {
+                $alert = "Mise a du doyen $adminCent->nomPers $adminCent->prenomPers effectué"; 
+                return view('backend.admin.adminCent.editAdmincent',compact('adminCent'));
+            
+            }
             
         }
        
@@ -270,8 +304,18 @@ class PersonnelController extends Controller
         if ( session('role') == 'admin')
         {
             $this->personnelRepository->update($id, $request->all()); 
-            return redirect('admin/adminCent')->withOk("Le responsable " . $request->input('nomPers') . " a été modifié.");
+             
+              if ($request->is('admin/personnelAdmin/*')) {
 
+                return redirect('admin/membersManage')->withOk("Le Membre " . $request->input('nomPers') . " a été modifié.");
+
+
+              }elseif ($request->is('admin/adminCent/*')) {
+                
+                 return redirect('admin/adminCent')->withOk("Le responsable " . $request->input('nomPers') . " a été modifié.");
+
+              }
+          
 
         }elseif( session('role') == 'respecoledoct')
         { 
@@ -403,17 +447,30 @@ class PersonnelController extends Controller
            DB::delete('DELETE  from typepersonnel_personnel where Personnel_idPers = ? AND TypePersonnel_idTypePersonnel = ? ',[$id, $idType2]);
 
         }elseif (session('role') == 'admin') {
-            $media = DB::table('medias')->where('titre',$personnel->matPers)->first();
-     
-            $idType = DB::table('typepersonnel')->where('libelleTypePersonnel',$choixM)->value('idTypePersonnel');
-           
-           DB::delete('DELETE  from typepersonnel_personnel where Personnel_idPers = ? AND TypePersonnel_idTypePersonnel = ? ',[$id, $idType]);
 
-            //Suppression du media
-            $image_path = $media->chemin.'/'.$media->nom;
-            if ($this->destroyInStorage($image_path)) {
-                DB::delete('DELETE  from medias where titre = ? ',[$personnel->matPers]);
+            $urlPage = 'http://fgi-udo.local/admin/personnelAdmin/destroy/'.$id.'/'.$choixM;
+            if (url()->current() ==  $urlPage) {
+                 $idType = DB::table('typepersonnel')->where('libelleTypePersonnel',$choixM)->value('idTypePersonnel');
+           
+                DB::update('UPDATE personnel set Labo_idLabo = ? WHERE id = ?',[0,$id]);
+
+                DB::delete('DELETE  from typepersonnel_personnel where Personnel_idPers = ? AND TypePersonnel_idTypePersonnel = ? ',[$id, $idType]);
+
+            }else{
+
+                $media = DB::table('medias')->where('titre',$personnel->matPers)->first();
+         
+                $idType = DB::table('typepersonnel')->where('libelleTypePersonnel',$choixM)->value('idTypePersonnel');
+               
+               DB::delete('DELETE  from typepersonnel_personnel where Personnel_idPers = ? AND TypePersonnel_idTypePersonnel = ? ',[$id, $idType]);
+
+                //Suppression du media
+                $image_path = $media->chemin.'/'.$media->nom;
+                if ($this->destroyInStorage($image_path)) {
+                    DB::delete('DELETE  from medias where titre = ? ',[$personnel->matPers]);
+                    }
             }
+           
                      
         }
 

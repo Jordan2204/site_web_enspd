@@ -69,7 +69,15 @@ class CommuniquerController extends Controller
   {
     $communiquer = $this->CommuniquerRepository->getById($id);
 
-        return view('backend.respcom.communiquer.updateCom',  compact('communiquer'));
+    if (session('role') == 'admin') {
+      
+      return view('backend.admin.communiquer.updateCom',  compact('communiquer'));
+
+    }elseif (session('role') == 'respcom') {
+      
+       return view('backend.respcom.communiquer.updateCom',  compact('communiquer'));
+
+    }
   }
 
   /**

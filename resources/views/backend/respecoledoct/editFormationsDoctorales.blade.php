@@ -5,7 +5,7 @@
   @endsection
 
   @section('dashboard')
-    FormationsDoctorales
+   <i class="fas fa-edit"></i> FormationsDoctorales
   @endsection
 
   @section('apresHome')
@@ -18,7 +18,7 @@
 	    <div class="col-md-9 col-lg-9">
 	        <div class="card card-primary">   
 	            <div class="card-header">
-	                <h3 class="card-title"> Mise des formationd doctorales</h3>
+	                <h3 class="card-title"> Mise a jours des formations doctorales</h3>
 	            </div>
 	            <div class="card-body"> 
 	                <div class="col-sm-12">

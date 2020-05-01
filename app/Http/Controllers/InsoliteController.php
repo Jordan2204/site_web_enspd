@@ -24,7 +24,15 @@ class InsoliteController extends Controller
    */
   public function create()
   {
-    return view('backend.respcom.create.createInsolite');
+     if (session('role') == 'admin') {
+        
+      return view('backend.admin.insolite.createInsolite');
+ 
+      }elseif(session('role') == 'respcom')
+      {
+        return view('backend.respcom.create.createInsolite');
+ 
+      }
   }
 
   /**

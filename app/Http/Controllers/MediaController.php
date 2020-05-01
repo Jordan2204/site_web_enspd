@@ -41,49 +41,54 @@ class MediaController extends Controller
       $ok = 'Image reçu et enregistrée';
       $error = 'Désolé l\'image ne peut pas être envoyée !';
 
-      if ($request->is('respcom/insolitesManage')) {
+      if ($request->is('respcom/insolitesManage') or $request->is('admin/insolitesManage')) {
 
-            $request->request->add(['description' => 'Insolite']);
+          $request->request->add(['description' => 'Insolite']);
 
-        }elseif($request->is('respcom/newsManage')){
+        }elseif($request->is('respcom/newsManage') or $request->is('admin/newsManage')){
 
           $request->request->add(['description' => 'News']);
         }
 
         if($imggestion->save($request->all())) {
 
-          if ($request->is('admin/*')) {
-
-             return view('backend/admin/medias/mediaOk',['ok' => $ok]);
-
-          }elseif ($request->is('respcom/insolitesManage')) {
-
-            return view('backend/respcom/medias/mediaOk',['ok' => $ok]);
-
-          }elseif ($request->is('respcom/newsManage')) {
+          if ($request->is('respcom/newsManage') or $request->is('admin/newsManage')) {
             //On actualise la table news
             $request->input('url','null');
             $idMedia = DB::table('medias')->where('titre',$request->input('titre'))->value('id');
-            DB::insert('insert into news (categorie,media_id,NumPos,pos,url) values(?,?,?,?,?)',[$request->input('categorie'),$idMedia,$request->input('NumPos'),$request->input('pos'),$request->input('url')]);
+            DB::insert('insert into news (categorie,media_id,url) values(?,?,?)',[$request->input('categorie'),$idMedia,$request->input('NumPos'),$request->input('pos'),$request->input('url')]);
 
-            return view('backend/respcom/news/mediaOk',['ok' => $ok]);
-          }
-           
-        } 
+         }
 
-        if ($request->is('admin/*')) {
+        if (session('role') == 'admin') {
+          if ($request->is('admin/newsManage')){
+              if ($request->input('categorie') =="actualites") {
+                  return redirect('admin/actualitesManage');
+               }else{
+                  return redirect('admin/agendaManage');
+              }
+            }elseif ($request->is('admin/insolitesManage')) {
+              return redirect('admin/insolitesManage');
+            }
 
-           return view('backend/admin/medias/mediaError',['error' => $error]);
-
-        }elseif ($request->is('respcom/insolitesManage')) {
-
-            return view('backend/respcom/medias/mediaError',['error' => $error]);
-
-        }elseif ($request->is('respcom/newsManage')) {
-
-            return view('backend/respcom/news/mediaError',['error' => $error]);
+        }elseif (session('role') == 'respcom') {
+          if ($request->is('respcom/newsManage')){
+              if ($request->input('categorie') =="actualites") {
+                  return redirect('respcom/actualitesManage');
+               }else{
+                  return redirect('respcom/agendaManage');
+              }
+            }elseif ($request->is('respcom/insolitesManage')) {
+              return redirect('respcom/insolitesManage');
+            }
 
         }
+     
+      }
+
+        //Au cas ou tous ne sais pas bien passé
+
+        return back();
 
     }
 
@@ -213,12 +218,24 @@ class MediaController extends Controller
   public function edit($id)
   {
     $media = $this->mediaRepository->getById($id);
-   // $medias = DB::table('medias')->where('titre',$titre)->first;
+    // $medias = DB::table('medias')->where('titre',$titre)->first;
 
     if (session('role') == 'admin') {
-        
-        return view('backend.admin.medias.editImg',compact('media'));
 
+        $urlPage = 'http://fgi-udo.local/admin/mediasAdminFichier/'.$id.'/edit';
+        $urlPage2 = 'http://fgi-udo.local/admin/mediasAdmin/'.$id.'/edit';
+        $urlPage3 = 'http://fgi-udo.local/admin/mediasAdminCent/'.$id.'/edit';
+       
+        if(url()->current() == $urlPage){
+
+          return view('backend.admin.medias.editFile',compact('media'));
+
+        }elseif (url()->current() == $urlPage2 || url()->current() == $urlPage3 ) {
+       
+          return view('backend.admin.medias.editImg',compact('media'));
+
+        }
+    
       }elseif(session('role') == 'respcom')
       {
 
@@ -253,8 +270,8 @@ class MediaController extends Controller
    $media = $this->mediaRepository->getById($id);
    $media_path = $media->chemin.'/'.$media->nom;
     
-    if ($this->destroyInStorage($media_path)) {
-      if (session('role') == 'respecoledoct') {
+    if ($this->destroyInStorage($media_path) ) {
+      if (session('role') == 'respecoledoct' || $request->url() == 'admin/mediasAdminFichier/*') {
 
         $nom = $filesgestion->updateFile($request->all());
         if($nom != false) {
@@ -269,13 +286,21 @@ class MediaController extends Controller
        }
       }
       
+    }else{
+      return 'Fichier non supprimer';
     }   
-
-           
+         
       if (session('role') == 'admin') {
         
-        return redirect('admin/adminCent');
+       if ($request->is('admin/mediasAdminCent/*')) {
 
+          return redirect('admin/adminCent');
+
+      }elseif ($request->is('admin/mediasAdmin/*')) {
+
+        return redirect('admin/departementAdmin');
+
+      }
       }elseif(session('role') == 'respcom')
       {
 
@@ -298,6 +323,8 @@ class MediaController extends Controller
          return redirect('respecoledoct/homeRespEcoleDoct');
 
 
+      }else{
+        return 'Pas de redirection';
       }
   }
 

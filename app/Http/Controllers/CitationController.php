@@ -38,7 +38,15 @@ class CitationController extends Controller
    */
   public function create()
   {
-     return view('backend.respcom.create.createCitation');
+     if (session('role') == 'admin') {
+
+        return view('backend.admin.citation.createCitation',compact('citations','links'));
+
+      }elseif (session('role') == 'respcom') {
+
+         return view('backend.respcom.create.createCitation',compact('citations','links'));
+      }
+   
   }
 
   /**
@@ -49,8 +57,15 @@ class CitationController extends Controller
   public function store(CitationCreateRequest $request)
   {
     $citation = $this->citationRepository->store($request->all());
+    if (session('role') == 'admin') {
+
+        return redirect('admin/citationsManage')->withOk("La citation avec pour auteur " . $citation->nomAuteur . " a été créé."); 
+
+      }elseif (session('role') == 'respcom') {
 
         return redirect('respcom/citationsManage')->withOk("La citation avec pour auteur " . $citation->nomAuteur . " a été créé."); 
+      }
+       
   }
 
   /**

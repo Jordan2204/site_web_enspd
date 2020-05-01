@@ -23,7 +23,8 @@ class ImagesUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        if (session('role') == 'respecoledoct') {
+        $urlPage = 'http://fgi-udo.local/admin/mediasAdminFichier/*/edit';
+        if (session('role') == 'respecoledoct' or url()->current() ==  $urlPage ) {
            return [
         
             'file' => 'required',

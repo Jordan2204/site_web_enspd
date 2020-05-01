@@ -34,17 +34,21 @@
 
                 </div>
             </div>              
-            <a href="javascript:history.back()" class="btn btn-info">
-                <i class="fa fa-chevron-circle-left"> Retour</i>  
-            </a>
-            @if( session('role') == 'admin')
+           
+            @if( session('role') === 'admin')
             {!! link_to_route('respDept.edit', 'Modifier', [$respDept->id], ['class' => 'btn btn-warning  float-right']) !!}
-
             @endif
+            
+            <?php /* ?>
+            @else
+            {!! link_to_route('respDept.edit', 'Modifier', [$respDept->id], ['class' => 'btn btn-warning  float-right','disabled','onclick' => 'prevent default']) !!}
+            
+            <?php */ ?>
+             <a href="javascript:history.back()" class="btn btn-info float-left">
+               <i class="fas fa-chevron-circle-left"> Retour</i>
+             </a>
 
-            <?php /*@else
-            {!! link_to_route('respDept.edit', 'Modifier', [$respDept->id], ['class' => 'btn btn-warning  float-right','disabled' => true,'onclick' => 'prevent default']) !!}
-          */; ?>
+             
 
         </div>
     </div>
