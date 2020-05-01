@@ -21,6 +21,10 @@
   margin-left: 7px; 
   border: 1px none #bbc5c9;
 }
+
+.art-post {
+  margin: inherit;
+}
 /*--------------------------End Mon CSS-----------------------------------------------*/
 #art-main
 {
@@ -2206,6 +2210,7 @@ label.art-radiobutton.hovered:before
   border: 1px solid rgba(222, 222, 222, 0.5);
   padding: 12px;
   margin: 10px;
+  margin: inherit;
 }
 
 a img
@@ -2441,7 +2446,7 @@ blockquote p, .art-postcontent blockquote p, .art-blockcontent blockquote p, .ar
 {
   background: #1C313F;
   padding: 8px;
-  margin: 0 auto;
+  margin-top: -5px;
   position: relative;
   color: #C2C2C2;
   font-size: 11px;

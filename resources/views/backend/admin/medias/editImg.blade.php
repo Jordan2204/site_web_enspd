@@ -24,7 +24,15 @@
                     @if(session()->has('error'))
                         <div class="alert alert-danger">{!! session('error') !!}</div>
                     @endif
-                    {!! Form::model($media, ['route' => ['mediasAdmin.update', $media->id],'method' => 'PUT','files' => true, 'class' => 'form-horizontal panel']) !!}
+                    <?php 
+                        $urlPage = 'http://fgi-udo.local/admin/mediasAdminCent/'.$media->id.'/edit';
+                         $urlPage2 = 'http://fgi-udo.local/admin/mediasAdmin/'.$media->id.'/edit';
+                     ?>
+                   @if(url()->current() === $urlPage)
+                    {!! Form::model($media, ['route' => ['mediasAdminCent.update', $media->id],'method' => 'PUT','files' => true, 'class' => 'form-horizontal panel']) !!}
+                   @elseif(url()->current() === $urlPage2)
+                     {!! Form::model($media, ['route' => ['mediasAdmin.update', $media->id],'method' => 'PUT','files' => true, 'class' => 'form-horizontal panel']) !!}
+                   @endif
                        
                         <div class="form-group {!! $errors->has('description') ? 'has-error' : '' !!}">
                             <label for="description">Description de l'image</label>

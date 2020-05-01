@@ -5,7 +5,7 @@
   @endsection
 
   @section('dashboard')
-    Dashboard
+    <i class="fas fa-tachometer-alt"></i> Dashboard
   @endsection
 
   @section('apresHome')
@@ -13,7 +13,5 @@
   @endsection
 
 @section('content')
-  <div>
-    <img src="/storage/images/yMKbPRtjKn.png" alt="User profile picture" style="max-width: 100%;max-height: 100%;">
-  </div>
+  @include('backend.include.dashboard')
 @endsection

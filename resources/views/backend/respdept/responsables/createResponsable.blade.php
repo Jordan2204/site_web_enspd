@@ -5,7 +5,7 @@
   @endsection
 
   @section('dashboard')
-    Gestion des Responsables
+   <i class="fas fa-users"></i> Gestion des Responsables
   @endsection
 
   @section('apresHome')
@@ -59,7 +59,7 @@
                         </div>
                         {!! $errors->first('respAcad', '<small class="help-block">:message</small>') !!}
                     </div>
-                    <a href="javascript:history.back()" class="btn btn-primary align-items-center  float-left">Retour
+                    <a href="javascript:history.back()" class="btn btn-primary float-left"> <i class="fa fa-chevron-circle-left"></i> Retour
                         <span class="glyphicon glyphicon-circle-arrow-left  "></span>
                     </a>
                     <div> {!! Form::submit('Créer', ['class' => 'btn btn-primary float-right ']) !!}</div>

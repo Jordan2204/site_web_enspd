@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserCreateRequest;
@@ -12,6 +11,7 @@ use App\Repositories\RespComRepository;
 use App\Repositories\RespFormRepository;
 use App\Repositories\RespCentIncRepository; 
 use App\Repositories\RespEcoleDoctRepository;
+
 use App\Repositories\RespDeptRepository;
 
 use App\Http\Controllers\DoyenController;

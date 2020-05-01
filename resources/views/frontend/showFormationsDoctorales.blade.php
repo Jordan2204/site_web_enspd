@@ -16,7 +16,7 @@
 
 	<div><h5 style="text-align: center;">ORGANISATION DES ENSEIGNEMENTS</h5></div><br>
 	<div style="text-align: center;">
-		<p><a  href="/storage/fichiers/FTb6itnQHJ.docx" download ="">[Télecharger la documentation détaillée]</a></p>
+		<p><a  href="/storage/fichiers/{!! session('fileUFDN') !!}" download ="">[Télecharger la documentation détaillée]</a></p>
 	</div>
 	<br><br>
 

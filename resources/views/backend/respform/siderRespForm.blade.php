@@ -35,72 +35,12 @@
            
         ?> 
         <li class="nav-item">
-            <a href="/respform/infosfgi/{{ $ensID }}/edit" class="nav-link">
+            <a href="/respform/infosfgi" class="nav-link">
               <i class="nav-icon far fa-minus"></i>
-              <p>
-                Les Enseignements
-              </p>
+              <p>GERER</p>             
             </a>
           </li>
-          <li class="nav-item">
-            <a href="/respform/infosfgi/{{ $choixID }}/edit" class="nav-link">
-              <i class="nav-icon far fa-minus"></i>
-              <p>
-                Le choix FGI
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/respform/infosfgi/{{ $formID }}/edit" class="nav-link">
-              <i class="nav-icon far fa-minus"></i>
-              <p>
-                En savoir + sur La FGI
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/respform/infosfgi/{{ $brefID }}/edit" class="nav-link">
-              <i class="nav-icon far fa-minus"></i>
-              <p>
-                La FGI en BREF
-              </p>
-            </a>
-          </li>
-           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Mettre a jour les images
-                <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right"></span>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/respform/mediasRespform/{{ session('img_ensID') }}/edit" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Les enseignements</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/respform/mediasRespform/{{ session('img_choixID') }}/edit" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Le choix FGI</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/respform/mediasRespform/{{ session('img_formID') }}/edit" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>En savoir + sur la FGI</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/respform/mediasRespform/{{ session('img_brefID') }}/edit" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>La FGI en Bref</p>
-                </a>
-              </li>
-            </ul>
+         </ul>
           </li>
           </li>
          <?php } ?>

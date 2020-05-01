@@ -45,10 +45,10 @@
                         {!! $errors->first('infosActu', '<small style="color: red;" class="form-text">:message</small>') !!}
                     </div>
                         <a href="javascript:history.back()" class="btn btn-primary">
-                            <span class="glyphicon glyphicon-circle-arrow-left"></span> Retour
+                            <i class="fa fa-chevron-circle-left"> Retour</i>
                          </a>
                     
-                        {!! Form::submit('Envoyer', ['class' => 'btn btn-primary float-right']) !!}
+                        {!! Form::submit('Update', ['class' => 'btn btn-primary float-right']) !!}
                     {!! Form::close() !!}
                 </div>
             </div>

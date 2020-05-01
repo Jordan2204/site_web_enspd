@@ -32,7 +32,6 @@ CKEDITOR.config.toolbarGroups = [
 		{ name: 'about', groups: [ 'about' ] }
 	];
 
-CKEDITOR.config.removeButtons = 'Source,NewPage,Templates,Form,TextField,Textarea,Button,ImageButton,HiddenField,Image,Flash,Find,Preview';
 
 var initSample = ( function() {
 	var wysiwygareaAvailable = isWysiwygareaAvailable(),

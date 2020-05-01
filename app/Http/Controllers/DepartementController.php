@@ -57,11 +57,21 @@ class DepartementController extends Controller
   }
   public function index()
   {
-        $depts = $this->departementRepository->getPaginate($this->nbrPerPage);
-        $medias= $this->mediaRepository->getPaginate($this->nbrPerPageMedia);
-        $links = $depts->render();
+    $depts = $this->departementRepository->getPaginate($this->nbrPerPage);
+    $medias= $this->mediaRepository->getPaginate($this->nbrPerPageMedia);
+    $links = $depts->render();
 
-        return view('frontend.departements.indexDept', compact('depts', 'links','medias'));
+    if( url()->current() == 'http://fgi-udo.local/departementNA') 
+     {
+      return view('frontend.departements.indexDept', compact('depts', 'links','medias'));
+
+     }else{
+
+      return view('backend.admin.departement.indexDept',compact('depts', 'links','medias')); 
+      
+     }
+
+       
   }
 
   /**
@@ -147,7 +157,15 @@ class DepartementController extends Controller
   {
     $departement = $this->departementRepository->getById($id);
 
-    return view('backend.respdept.editDept', compact('departement'));
+    if (session('role') == 'respdept') {
+
+     return view('backend.respdept.editDept', compact('departement'));
+
+    }elseif (session('role') == 'admin') {
+
+     return view('backend.admin.departement.editDept', compact('departement'));
+
+    }
   }
 
   /**
@@ -159,8 +177,9 @@ class DepartementController extends Controller
   public function update(DepartementUpdateRequest $request, $id)
     {
         $this->departementRepository->update($id, $request->all());
-        
-        return back();
+        $departement = $this->departementRepository->getById($id);
+   
+       return back()->withOk("Mise a du département  $departement->nomDept effectué");
     }
 
   /**

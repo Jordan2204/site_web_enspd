@@ -35,13 +35,21 @@ class RespComController extends Controller
 * By Jordan
 */
 
-    public function citationsManage()
-     {
+  public function citationsManage()
+    {
 
-        $citations = $this->citationRepository->getPaginate($this->nbrPerPageCit);
-        $links = $citations->render();
+      $citations = $this->citationRepository->getPaginate($this->nbrPerPageCit);
+      $links = $citations->render();
 
-        return view('backend/respcom/citationsManage',compact('citations','links'));
+      if (session('role') == 'admin') {
+
+        return view('backend.admin.citation.citationsManage',compact('citations','links'));
+
+      }elseif (session('role') == 'respcom') {
+
+         return view('backend.respcom.citationsManage',compact('citations','links'));
+      }
+       
      }
 
 
@@ -54,7 +62,15 @@ class RespComController extends Controller
               where md.id = ns.media_id and ns.categorie = ?
               ",['agenda']);
 
-        return view('backend/respcom/news/agendaManage',compact('mediasAgenda'));
+        if (session('role') == 'admin') {
+
+         return view('backend/admin/new/agendaManage',compact('mediasAgenda'));
+   
+        }elseif (session('role') == 'respcom') {
+
+         return view('backend/respcom/news/agendaManage',compact('mediasAgenda'));
+       }
+
      }
 
      public function actuManage()
@@ -66,17 +82,31 @@ class RespComController extends Controller
               where md.id = ns.media_id and ns.categorie = ?
               ",['actualites']);
 
-        return view('backend/respcom/news/actualitesManage',compact('mediasActu'));
+        if (session('role') == 'admin') {
+
+          return view('backend/admin/new/actualitesManage',compact('mediasActu'));
+   
+        }elseif (session('role') == 'respcom') {
+
+          return view('backend/respcom/news/actualitesManage',compact('mediasActu'));
+        }
      }
 
-     public function insolitesManage()
+    public function insolitesManage()
      {
 
         $insolites =  DB::table('medias')->where('description','Insolite')->get();
         //$links = $insolites->links();
 
-        return view('backend/respcom/insolitesManage',compact('insolites','links'));
-     }
+      if (session('role') == 'admin') {
+
+          return view('backend.admin.insolite.insolitesManage',compact('insolites','links'));
+    
+      }elseif (session('role') == 'respcom') {
+
+         return view('backend.respcom.insolitesManage',compact('insolites','links'));
+      }
+    }
 
 
 

@@ -18,7 +18,7 @@
       </style>
       
     </head>
-    <body class="old-transition sidebar-mini">
+    <body class="hold-transition sidebar-mini layout-fixed">
       <div class="wrapper">
          <!-- Navbar -->
            @include('backend/admin/navbarAdmin')
@@ -61,11 +61,7 @@
 
          @include('backend/include/footer')
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-          <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
+       
       </div>
         @include('backend/include/js')
    </body>

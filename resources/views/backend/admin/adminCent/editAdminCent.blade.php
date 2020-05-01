@@ -23,7 +23,12 @@
                 </div>
             <div class="card-body "> 
                 <div class="col-sm-12">
-                    {!! Form::model($adminCent, ['route' => ['personnel.updateA', $adminCent->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+                  @if(session('role') === 'admin')
+                   {!! Form::model($adminCent, ['route' => ['adminCent.update', $adminCent->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+                  @elseif(session('role') === 'respecoledoct')
+                   {!! Form::model($adminCent, ['route' => ['personnel.updateA', $adminCent->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+                  @endif
+                   
                     <div class="form-group {!! $errors->has('gradePers') ? 'has-error' : '' !!}">
                         {!! Form::text('gradePers', null, ['class' => 'form-control', 'placeholder' => 'Nom']) !!}
                         {!! $errors->first('gradePers', '<small class="help-block">:message</small>') !!}

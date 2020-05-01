@@ -10,10 +10,9 @@
        Pour aligner la nav-bar gauche : mr-auto , droite : ml-auto :
    -->
 <header class="header">
-       <img src="/storage/images/header.png" alt="header" class="img-fluid">
-</header>
-
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="bootnavbar">
+  <img src="/storage/images/header.png" alt="header" title="image header">
+  
+ <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="bootnavbar">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -69,4 +68,6 @@
           </ul>
       </div>
     </nav>
+</header>
+
 

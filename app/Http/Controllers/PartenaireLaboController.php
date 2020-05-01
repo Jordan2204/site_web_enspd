@@ -34,8 +34,16 @@ class PartenaireLaboController extends Controller
    */
   public function create()
   {
-    return view('backend.respecoledoct.partenaires.createPartenaire'); 
-  }
+    if (session('role') == 'admin') {
+
+      return view('backend.admin.partenaires.createPartenaire'); 
+ 
+    }elseif (session('role') == 'respecoledoct') {
+
+      return view('backend.respecoledoct.partenaires.createPartenaire'); 
+ 
+    }
+ }
 
   /**
    * Store a newly created resource in storage.
@@ -46,7 +54,15 @@ class PartenaireLaboController extends Controller
   {
       $partenaire = $this->partenaireLaboRepository->store($request->all());
 
-        return redirect('respecoledoct/membersManage')->withOk("Le partenaire " . $partenaire->name . " a été créé.");
+      if (session('role') == 'admin') {
+
+      return redirect('admin/membersManage')->withOk("Le partenaire " . $partenaire->name . " a été créé.");
+
+    }elseif (session('role') == 'respecoledoct') {
+      
+      return redirect('respecoledoct/membersManage')->withOk("Le partenaire " . $partenaire->name . " a été créé.");
+    }
+       
   }
 
   /**
@@ -58,7 +74,17 @@ class PartenaireLaboController extends Controller
   public function show($id)
   {
     $partenaire = $this->partenaireLaboRepository->getById($id);
-    return view('backend.respecoledoct.partenaires.showPartenaire',compact('partenaire'));
+
+    if (session('role') == 'admin') {
+
+      return view('backend.admin.partenaires.showPartenaire',compact('partenaire'));
+ 
+    }elseif (session('role') == 'respecoledoct') {
+      
+      return view('backend.respecoledoct.partenaires.showPartenaire',compact('partenaire'));
+ 
+    }
+
   }
 
   /**
@@ -70,8 +96,17 @@ class PartenaireLaboController extends Controller
   public function edit($id)
   {
      $partenaire = $this->partenaireLaboRepository->getById($id);
-    return view('backend.respecoledoct.partenaires.editPartenaire',compact('partenaire'));
-  }
+      if (session('role') == 'admin') {
+
+      return view('backend.admin.partenaires.editPartenaire',compact('partenaire'));
+
+    }elseif (session('role') == 'respecoledoct') {
+      
+      return view('backend.respecoledoct.partenaires.editPartenaire',compact('partenaire'));
+
+    }
+
+   }
 
   /**
    * Update the specified resource in storage.
@@ -82,9 +117,17 @@ class PartenaireLaboController extends Controller
   public function update(Request $request,$id)
   {
      $this->partenaireLaboRepository->update($id, $request->all());
-        
-        return redirect('respecoledoct/membersManage')->withOk("Le partenaire " . $request->input('raison_socialePLabo') . " a été modifié.");
-  }
+     $partenaire = $this->partenaireLaboRepository->getById($id);
+      if (session('role') == 'admin') {
+
+        return redirect('admin/membersManage')->withOk("Le partenaire " . $request->input('raison_socialePLabo') . " a été modifié.");
+ 
+      }elseif (session('role') == 'respecoledoct') {
+      
+       return redirect('respecoledoct/membersManage')->withOk("Le partenaire " . $request->input('raison_socialePLabo') . " a été modifié.");
+ 
+    }
+       }
 
   /**
    * Remove the specified resource from storage.

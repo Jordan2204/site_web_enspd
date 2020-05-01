@@ -16,7 +16,7 @@
 	
     <div class="row justify-content-center" >
        @if(session()->has('ok'))
-            <div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
+            <button  id="update" hidden class="toastrDefaultSuccess">ok</button>
        @endif
     </div>
     <div class="row">
@@ -28,7 +28,7 @@
                     <!-- tools card -->
                   <div class="card-tools">
                     <button type="button" class="btn btn-danger btn-sm">
-                      {!! Form::open(['method' => 'DELETE', 'route' => ['personnel.destroyP', $persoAdminCent->idPers,'MAdminCent']]) !!}
+                      {!! Form::open(['method' => 'DELETE', 'route' => ['adminCent.destroyP', $persoAdminCent->idPers,'MAdminCent']]) !!}
                               {!! Form::submit('x', ['class' => 'fas fa-times','onclick' => 'return confirm(\'Vroulez-vous vraiment supprimer ?\')']) !!}
                       {!! Form::close() !!}
                    </button>
@@ -40,10 +40,10 @@
                   <p class="card-text">{!! strtoupper($persoAdminCent->postePers) !!}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                     {!! link_to_route('mediasAdmin.edit', 'Mettre a jour l\'image', [$persoAdminCent->idM], ['class' => 'btn btn-sm btn-outline-secondary  float-right']) !!}
+                     {!! link_to_route('mediasAdminCent.edit', 'Mettre a jour l\'image', [$persoAdminCent->idM], ['class' => 'btn btn-sm btn-outline-secondary  float-right']) !!}
                     </div>
                     <small class="text-muted">
-                      <button type="button" class="btn btn-sm btn-outline-secondary"><a href="/admin/personnel/{{ $persoAdminCent->idPers }}/edit"><i class="fa fa-edit"> Modifier</i></a>
+                      <button type="button" class="btn btn-sm btn-outline-secondary"><a href="/admin/adminCent/{{ $persoAdminCent->idPers }}/edit"><i class="fa fa-edit"> Modifier</i></a>
                       </button>
                     </small>
                   </div>
@@ -53,7 +53,7 @@
        @endforeach
     </div>
     <div class="row justify-content-center">
-       <a href="/admin/personnel/create" class="btn btn-info btn-lg float-left">
+       <a href="/admin/adminCent/create" class="btn btn-info btn-lg float-left">
         <i class=" fa fa-plus">  Nouveau</i></a>
     </div><br>
     

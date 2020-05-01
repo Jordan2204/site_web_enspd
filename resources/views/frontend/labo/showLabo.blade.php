@@ -125,13 +125,16 @@
 	
 	<div><h2 style="text-align: center;">STRUCTURE DE RATTACHEMENT</h2></div><br>
 	<div style="text-align: center;">
-		{!! $labo->strucRattach !!}
+		{!! $labo->strucRattach !!} 
+    
 	</div>
 	<br><br>
-
+  
 	<div style="text-align: right;">
-		<p><a href="/storage/fichiers/3dExGnUpnD.docx" download ="">[Télecharger la documentation détaillée]</a></p>
+		<p><a href="/storage/fichiers/{!! session('fileE3MN') !!}" download ="">[Télecharger la documentation détaillée]</a></p>
 	</div>
+
+   
     
 
 @endsection

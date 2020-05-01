@@ -1,4 +1,4 @@
-@extends('doyen.layout.auth')
+@extends('layout.authMail')
 
 @section('content')
 <div class="container">

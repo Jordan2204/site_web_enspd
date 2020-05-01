@@ -104,13 +104,13 @@ if(Auth::guest()){
           'mediasAgenda' => $mediasAgenda,
           'mediasActu' => $mediasActu,
           'doyen' => $doyen[0],
-          'logom '=> $logom,
-          'comPU '=> $comPU,
-          'comET '=> $comET,
+          'logom'=> $logom,
+          'comPU'=> $comPU,
+          'comET'=> $comET,
           'img_home_Bk_nom '=> $img_home_Bk->nom,
           'img_home_Bk_chemin '=> $img_home_Bk->chemin,
-          'fileE3MN ' => $fileE3M->nom,
-          'fileUFDN ' => $fileUFD->nom,
+          'fileE3MN' => $fileE3M->nom,
+          'fileUFDN' => $fileUFD->nom,
         
       ]);
 }
@@ -157,8 +157,8 @@ Route::group(['prefix' => '/'], function () {
   //Route::resource('doctsfgi', 'InfosFGIController');
   // Route::resource('concorat1', 'Doctorat1Controller');
   //Route::resource('masteriirech', 'MasterIIRechController');
-  Route::resource('contactNA', 'ContactController');
-
+    Route::resource('contactNA', 'ContactController');
+  
   //Route::resource('etudiantconcours', 'EtudiantConcoursController');
   Route::resource('centredincubationNA', 'CentreDincubationController');
   //Route::resource('miseajour', 'MiseAJourController');
@@ -181,14 +181,31 @@ Route::group(['prefix' => 'admin'], function () {
   Route::resource('respForm', 'RespFormController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
   Route::resource('respEcoleDoct', 'respEcoleDoctController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
   Route::resource('respCom', 'respComController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-  Route::Resource('personnel','PersonnelController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::Resource('personnelAdmin','PersonnelController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::Resource('adminCent','PersonnelController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
   Route::post('adminCent','PersonnelController@store')->name('personnel.admin.store');
-
+  Route::get('/personnelAdmin/add/{choixM}/{idPers}','PersonnelController@add')->name('personnelAdmin.add');
+  Route::delete('/personnelAdmin/destroy/{idPers}/{choixM}','PersonnelController@destroyP')->name('personnelAdmin.destroyP');
+  Route::delete('/adminCent/destroy/{idPers}/{choixM}','PersonnelController@destroyP')->name('adminCent.destroyP');
   Route::get('usersManage', 'AdminController@usersManage')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+
+ //Formations Doctorales
+  Route::resource('formationsdoctoralesAdmin','FormationsDoctoralesController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::resource('partenairelaboAdmin', 'PartenaireLaboController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+
+ //Gestion des membres
+  Route::get('membersManage','LaboController@membersManage')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
 
 
 //Gestion des medias
+  Route::resource('mediasAdminCent', 'MediaController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
   Route::resource('mediasAdmin', 'MediaController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::resource('mediasAdminFichier', 'MediaController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::resource('insoliteAdmin', 'InsoliteController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::resource('communiquerAdmin', 'CommuniquerController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::resource('news', 'NewsController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+ 
+
   Route::resource('typemedia', 'TypeMediaController');
   Route::get('mediasManage/img', 'MediaController@getFormImg')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
   Route::get('mediasManage/file', 'MediaController@getFormFile')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
@@ -197,7 +214,26 @@ Route::group(['prefix' => 'admin'], function () {
   Route::post('mediasManage/img', 'MediaController@postFormImg')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
   Route::post('mediasManage/file', 'MediaController@postFormFile')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
   Route::post('mediasManage/video', 'MediaController@postFormVideo')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+//////////////////////////////////
+  //Gestion des medias
+  Route::post('insolitesManage', 'MediaController@postFormImg')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::post('newsManage', 'MediaController@postFormImg')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::post('mediasManage/file', 'MediaController@getFormFile')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::post('mediasManage/video', 'MediaController@getFormVideo')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
 
+
+  Route::get('citationsManage', 'respComController@citationsManage')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::get('insolitesManage', 'respComController@insolitesManage')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::get('newsManage', 'respComController@newsManage')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::get('agendaManage', 'respComController@agendaManage')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::get('actualitesManage', 'respComController@actuManage')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  
+  Route::get('communiquerEtManage', 'respComController@EtManage')->middleware('App\Http\Middleware\RedirectIfNotRespcom');
+  Route::get('communiquerVisManage', 'respComController@VisManage')->middleware('App\Http\Middleware\RedirectIfNotRespcom');
+  Route::get('communiquerPersManage', 'respComController@PersManage')->middleware('App\Http\Middleware\RedirectIfNotRespcom');
+  Route::resource('citationAdmin', 'CitationController')->middleware('App\Http\Middleware\RedirectIfNotRespcom');
+
+////////////////////////////////
 
 //Gestion des départements
   Route::resource('departementAdmin', 'DepartementController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
@@ -206,12 +242,9 @@ Route::group(['prefix' => 'admin'], function () {
    Route::resource('infosfgiAdmin', 'InfosFGIController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
 
 //Gestion de l'administration centrale
-   Route::get('adminCent', 'PersonnelController@adminCentsManage')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-   Route::delete('/personnel/destroy/{idPers}/{choixM}','PersonnelController@destroyP')->name('personnel.destroyP')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-   //Modifier le responsable
-   // Route::get('personnel/show/{id}','PersonnelController@show')->name('personnel.showA')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-    //Route::post('personnel/{id}/edit','PersonnelController@edit')->name('personnel.editA')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-    Route::put('personnel/{id}','PersonnelController@update')->name('personnel.updateA')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::get('adminCent', 'PersonnelController@adminCentsManage')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::delete('/personnel/destroy/{idPers}/{choixM}','PersonnelController@destroyP')->name('personnel.destroyP')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::put('personnel/{id}','PersonnelController@update')->name('personnel.updateA')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
 
 //Dossiers de la fgi
   Route::resource('docPartenaires', 'DossierController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
@@ -219,7 +252,10 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 //Labo E3M
-    Route::resource('labo', 'LaboController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+    Route::resource('laboAdmin', 'LaboController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+
+
+
 
   Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
   Route::post('/login', 'AdminAuth\LoginController@login');
@@ -227,35 +263,6 @@ Route::group(['prefix' => 'admin'], function () {
 
   Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
   Route::post('/register', 'AdminAuth\RegisterController@register');
-
-// Un admin peut creer un respform
-  Route::get('/register/respform', 'RespformAuth\RegisterController@showRegistrationForm')->name('register')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-  Route::post('/register/respform', 'RespformAuth\RegisterController@register')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-
-
-  // Un admin peut creer un doyen
-   Route::get('/register/doyen', 'DoyenAuth\RegisterController@showRegistrationForm')->name('register')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-  Route::post('/register/doyen', 'DoyenAuth\RegisterController@register')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-
-  // Un admin peut creer un respdept
-  Route::get('/register/respdept', 'RespdeptAuth\RegisterController@showRegistrationForm')->name('register')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-  Route::post('/register/respdept', 'RespdeptAuth\RegisterController@register')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-
-
-  // Un admin peut creer un respcentinc
- Route::get('/register/respcentinc', 'RespcentincAuth\RegisterController@showRegistrationForm')->name('register')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-  Route::post('/register/respcentinc', 'RespcentincAuth\RegisterController@register')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-
-  // Un admin peut creer un respecoledoct
-  Route::get('/register/respecoledoct', 'RespecoledoctAuth\RegisterController@showRegistrationForm')->name('register')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-  Route::post('/register/respecoledoct', 'RespecoledoctAuth\RegisterController@register')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-
-// Un admin peut creer un respcom
-  Route::get('/register/respcom', 'RespcomAuth\RegisterController@showRegistrationForm')->name('register')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-  Route::post('/register/respcom', 'RespcomAuth\RegisterController@register')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-
-
-
   Route::post('/password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
   Route::post('/password/reset', 'AdminAuth\ResetPasswordController@reset')->name('password.email');
   Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
@@ -348,7 +355,7 @@ Route::group(['prefix' => 'respecoledoct'], function () {
    Route::get('/personnel/add/{choixM}/{idPers}','PersonnelController@add')->name('personnel.add');
   Route::delete('/personnel/destroy/{idPers}/{choixM}','PersonnelController@destroyP')->name('personnel.destroyP');
   Route::Resource('personnel','PersonnelController')->middleware('App\Http\Middleware\RedirectIfNotRespecoledoct');
-  ;
+  
   
    Route::resource('partenairelabo', 'PartenaireLaboController')->middleware('App\Http\Middleware\RedirectIfNotRespecoledoct');
   Route::resource('typemembre', 'TypeMembreController')->middleware('App\Http\Middleware\RedirectIfNotRespecoledoct');

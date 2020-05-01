@@ -105,7 +105,8 @@ class DossierController extends Controller
    */
   public function destroy($id)
   {
-    
+    $this->dossierFGIRepository->destroy($id);
+    return back();
   }
   
 }

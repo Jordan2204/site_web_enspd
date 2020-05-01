@@ -1,4 +1,4 @@
-@extends('respcentinc.layouts.auth')
+@extends('layouts.authMail')
 
 <!-- Main Content -->
 @section('content')
