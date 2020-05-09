@@ -16,7 +16,7 @@ class Respcom extends Authenticatable
      * @var array
      */
    protected $fillable = [
-        'name','prenom','poste','email', 'password','auth',
+        'name','prenom','poste','email', 'password','auth','date_Auth',
     ];
 
     /**

@@ -26,7 +26,7 @@
                     <div class="form-group {!! $errors->has('name') ? 'has-error' : '' !!}">
                         <label for="name">Nom <span style="color: red;">*</span></label>
                         {!! Form::text('name', null, ['class' => 'form-control','id' => 'name', 'placeholder' => 'Nom']) !!}
-                        {!! $errors->first('name', '<small class="help-block">:message</small>') !!}
+                        {!! $errors->first('name', '<small class="help-block" style="color: red;">:message</small>') !!}
 
                     </div>
 
@@ -42,6 +42,8 @@
                         {!! $errors->first('poste', '<small class="help-block">:message</small>') !!}
                         
                     </div>
+                    <div class="form-group {!! $errors->has('refDept') ? 'has-error' : '' !!}">
+                    <label for="refDept">Département</label>
                     <select name="refDept" class="form-control select2bs4 select2-hidden-accessible" style="width: 100%; "data-select2-id="17" tabindex="-1" aria-hidden="true">
                           <option  data-select2-id="31" value="TTIC" selected >TTIC</option>
                           <option  data-select2-id="31" value="TAU">TAU</option>
@@ -53,7 +55,9 @@
                           <option  data-select2-id="31" value="ROI">ROI</option>
                           <option  data-select2-id="31" value="TCI">TCI</option>
                           <option  data-select2-id="31" value="GPR">GPR</option>
-                        </select><br>
+                        </select>
+                       {!! $errors->first('refDept', '<small class="help-block" style="color: red;">:message</small>') !!}
+                     </div>
                     <div class="form-group {!! $errors->has('auth') ? 'has-error' : '' !!}">
                          <div class="checkbox">
                             <div class="icheck-primary d-inline ml-2">
@@ -67,19 +71,18 @@
                     <div class="form-group {!! $errors->has('email') ? 'has-error' : '' !!}">
                         <label for="email">Email <span style="color: red;">*</span></label>
                         {!! Form::email('email', null, ['class' => 'form-control','id' => 'email', 'placeholder' => 'Email']) !!}
-                        {!! $errors->first('email', '<small class="help-block">:message</small>') !!}
+                        {!! $errors->first('email', '<small class="help-block" style="color: red;">:message</small>') !!}
                     </div>
                     <div class="form-group {!! $errors->has('password') ? 'has-error' : '' !!}">
                         <label for="password">Password <span style="color: red;">*</span></label>
                         {!! Form::password('password', ['class' => 'form-control','id' => 'password', 'placeholder' => 'Mot de passe']) !!}
-                        {!! $errors->first('password', '<small class="help-block">:message</small>') !!}
+                        {!! $errors->first('password', '<small class="help-block" style="color: red;">:message</small>') !!}
                     </div>
                     <div class="form-group">
                         <label for="confirmePassword">Confirm Password <span style="color: red;">*</span></label>
                         {!! Form::password('password_confirmation', ['class' => 'form-control','id' => 'confirmePassword', 'placeholder' => 'Confirmation mot de passe']) !!}
                     </div>
                      <a href="javascript:history.back()" class="btn btn-primary float-left">         <i class="fa fa-chevron-circle-left"> Retour</i>
-                            <span class="glyphicon glyphicon-circle-arrow-left "></span>
                         </a>
                     <div> {!! Form::submit('Créer', ['class' => 'btn btn-primary float-right ']) !!}</div>
                    

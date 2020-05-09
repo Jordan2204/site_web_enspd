@@ -44,6 +44,9 @@
                       {!! $errors->first('image', '<small class="help-block" style="color: red;">:message</small>') !!}
                   </div>
               		<div>
+                    <a href="javascript:history.back()" class="btn btn-primary float-left">
+                      <i class="fas fa-chevron-circle-left"> Retour</i>
+                    </a>
               			{!! Form::submit('Créer', ['class' => 'btn btn-primary float-right ']) !!}
               		</div>
 						{!! Form::close() !!}

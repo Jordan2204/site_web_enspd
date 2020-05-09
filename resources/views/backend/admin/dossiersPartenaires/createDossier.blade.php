@@ -33,7 +33,7 @@
                     <div class="form-group {!! $errors->has('numBCA') ? 'has-warning' : '' !!}">
                         <label for="prenom">Numero BCA <span style="color: red;">*</span></label>
                         {!! Form::text('numBCA', null, ['class' => 'form-control','id' => 'prenom', 'placeholder' => 'numBCA']) !!}
-                        {!! $errors->first('prenumBCAnom', '<small style="color: red;" class="form-text">:message</small>') !!}
+                        {!! $errors->first('numBCA', '<small style="color: red;" class="form-text">:message</small>') !!}
                         
                     </div>
                     <div class="form-group {!! $errors->has('date_intr') ? 'has-warning' : '' !!}">

@@ -281,13 +281,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('admin/labo/create') }}" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p> Nouveau</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('admin/labo/create') }}" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p> Consulter</p>
                 </a>

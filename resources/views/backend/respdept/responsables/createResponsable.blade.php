@@ -32,7 +32,7 @@
                     <div class="form-group {!! $errors->has('nomPers') ? 'has-error' : '' !!}">
                         <label for="namePers">Nom <span style="color: red;">*</span></label>
                         {!! Form::text('nomPers', null, ['class' => 'form-control','id' => 'namePers', 'placeholder' => 'Nom']) !!}
-                        {!! $errors->first('nomPers', '<small class="help-block">:message</small>') !!}
+                        {!! $errors->first('nomPers', '<small class="help-block" style="color: red;">:message</small>') !!}
 
                     </div>
 

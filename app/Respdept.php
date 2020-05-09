@@ -16,7 +16,7 @@ class Respdept extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','prenom','poste','email', 'password','auth','refDept',
+        'name','prenom','poste','email', 'password','auth','refDept','date_Auth',
     ];
 
     /**

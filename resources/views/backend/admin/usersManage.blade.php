@@ -273,7 +273,7 @@
                     </tbody>
                 </table>
            </div>
-            {!! link_to_route('respCentInc.create', 'Ajouter un utilisateur', [], ['class' => 'btn btn-info float-right']) !!}
+            {!! link_to_route('respCentInc.create', 'Ajouter un utilisateur', [], ['class' => 'btn btn-info float-right','hidden']) !!}
            
         </div>
      

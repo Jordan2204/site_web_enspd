@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
 
@@ -44,8 +45,14 @@ class RespEcoleDoctController extends Controller
     {
         $respEcoleDoct = $this->respEcoleDoctRepository->getById($id);
 
-        return view('backend.admin.users.showRespEcoleDoct',  compact('respEcoleDoct'));
-    }
+        if (session('role') == 'admin') {
+            return view('backend.admin.users.showRespEcoleDoct',  compact('respEcoleDoct'));
+   
+        }elseif (session('role') == 'respecoledoct') {
+            return view('backend.respecoledoct.showRespEcoleDoct',  compact('respEcoleDoct'));
+   
+        }
+     }
 
     public function edit($id)
     {
@@ -56,10 +63,22 @@ class RespEcoleDoctController extends Controller
 
     public function update(UserUpdateRequest $request, $id)
     {
+        $respEcoleDoct = $this->respEcoleDoctRepository->getById($id);
+
         if (!$request->has('auth')) {
-             $request->request->add(['auth' => '0']);
+            $request->request->add(['auth' => '0']);
+             if ($respEcoleDoct->auth) {
+                 $request->request->add(['date_Auth' => NULL]);
+            }
 
         }
+
+        if (!$respEcoleDoct->auth) {
+            DB::update('UPDATE respecoledocts 
+                        SET date_Auth = NOW()
+                        WHERE id = ?',[$id]);
+        }
+
         $this->respEcoleDoctRepository->update($id, $request->all());
         
         return redirect('admin/usersManage')->withOk("L'utilisateur " . $request->input('name') . " a été modifié.");

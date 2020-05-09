@@ -37,7 +37,7 @@
                         
                     </div>
                     <div class="form-group {!! $errors->has('poste') ? 'has-warning' : '' !!}">
-                        <label for="poste">Poste</label>
+                        <label for="poste">Poste  <span style="color: red;">*</span></label>
                         {!! Form::text('poste', null, ['class' => 'form-control','id' => 'poste', 'placeholder' => 'poste']) !!}
                         {!! $errors->first('poste', '<small style="color: red;" class="form-text">:message</small>') !!}
                         

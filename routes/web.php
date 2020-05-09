@@ -351,6 +351,8 @@ Route::group(['prefix' => 'doyen'], function () {
 
 Route::group(['prefix' => 'respecoledoct'], function () {
 
+  Route::resource('respEcoleDoctDoct', 'respEcoleDoctController')->middleware('App\Http\Middleware\RedirectIfNotRespecoledoct');
+
   Route::resource('labo', 'LaboController',['except' => ['show']])->middleware('App\Http\Middleware\RedirectIfNotRespecoledoct');
    Route::get('/personnel/add/{choixM}/{idPers}','PersonnelController@add')->name('personnel.add');
   Route::delete('/personnel/destroy/{idPers}/{choixM}','PersonnelController@destroyP')->name('personnel.destroyP');

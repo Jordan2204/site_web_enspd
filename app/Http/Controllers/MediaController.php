@@ -309,7 +309,7 @@ class MediaController extends Controller
       }elseif(session('role') == 'respform')
       {
         
-         return redirect('respform/homeRespForm');
+         return redirect('respform/infosfgi');
 
 
       }elseif(session('role') == 'respdept')

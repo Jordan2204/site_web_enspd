@@ -12,7 +12,7 @@
                     <div class="form-group {!! $errors->has('nomAuteur') ? 'has-error' : '' !!}">
                       <label for="nomAuteur">Nom de l'auteur <span style="color: red;">*</span></label>
                         {!! Form::text('nomAuteur', null, ['class' => 'form-control', 'placeholder' => 'Auteur']) !!}
-                        {!! $errors->first('nomAuteur', '<small class="help-block">:message</small>') !!}
+                        {!! $errors->first('nomAuteur', '<small class="help-block" style="color: red;">:message</small>') !!}
                         
                     </div>
                       <div class="form-group">

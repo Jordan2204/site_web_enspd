@@ -8,14 +8,13 @@
 @section('section_principale')
     <div align="center">
         <h1 style="text-align: center;">LOCALISATION DE LA FACULTE DE GENIE INDUSTRIEL(FGI) </h1><br> 
-       <br> 
     <div class="row justify-content-center">
-            <iframe  src="https://www.google.com/maps/d/u/0/embed?mid=1GbPvCjhaoxX2KaPqmJ-l2L6yb7Ub_Y_X" width="700" height="500">
+            <iframe  src="https://www.google.com/maps/d/u/0/embed?mid=1GbPvCjhaoxX2KaPqmJ-l2L6yb7Ub_Y_X" width="950" height="500">
             </iframe><br><br>
     </div>
         
     </div>
-    <div><br><br>
+    <div><br>
         <h1 style="text-align: center;">COMMENT NOUS CONCTACTER</h1><br>
         <p class="kt-contact-description">Vous avez une question ? Besoin de renseignement ? Prenez contact avec la <strong>Faculté de Génie Industriel</strong> via le formulaire de contact ci-dessous, et nous vous donnerons une réponse dans un court délai.</p>
     </div>

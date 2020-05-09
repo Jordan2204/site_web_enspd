@@ -23,7 +23,6 @@ class FilesUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        return "ok";
         return [
 
             'file' => 'required',

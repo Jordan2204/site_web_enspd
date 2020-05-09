@@ -38,7 +38,7 @@ class DoyenController extends Controller
         return view('backend.admin.users.createDoyen');
     }
 
-    public function store(doyenCreateRequest $request)
+    public function store(UserCreateRequest $request)
     {
         $doyen = $this->doyenRepository->store($request->all());
 
@@ -59,7 +59,7 @@ class DoyenController extends Controller
         return view('backend.admin.users.editDoyen',  compact('doyen'));
     }
 
-    public function update(doyenUpdateRequest $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
         $this->doyenRepository->update($id, $request->all());
         

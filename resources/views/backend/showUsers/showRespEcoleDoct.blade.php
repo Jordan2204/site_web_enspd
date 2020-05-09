@@ -1,20 +1,3 @@
-@extends('admin/layouts/templateAdmin')
-
-@section('title')
-    Admin
-  @endsection
-
-  @section('dashboard')
-    Gestion des Utilisateurs
-  @endsection
-
-  @section('apresHome')
-    UserManage/ShowAdmin
-  @endsection
-
-
-@section('content')
-
  <div class="row justify-content-center align-items-center">
 
         <div class="col-md-6 col-sm-6 col-xm-8">
@@ -54,7 +37,9 @@
             <a href="javascript:history.back()" class="btn btn-info">
                 <i class="fa fa-chevron-circle-left"> Retour</i>  
             </a>
-            {!! link_to_route('respEcoleDoct.edit', 'Modifier', [$respEcoleDoct->id], ['class' => 'btn btn-warning  float-right']) !!}
+             @if( session('role') == 'admin')
+                {!! link_to_route('respEcoleDoct.edit', 'Modifier', [$respEcoleDoct->id], ['class' => 'btn btn-warning  float-right']) !!}
+            @endif
+           
         </div>
     </div>
-@endsection

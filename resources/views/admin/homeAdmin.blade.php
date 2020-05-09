@@ -1,7 +1,7 @@
   @extends('admin/layouts/templateAdmin')
 
   @section('title')
-    Admin
+    Faculté de Génie Industriel | Admin
   @endsection
 
   @section('dashboard')

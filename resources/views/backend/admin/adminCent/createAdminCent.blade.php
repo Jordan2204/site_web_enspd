@@ -32,7 +32,7 @@
                     <div class="form-group {!! $errors->has('nomPers') ? 'has-error' : '' !!}">
                        <label for="nomPers">Nom <span style="color: red;">*</span></label>
                         {!! Form::text('nomPers', null, ['class' => 'form-control', 'placeholder' => 'Nom']) !!}
-                        {!! $errors->first('nomPers', '<small class="help-block">:message</small>') !!}
+                        {!! $errors->first('nomPers', '<small class="help-block" style="color: red;">:message</small>') !!}
                     </div>
 
                     <div class="form-group {!! $errors->has('prenomPers') ? 'has-error' : '' !!}">
@@ -57,7 +57,7 @@
                         </div>
       
                      <a href="javascript:history.back()" class="btn btn-primary float-left">
-                        <span class="glyphicon glyphicon-circle-arrow-left"></span> Retour
+                        <i class="fas fa-chevron-circle-left"> Retour</i>
                      </a>
                         {!! Form::submit('Créer', ['class' => 'btn btn-primary float-right']) !!}
                     {!! Form::close() !!}

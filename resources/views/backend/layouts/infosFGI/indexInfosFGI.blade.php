@@ -6,8 +6,8 @@
     </div>
     <div class="row">
         @foreach ( $infosFGI as $infoFGI)
-          <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
+          <div class="col-12 col-md-6">
+              <div class="card box-shadow">
                  <div class="card-header">
                     <h3 class="card-title">{!! $infoFGI->titreFECB !!}</h3>
                     <!-- tools card -->
@@ -22,9 +22,8 @@
                 </div>
                 @endif
                 </div>
-              <div class="card-body">
                <img class="card-img-top" alt="Thumbnail [100%250]" src="/{{ $infoFGI->chemin }}/{{ $infoFGI->nom }}" style="height: 100%; width: 100%; display: block;">
-                <div class="card-footer">
+                <div class="card-body">
                   <div class="d-flex justify-content-between align-items-center">
                      @if(session('role') === "admin")
                      <div class="btn-group">
@@ -47,7 +46,6 @@
                       @endif
                     </div>
                   </div>
-                </div>
               </div>
             </div>
        @endforeach

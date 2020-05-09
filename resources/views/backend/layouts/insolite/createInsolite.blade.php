@@ -18,17 +18,17 @@
                         <div class="form-group {!! $errors->has('titre') ? 'has-error' : '' !!}">
                            <label for="titre">Titre <span style="color: red;">*</span></label>
                             {!! Form::text('titre', null, ['class' => 'form-control ', 'placeholder' => 'titre']) !!}
-                            {!! $errors->first('titre', '<small class="help-block">:message</small>') !!}
+                            {!! $errors->first('titre', '<small class="help-block" style="color: red;">:message</small>') !!}
                         </div>
                         
                         <div class="form-group {!! $errors->has('image') ? 'has-error' : '' !!}">
                             {!! Form::file('image', ['class' => 'form-control']) !!}
-                            {!! $errors->first('image', '<small class="help-block">:message</small>') !!}
+                            {!! $errors->first('image', '<small class="help-block" style="color: red;">:message</small>') !!}
                         </div>
                         <a href="javascript:history.back()" class="btn btn-info">
                           <i class="fa fa-chevron-circle-left"> Retour</i>  
                         </a>
-                        {!! Form::submit('Envoyer !', ['class' => 'btn btn-info float-right']) !!}
+                        {!! Form::submit('Ajouter', ['class' => 'btn btn-info float-right']) !!}
                     {!! Form::close() !!}
                 </div>
             </div>

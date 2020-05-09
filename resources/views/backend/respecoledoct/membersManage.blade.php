@@ -5,7 +5,7 @@
   @endsection
 
   @section('dashboard')
-    <i class="fas fa-users"></i>Gestion des Membres
+    <i class="fas fa-users"></i> Gestion des Membres
   @endsection
 
   @section('apresHome')

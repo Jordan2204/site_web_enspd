@@ -1,4 +1,4 @@
-@extends('layouts/global_template')
+@extends('layouts/accueil_templte')
 
 
 @section('titre')

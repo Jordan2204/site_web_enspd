@@ -19,19 +19,19 @@
                         <div class="form-group {!! $errors->has('titre') ? 'has-error' : '' !!}">
                             <label for="titre">Titre <span style="color: red;">*</span></label>
                             {!! Form::text('titre', null, ['class' => 'form-control ', 'placeholder' => 'titre']) !!}
-                            {!! $errors->first('titre', '<small class="help-block">:message</small>') !!}
+                            {!! $errors->first('titre', '<small class="help-block" style="color: red;">:message</small>') !!}
                         </div>
                
                         <label>Sources</label>
                         <div class="form-group {!! $errors->has('image') ? 'has-error' : '' !!}">
                             <label for="image">Image <span style="color: red;">*</span></label>
                             {!! Form::file('image', ['class' => 'form-control']) !!}
-                            {!! $errors->first('image', '<small class="help-block">:message</small>') !!}
+                            {!! $errors->first('image', '<small class="help-block" style="color: red;">:message</small>') !!}
                         </div>
                         <label>OU</label>
                         <div class="form-group {!! $errors->has('url') ? 'has-error' : '' !!}">
                             {!! Form::text('url', null, ['class' => 'form-control ', 'placeholder' => 'url  de l\'images ou vidéos']) !!}
-                            {!! $errors->first('url', '<small class="help-block">:message</small>') !!}
+                            {!! $errors->first('url', '<small class="help-block" style="color: red;">:message</small>') !!}
                         </div>
                         <div class="form-group {!! $errors->has('categorie') ? 'has-error' : '' !!}">
                             <label for="categorie">Catégorie : <span style="color: red;">*</span></label>

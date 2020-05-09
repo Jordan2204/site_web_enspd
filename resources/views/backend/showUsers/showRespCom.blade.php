@@ -1,5 +1,4 @@
 
-
  <div class="row justify-content-center align-items-center">
 
         <div class="col-md-6 col-sm-6 col-xm-8">

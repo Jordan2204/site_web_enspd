@@ -12,9 +12,9 @@
 
 	<div>
 		{!! $formationsDoct[0]->contenu !!}
-	</div> <br><br>
+	</div><br>
 
-	<div><h5 style="text-align: center;">ORGANISATION DES ENSEIGNEMENTS</h5></div><br>
+	<div><h4 style="text-align: center;">Organisation des enseignements</h4></div><br>
 	<div style="text-align: center;">
 		<p><a  href="/storage/fichiers/{!! session('fileUFDN') !!}" download ="">[Télecharger la documentation détaillée]</a></p>
 	</div>

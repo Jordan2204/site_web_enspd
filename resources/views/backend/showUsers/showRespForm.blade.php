@@ -36,7 +36,7 @@
                 </div>
             </div>              
             <a href="javascript:history.back()" class="btn btn-primary">
-                <span class="glyphicon glyphicon-circle-arrow-left"></span> Retour
+                <i class=" fas fa-chevron-circle-left"> Retour</i>
             </a>
             @if( session('role') == 'admin')
             {!! link_to_route('respForm.edit', 'Modifier', [$respForm->id], ['class' => 'btn btn-warning  float-right']) !!}

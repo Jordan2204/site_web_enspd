@@ -19,6 +19,21 @@ Route::get('/homeRespForm', function () {
     $img_choixID = DB::table('medias')->where('titre','ChoixFGI')->value('id');
     $img_brefID = DB::table('medias')->where('titre','BrefFGI')->value('id');
 
+    //Gestion des autorisations
+     $date_gestion = DB::select('SELECT date_Auth,UNIX_TIMESTAMP(ADDDATE(date_Auth, INTERVAL 2 DAY)) AS heure_ajouter,UNIX_TIMESTAMP(NOW()) as heure_maintenant,TIMEDIFF(ADDDATE(date_Auth, INTERVAL 2 DAY),NOW()) as difference
+                                FROM respforms
+                                WHERE id = ?',[Auth::user()->id]);
+
+     if(!empty($date_gestion[0]->date_Auth))
+     {
+        if ( $date_gestion[0]->heure_ajouter <=  $date_gestion[0]->heure_maintenant)
+         {
+           DB::update('UPDATE respforms
+                       SET auth = 0,date_Auth = null
+                       WHERE id = ?', [Auth::user()->id]);
+        }
+     }
+
 
    //Enregistrement des variables dans la session
     session([
@@ -37,6 +52,6 @@ Route::get('/homeRespForm', function () {
         'role' => 'respform'
     ]);
 
-    return view('respform.homeRespForm');
+    return view('respform.homeRespForm',['date_gestion' => $date_gestion[0]]);
 })->name('home');
 

@@ -63,7 +63,7 @@
                         {!! $errors->first('RespAcad', '<small class="help-block">:message</small>') !!}
                     </div>
                      <a href="javascript:history.back()" class="btn btn-primary float-left">
-                        <span class="glyphicon glyphicon-circle-arrow-left"></span> Retour
+                      <i class="fas fa-chevron-circle-left"> Retour</i>
                      </a>
                         {!! Form::submit('Metre a jour', ['class' => 'btn btn-primary float-right']) !!}
                     {!! Form::close() !!}
