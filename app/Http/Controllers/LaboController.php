@@ -151,7 +151,7 @@ class LaboController extends Controller
   {
      $this->laboRepository->update($id, $request->all());
         
-      return back();
+      return back()->withOk("Mise a jour effectuée");
   }
 
   /**

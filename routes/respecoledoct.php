@@ -17,7 +17,7 @@ Route::get('/homeRespEcoleDoct', function () {
      {
         if ( $date_gestion[0]->heure_ajouter <=  $date_gestion[0]->heure_maintenant)
          {
-           DB::update('UPDATE respdepts 
+           DB::update('UPDATE respecoledocts
                        SET auth = 0,date_Auth = null
                        WHERE id = ?', [Auth::user()->id]);
         }

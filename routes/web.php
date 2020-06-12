@@ -62,9 +62,14 @@ if(Auth::guest()){
         //Citation 
        $citations = DB::table('citations')->get();
        $nbreCitation = DB::select('select count(*) from citations');
-       $numCitation = rand(0,intval($nbreCitation) );
-       $citation =  $citations[$numCitation];
+       if ($nbreCitation == 1) {
+          $citation =  $citations[0];
 
+       }else{
+          $numCitation = rand(0,intval($nbreCitation) - 1  );
+          $citation =  $citations[$numCitation];
+       }
+       
        //Les news
         $mediasAgenda = DB::select("
               select md.id,md.chemin,md.nom,md.description
@@ -73,7 +78,7 @@ if(Auth::guest()){
               ",['agenda']);
 
         $mediasActu = DB::select("
-              select md.id,md.chemin,md.nom,md.description
+              select md.id,ns.url,md.chemin,md.titre,md.nom,md.description
               from news as ns, medias as md
               where md.id = ns.media_id and ns.categorie = ?
               ",['actualites']);
@@ -81,9 +86,19 @@ if(Auth::guest()){
         //Fichier responsable ecole doctorale
         $fileE3M  = DB::table('medias')->where([['titre','E3M'],['chemin','storage/fichiers']])->first();
         $fileUFD = DB::table('medias')->where([['titre','UFD'],['chemin','storage/fichiers']])->first();
+
+        //Les departements et medieas
+        $depts =DB::table('departement')->get();
+        $medias= DB::table('medias')->get();
+
+        //Les partenaires de la fgi
+        $MediasPartenaires = DB::table('medias')->where('description','partenaireFGI')->get();
+ 
      
       //Enregistrement des variables dans la session
       session([
+          'depts' => $depts ,
+          'medias' => $medias ,
           'ensID' => $ensID ,
           'formID' => $formID,
           'choixID' => $choixID,
@@ -111,6 +126,7 @@ if(Auth::guest()){
           'img_home_Bk_chemin '=> $img_home_Bk->chemin,
           'fileE3MN' => $fileE3M->nom,
           'fileUFDN' => $fileUFD->nom,
+          'MediasPartenaires' => $MediasPartenaires
         
       ]);
 }
@@ -231,7 +247,7 @@ Route::group(['prefix' => 'admin'], function () {
   Route::get('communiquerEtManage', 'respComController@EtManage')->middleware('App\Http\Middleware\RedirectIfNotRespcom');
   Route::get('communiquerVisManage', 'respComController@VisManage')->middleware('App\Http\Middleware\RedirectIfNotRespcom');
   Route::get('communiquerPersManage', 'respComController@PersManage')->middleware('App\Http\Middleware\RedirectIfNotRespcom');
-  Route::resource('citationAdmin', 'CitationController')->middleware('App\Http\Middleware\RedirectIfNotRespcom');
+  Route::resource('citationAdmin', 'CitationController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
 
 ////////////////////////////////
 
@@ -253,8 +269,10 @@ Route::group(['prefix' => 'admin'], function () {
 
 //Labo E3M
     Route::resource('laboAdmin', 'LaboController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-
-
+//Les Partenaires de la fgi
+    Route::get('nosPartenairesManage','MediaController@nosPartenaires')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+    //Route::get('nosPartenaires','MediaController@getFormImg')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+    //Route::post('nosPartenaires','MediaController@postFormImg')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
 
 
   Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
@@ -290,7 +308,7 @@ Route::group(['prefix' => 'respform'], function () {
 });
 
 Route::group(['prefix' => 'respdept'], function () {
-  Route::resource('departement', 'DepartementController', ['except' => ['show', 'index','store']]);
+  Route::resource('departement', 'DepartementController', ['except' => ['show', 'index','store']])->middleware('App\Http\Middleware\RedirectIfNotRespdept');
   //Creer le responsable
   Route::post('responsable','PersonnelController@store')->name('personnel.respdept.store')->middleware('App\Http\Middleware\RedirectIfNotRespdept');
 

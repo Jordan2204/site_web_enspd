@@ -10,7 +10,7 @@
 
         <title> @yield('titre')</title>
 
-        <link rel="stylesheet" href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css">
+       <!-- <link rel="stylesheet" href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css"> -->
         <link rel="icon" type="image/x-icon" href="/{{ session('iconeFGI')->chemin }}/{{ session('iconeFGI')->nom }}">
       
          <!-- style css de boostrap -->
@@ -18,6 +18,7 @@
 
          <!-- style css personnaliser-->
         <link rel="stylesheet" type="text/css" href=" {{ asset('css/style_global.css') }}">
+        <link rel="stylesheet" type="text/css" href=" {{ asset('css/mbootstrap4.min.css') }}">
         <!-- {!! Html::style('css/template_responsive.css') !!}-->
 
          <!-- Barre de navigation justifier -->
@@ -56,7 +57,7 @@
             <div class="row">
 
               <!--Aside gauche-->
-                <div  id="block-1" class="col-12 col-sm-12 col-md-2 col-lg-2 " style="    border: 1px solid rgba(222, 122, 122, 0.6);">
+                <div  id="block-1" class="col-12 col-sm-12 col-md-2 col-lg-2 jumbotron ">
                   <div class="row">
                          @include('backend/include/siderGauche')
                   </div>
@@ -75,7 +76,7 @@
            
                  
               <!--Aside droite-->
-              <div id="block-3" class="col-12 col-sm-12 col-md-2 col-lg-2" style="border: 1px solid rgba(222, 122, 122, 0.6)">
+              <div id="block-3" class="col-12 col-sm-12 col-md-2 col-lg-2 jumbotron">
                 <div class="row">
                       @include('backend/include/siderDroite')
                 </div>
@@ -85,6 +86,11 @@
           </div>
           <!--corp de la page-->
            
+            <!--Autres ets de l'udo-->
+          <div class="row">
+             @include('backend.include.carousel_partenaire')
+         </div>
+          <!--Autres ets de l'udo-->
           <!--Inclusion du pieds de page-->
           <footer class="row art-footer">
             @include('frontend/header_footer/pieds_de_page')
@@ -103,8 +109,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="{{ asset('/js/bootnavbar.js') }}" ></script>
-    <script type="text/javascript" src="{{ asset('/js/script.responsive.js') }}"></script>
-
+   
 
     <script>
         $(function () {

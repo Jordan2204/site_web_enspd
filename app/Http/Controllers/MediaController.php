@@ -29,6 +29,11 @@ class MediaController extends Controller
         $this->mediaRepository = $mediaRepository;
     }
   
+  public function nosPartenaires()
+  {
+    $MediasPartenaires = DB::table('medias')->where('description','partenaireFGI')->get();
+    return view('backend.admin.nosPartenaires.nosPartenairesManage',compact('MediasPartenaires'));
+  }
 
   public function getFormImg()
     {
@@ -48,18 +53,23 @@ class MediaController extends Controller
         }elseif($request->is('respcom/newsManage') or $request->is('admin/newsManage')){
 
           $request->request->add(['description' => 'News']);
+
+        }else {
+
+              $request->request->add(['description' => 'partenaireFGI']);
+            
         }
 
         if($imggestion->save($request->all())) {
 
-          if ($request->is('respcom/newsManage') or $request->is('admin/newsManage')) {
+          if ($request->is('respcom/newsManage') || $request->is('admin/newsManage')) {
             //On actualise la table news
-            $request->input('url','null');
             $idMedia = DB::table('medias')->where('titre',$request->input('titre'))->value('id');
             DB::insert('insert into news (categorie,media_id,url) values(?,?,?)',[$request->input('categorie'),$idMedia,$request->input('NumPos'),$request->input('pos'),$request->input('url')]);
 
          }
 
+       
         if (session('role') == 'admin') {
           if ($request->is('admin/newsManage')){
               if ($request->input('categorie') =="actualites") {
@@ -126,7 +136,7 @@ class MediaController extends Controller
           }elseif ($request->is('respcom/newsManage')) {
             //On actualise la table news
             $idMedia = DB::table('medias')->where('titre',$request->input('titre'))->value('id');
-            DB::insert('insert into news (categorie,media_id) values(?,?)',[$request->input('categorie'),$idMedia]);
+            DB::insert('insert into news (categorie,media_id,url) values(?,?,?)',[$request->input('categorie'),$idMedia,$request->input('url')]);
 
             return view('backend/respcom/news/mediaOk',['ok' => $ok]);
           }

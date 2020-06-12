@@ -26,7 +26,8 @@
 
    			<div class=" row justify-content-center">
    				<div class="custom">
-			      <p class="Pcustum"><span style="color: #242b2d;"><span style="color: #304050; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 13px;"><span class="spanCustum">Suivez-nous sur les réseaux sociaux</p>
+			      <p class="Pcustum"><span style="color: #ffffff; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 13px;"><span class="spanCustum">Suivez-nous sur les réseaux sociaux </span></span>
+			      </p>
 
 			       <p class="Pcustum">
 			        <div class="row">
@@ -41,7 +42,7 @@
 			        </div>
 			      </p>
        
-    </div>
+    			</div>
    			</div>
    			
 

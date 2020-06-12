@@ -179,7 +179,7 @@ class DepartementController extends Controller
         $this->departementRepository->update($id, $request->all());
         $departement = $this->departementRepository->getById($id);
    
-       return back()->withOk("Mise a du département  $departement->nomDept effectué");
+       return back()->withOk("Mise a jour du département  $departement->nomDept effectué");
     }
 
   /**

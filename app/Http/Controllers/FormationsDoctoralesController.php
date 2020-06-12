@@ -83,7 +83,7 @@ class FormationsDoctoralesController extends Controller
   {
     $this->formationsDoctoralesRepository->update($id, $request->all());
         
-        return back();
+        return back()->withOk("Mise a jour effectuée");
   }
 
   /**

@@ -140,7 +140,8 @@ class InfosFGIController extends Controller
 
    $this->infosFGIRepository->update($id, $request->all());
         
-         return back();
+         return back()->withOk("Mise a jour effectué");
+;
   }
 
   /**

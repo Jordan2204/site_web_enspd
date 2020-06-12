@@ -171,7 +171,7 @@ class PersonnelController extends Controller
              
             if (empty($request->input('respStage')) && empty($request->input('respAcad'))) 
             {
-                 return redirect('respdept/responsablesManage')->withOk("Le responsable " . $pers->nomPers . " n'a pas été créé.");
+                 return redirect('respdept/responsablesManage')->wither("Le responsable n'a pas été créé car aucun role n'a ete choisi.");
             }   
             if ($request->input('respStage') && $request->input('respAcad') ) {
                 $request->request->add(['postePers' => 'Responsable Académique et Stage']);
@@ -179,7 +179,7 @@ class PersonnelController extends Controller
 
                 $idPers = DB::table('personnel')->where('matPers',$request->input('matPers'))->value('id');
                
-                 DB::insert('INSERT INTO typepersonnel_personnel VALUES(?,?,?,?) ',[$idRespAcad, $idPers,1,null]);
+                DB::insert('INSERT INTO typepersonnel_personnel VALUES(?,?,?,?) ',[$idRespAcad, $idPers,1,null]);
                 DB::insert('INSERT INTO typepersonnel_personnel VALUES(?,?,?,?) ',[$idRespStage, $idPers,1,null]);
 
 
