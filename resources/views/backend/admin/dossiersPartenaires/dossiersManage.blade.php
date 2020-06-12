@@ -5,7 +5,7 @@
   @endsection
 
   @section('dashboard')
-    Gestion des Dossiers
+    <li class="fas fa-edit"></li> Gestion des Dossiers
   @endsection
 
   @section('apresHome')

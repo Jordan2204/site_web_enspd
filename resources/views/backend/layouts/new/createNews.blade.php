@@ -28,7 +28,6 @@
                             {!! Form::file('image', ['class' => 'form-control']) !!}
                             {!! $errors->first('image', '<small class="help-block" style="color: red;">:message</small>') !!}
                         </div>
-                        <label>OU</label>
                         <div class="form-group {!! $errors->has('url') ? 'has-error' : '' !!}">
                             {!! Form::text('url', null, ['class' => 'form-control ', 'placeholder' => 'url  de l\'images ou vidéos']) !!}
                             {!! $errors->first('url', '<small class="help-block" style="color: red;">:message</small>') !!}

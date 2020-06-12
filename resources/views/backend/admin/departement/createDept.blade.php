@@ -5,7 +5,7 @@
   @endsection
 
   @section('dashboard')
-    Gestion des departements
+    <li class="fas fa-edit"></li> Gestion des departements
   @endsection
 
   @section('apresHome')

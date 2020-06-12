@@ -7,8 +7,11 @@
             </div>
             <div class="card-body"> 
                 <div class="col-sm-12">
-                    {!! Form::open(['route' => 'citation.store', 'class' => 'form-horizontal panel']) !!}   
-                    
+                     @if(session('role') === 'admin')
+                         {!! Form::open(['route' => 'citationAdmin.store', 'class' => 'form-horizontal panel']) !!}
+                      @elseif(session('role') === 'respcom')
+                         {!! Form::open(['route' => 'citation.store', 'class' => 'form-horizontal panel']) !!}
+                      @endif
                     <div class="form-group {!! $errors->has('nomAuteur') ? 'has-error' : '' !!}">
                       <label for="nomAuteur">Nom de l'auteur <span style="color: red;">*</span></label>
                         {!! Form::text('nomAuteur', null, ['class' => 'form-control', 'placeholder' => 'Auteur']) !!}

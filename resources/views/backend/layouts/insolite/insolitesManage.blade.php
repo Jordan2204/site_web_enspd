@@ -1,4 +1,4 @@
-     <div class="row justify-content-center" >
+    <div class="row justify-content-center" >
        @if(session()->has('ok'))
             <div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
        @endif
@@ -7,7 +7,7 @@
       @if(!empty($insolites))
         @foreach ( $insolites as $insolite)
            <div class="col-md-4 col-sm-6 col-xm-8 col-lg-3">
-            <div class="card card-primary">   
+            <div class="card card-primary" >   
                 <div class="card-header">
                   <h3 class="card-title">{{ $insolite->titre }}</h3>
                     <!-- tools card -->
@@ -31,10 +31,8 @@
                   </div>
                   <!-- /. tools -->
                 </div>
-                <div class="card-body"> 
-                   <img src="/{{ $insolite->chemin }}/{{ $insolite->nom }}" class="img-thumbnail" alt="insolite">
-                </div>
-            </div>              
+                   <img src="/{{ $insolite->chemin }}/{{ $insolite->nom }}"  alt="insolite">
+             </div>              
          </div>
 
         @endforeach

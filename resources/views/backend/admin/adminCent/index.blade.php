@@ -5,7 +5,7 @@
   @endsection
 
   @section('dashboard')
-    Gestion Des Membres de l'administratrion centrale
+     <li class="fas fa-edit"></li> L'administratrion centrale de la FGI
   @endsection
 
   @section('apresHome')

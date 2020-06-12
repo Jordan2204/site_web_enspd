@@ -22,7 +22,12 @@
                     <h3 class=" card-title">Modification d'un Membre</h3>
                 </div>
             <div class="card-body "> 
+                @if(session('role') === 'admin')
+                    {!! Form::model($membre, ['route' => ['personnelAdmin.update', $membre->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+                @elseif(session('role') === 'respecoledoct')
                     {!! Form::model($membre, ['route' => ['personnel.update', $membre->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+                @endif
+                    
 
                     <div class="form-group {!! $errors->has('gradePers') ? 'has-warning' : '' !!}">
                         <label for="gradePers">Grade</label>

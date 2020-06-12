@@ -6,7 +6,7 @@
     </div>
     <div class="row">
         @foreach ( $infosFGI as $infoFGI)
-          <div class="col-12 col-md-6">
+          <div class="col-6 col-md-6">
               <div class="card box-shadow">
                  <div class="card-header">
                     <h3 class="card-title">{!! $infoFGI->titreFECB !!}</h3>
@@ -22,7 +22,7 @@
                 </div>
                 @endif
                 </div>
-               <img class="card-img-top" alt="Thumbnail [100%250]" src="/{{ $infoFGI->chemin }}/{{ $infoFGI->nom }}" style="height: 100%; width: 100%; display: block;">
+               <img class="card-img-top" alt="Thumbnail [100%250]" src="/{{ $infoFGI->chemin }}/{{ $infoFGI->nom }}" style="height:200px; display: block;">
                 <div class="card-body">
                   <div class="d-flex justify-content-between align-items-center">
                      @if(session('role') === "admin")

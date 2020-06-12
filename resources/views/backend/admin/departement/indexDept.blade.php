@@ -5,7 +5,7 @@
   @endsection
 
   @section('dashboard')
-    Gestion des departements
+     <li class="fas fa-edit"></li>  Gestion des departements
   @endsection
 
   @section('apresHome')
@@ -21,7 +21,7 @@
     <div class="row justify-content-center">
       @foreach ($depts as $dept) 
       <div class="col-md-4 col-sm-4">
-        <div class="card card-info">
+        <div class="card card-info" style="height: 100%;">
           <div class="card-header ">
             <h4 class="card-title" align="center">
               {{ $dept->nomDept }} ({{ $dept->ABBR }})
@@ -36,7 +36,6 @@
               </div>
                   <!-- /. tools -->
           </div>
-          <div class="card-body">
             @foreach ($medias as $media)
               @if ($dept->media_id == $media->id)
                <img class="card-img-top" alt="Thumbnail [100%250]" src="/{{ $media->chemin }}/{{ $media->nom }}" style="height: 250px; width: 100%; display: block;">
@@ -54,8 +53,6 @@
 
               @endif
             @endforeach
-          </div>
-            
           </div>
         </div>
         @endforeach

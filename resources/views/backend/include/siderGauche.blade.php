@@ -1,5 +1,4 @@
-  <!--Image du doyen-->
-   <div class="col-12 col-sm-6 col-md-12">
+  <div class="col-12 col-sm-6 col-md-12">
     <div class="art-block clearfix">
       <div class="art-blockcontent">
         <div class="custom">
@@ -9,18 +8,7 @@
     </div>
   </div>
 
-  @if( url()->current() == 'http://fgi-udo.local') 
-    <div class="col-12 col-sm-6 col-md-12">
-      <div class="art-blockcontent">
-        <p align="center"><strong>LE {{ strtoupper(session('doyen')->postePers) }}</strong></p>
-        <p><img src="/{{ session('lineChemin') }}/{{ session('lineNom') }}" class="img-fluid" ></p>
-        <p><img src="/{{ session('doyen')->chemin }}/{{ session('doyen')->nom }}" class="img-fluid img-thumbnail"></p>
-        <p style="text-align: center;">{{ session('doyen')->gradePers }} {{ session('doyen')->nomPers }} {{ session('doyen')->prenomPers }}</p>
-      </div>
-     </div>
-  @endif
-
-  <div class="col-12 col-sm-6 col-md-12">
+  <div class="col-6 col-sm-6 col-md-12" style="height: 100%">
     <div class="art-vmenublock clearfix">
       <div class="art-vmenublockcontent">
       <ul class="art-vmenu nav-bar">
@@ -38,7 +26,8 @@
     </div>
   </div>
 
-  <div class="col-12 col-sm-6 col-md-12">
+
+  <div class="col-6 col-sm-6 col-md-12" style="height: 100%">
     <div class="custom">
     <p style="text-align: center;">&nbsp;</p>
     <p class="Pcustum"><span style="color: #304050; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 13px;"><span class="spanCustum">Académia</span><img src="/{{ session('lineChemin') }}/{{ session('lineNom') }}" class="art-lightbox" style="margin-bottom: 0px; border: #bbc5c9;" width="90%"></span></p>

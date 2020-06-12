@@ -6,7 +6,7 @@
     <div class="row">
         @foreach ( $citations as $citation)
            <div class="col-md-4 col-sm-6 col-xm-8">
-            <div class="card card-primary">   
+            <div class="card card-primary" style="height: 100%;">   
                 <div class="card-header">
                     <h3 class="card-title"> {!! $citation->nomAuteur !!}</h3>
                     <!-- tools card -->

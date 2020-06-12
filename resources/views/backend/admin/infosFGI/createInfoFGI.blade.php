@@ -5,11 +5,11 @@
   @endsection
 
   @section('dashboard')
-    Gestion des Utilisateurs
+    <li class="fas fa-edit"></li> Gestion des Pages
   @endsection
 
   @section('apresHome')
-    UserManage/CreateInfoFGI
+    InfosFGI / CreateInfoFGI
   @endsection
 
 @section('content')

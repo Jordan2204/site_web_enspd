@@ -5,7 +5,7 @@
   @endsection
 
   @section('dashboard')
-    Gestion des communiqués
+      <li class="fas fa-edit"></li> Mise a jour
   @endsection
 
   @section('apresHome')

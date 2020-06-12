@@ -5,7 +5,7 @@
   @endsection
 
   @section('dashboard')
-    Gestion des Labo
+    <li class="fas fa-edit"></li> Gestion des Labobatoires
   @endsection
 
   @section('apresHome')

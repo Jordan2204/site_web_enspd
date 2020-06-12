@@ -294,6 +294,12 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="/admin/nosPartenairesManage" class="nav-link">
+              <i class="nav-icon fas fa-circle"></i>
+              <p>	Nos Partenaires</p>
+            </a>
+            </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

@@ -26,9 +26,7 @@
                   </div>
                   <!-- /. tools -->
                 </div>
-                <div class="card-body"> 
-                   <img src="/{{ $mediaAgenda->chemin }}/{{ $mediaAgenda->nom }}" class="img-thumbnail" alt="News">
-                </div>
+                  <img src="/{{ $mediaAgenda->chemin }}/{{ $mediaAgenda->nom }}" class="img-thumbnail" alt="News" style="height: 200px;">
             </div>              
          </div>
 

@@ -23,7 +23,6 @@
             @if(session('auth'))
               <p>Temps qu'il vous reste pour effectuer la mise a jour</p>
               <h3>{{ $date_gestion->difference }}</h3>
-          
             @else
                 <h4>Vous n'avez pas l'autorisation</h4>
                 <h4> Veuillez contacter votre administrateur</h4>

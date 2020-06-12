@@ -1,17 +1,17 @@
   @extends('admin/layouts/templateAdmin')
 
   @section('title')
-    Admin | Gestion des insolites
+    Admin | Partenaires
   @endsection
 
   @section('dashboard')
-    <li class="fas fa-edit"></li> Insolites
+    <li class="fas fa-edit"></li> Partenaires
   @endsection
 
   @section('apresHome')
-    InsolitesManage
+    PartenairesManage
   @endsection
 
 @section('content')
-  @include('backend.layouts.insolite.insolitesManage')
+  @include('backend.layouts.nosPartenaires.nosPartenairesManage')
 @endsection

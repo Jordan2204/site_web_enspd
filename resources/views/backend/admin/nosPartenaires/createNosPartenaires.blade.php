@@ -1,17 +1,17 @@
 @extends('admin/layouts/templateAdmin')
 
 @section('title')
-    Admin
+   Admin | Nos Partenaires
   @endsection
 
   @section('dashboard')
-    <li class="fas fa-edit"></li> Labo E3M
+    Gestion des Partenaires
   @endsection
 
   @section('apresHome')
-    Labo/Update labo
+   InsolitesManage/Create/Partenaire
   @endsection
 
 @section('content')
-   @include('backend.layouts.labo.updateLabo')
+  @include('backend.layouts.nosPartenaires.createNosPartenaires')
 @endsection

@@ -1,6 +1,10 @@
+  <div class="row justify-content-center" >
+   @if(session()->has('ok'))
+      <button  id="update" hidden class="toastrDefaultSuccess">ok</button>
+   @endif
+  </div>
     <div class="row justify-content-center ">
-       
-	    <div class="col-md-9 col-lg-9">
+     <div class="col-md-9 col-lg-9">
 	        <div class="card card-primary">   
 	            <div class="card-header">
 	                <h3 class="card-title"> Mise a Jour du  Laboratoire E3M</h3>

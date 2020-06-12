@@ -1,10 +1,10 @@
 <div class="col-12 col-sm-6 col-md-12">
     <div class="art-block clearfix"><div class="art-blockcontent"><div class="custom">
     <p class="Pcustum"><span style="color: #242b2d;"><span class="spanCustum">Insolite</span><img class=" img-fluid art-lightbox img-thumbnail" src="/{{ session('lineChemin') }}/{{ session('lineNom') }}" border="0" alt="" 
-        style="width: 100%;height:100%;border-color: #bbc5c9; border-style: none;"></span></p>
+        style="width: 100%;height:10%;border-color: #bbc5c9; border-style: none;"></span></p>
 
     <p class="Pcustum">
-        <img class=" img-fluid art-lightbox" src="/{{ session('insoliteChemin') }}/{{ session('insoliteNom') }}" border="0" alt="" width="90%" height="" style="margin-right: 0px; margin-left: 0px; border-color: #bbc5c9; border-style: solid;"></p>
+        <img class=" img-fluid art-lightbox" src="/{{ session('insoliteChemin') }}/{{ session('insoliteNom') }}" border="0" alt=""  style="width: 200px;height:200px;margin-right: 0px; margin-left: 0px; border-color: #bbc5c9; border-style: solid;"></p>
     <p style="text-align: center;">&nbsp;</p></div></div></div>
 </div>
 

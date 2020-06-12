@@ -5,11 +5,11 @@
   @endsection
 
   @section('dashboard')
-    Gestion des Utilisateurs
+    <li class="fas fa-edit"></li>  Gestion des Utilisateurs
   @endsection
 
   @section('apresHome')
-    UserManage
+    <a href="usersManage">UsersManage</a>
   @endsection
 
 @section('content')
@@ -24,9 +24,6 @@
            <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
               <li class="nav-item">
                 <a class="nav-link" id="custom-content-below-profile-tab" data-toggle="pill" href="#custom-content-below-profile" role="tab" aria-controls="custom-content-below-profile" aria-selected="false">Admin <span class="badge badge-danger">{!! $admins->count() !!}</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="custom-content-below-messages-tab" data-toggle="pill" href="#custom-content-below-messages" role="tab" aria-controls="custom-content-below-messages" aria-selected="false">Doyen <span class="badge badge-danger"></span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="custom-content-below-settings-tab" data-toggle="pill" href="#custom-content-below-settings" role="tab" aria-controls="custom-content-below-settings" aria-selected="false">Resp departements <span class="badge badge-danger">{!! $respDepts->count() !!}</span></a>
@@ -101,56 +98,7 @@
             {!! link_to_route('admin.create', 'Ajouter un utilisateur', [], ['class' => 'btn btn-info float-right']) !!}
             {!! $links1 !!}
         </div>
-     
-        <div class="tab-pane fade" id="custom-content-below-messages" role="tabpanel" aria-labelledby="custom-content-below-messages-tab">
-                
-               <div class="card card-primary">
-                <div class="card-header">
-                  <h3 class="card-title">Liste des utilisateurs</h3>
-                </div>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nom</th>
-                            <th>Prenom</th>
-                            <th>Poste</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($doyens as $doyen)
-                            <tr>
-                                <td>{!! $doyen->id !!}</td>
-                                <td class="text-secondary"><strong>{!! $doyen->name !!}</strong></td>
-                                <td class="text-secondary"><strong>{!! $doyen->prenom !!}</strong></td>
-                                <td class="text-secondary"><strong>{!! $doyen->poste !!}</strong></td>
-                                <td>
-                                  <a href="{{ route('doyen.show',[$doyen->id])}}" class="btn btn-success btn-block">
-                                    <i class="fa fa-eye" aria-hidden="true">  Voir</i>
-                                  </a> 
-                                </td>
-                                <td>
-                                  <a href="{{ route('doyen.edit',[$doyen->id])}}" class="btn btn-warning btn-block">
-                                    <i class="fas fa-edit" aria-hidden="true">  Modifier</i>
-                                  </a> 
-                                </td>
-                                <td>
-                                    {!! Form::open(['method' => 'DELETE', 'route' => ['doyen.destroy', $doyen->id]]) !!}
-                                        {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
-                                    {!! Form::close() !!}
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-           </div>
-            {!! link_to_route('doyen.create', 'Ajouter un utilisateur', [], ['class' => 'btn btn-info float-right']) !!}
-            {!! $links2 !!}
-        </div>
-  
+       
      <div class="tab-pane fade" id="custom-content-below-settings" role="tabpanel" aria-labelledby="custom-content-below-settings-tab">
                <div class="card card-primary">
                 <div class="card-header">
