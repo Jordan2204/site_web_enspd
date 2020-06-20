@@ -160,6 +160,7 @@
         <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
         <li data-target="#multi-item-example" data-slide-to="1"></li>
         <li data-target="#multi-item-example" data-slide-to="2"></li>
+       
       </ol>
       <!--/.Indicators-->
 
@@ -173,7 +174,7 @@
           @if($i === 0)
           <div class="carousel-item active">
           <div class="row">
-         @elseif($i%3 === 0)
+         @elseif($i%3 === 0 && $i > 0)
            <div class="carousel-item">
            <div class="row">
          @endif
@@ -210,7 +211,7 @@
 
 
 	
-  <div class="col-12">
+<div class="col-12">
     <!-- begin nostyle content -->
   <div class="custom">
       <p>&nbsp;</p>

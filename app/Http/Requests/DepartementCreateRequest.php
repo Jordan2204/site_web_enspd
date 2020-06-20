@@ -26,7 +26,7 @@ class DepartementCreateRequest extends FormRequest
         return [
             
             'ABBR' => 'required|max:10|unique:departement',
-            'nomDept' => 'required|max:45',
+            'nomDept' => 'required|max:70',
             'image'  => 'required|image',
             
         ];

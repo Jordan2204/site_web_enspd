@@ -1,7 +1,7 @@
   @extends('admin/layouts/templateAdmin')
 
   @section('title')
-    Responsable cellule communication | Mise a jour des communiqués
+    Administrateur | Mise a jour des communiqués
   @endsection
 
   @section('dashboard')

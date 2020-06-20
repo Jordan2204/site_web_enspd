@@ -190,7 +190,7 @@ class DepartementController extends Controller
    */
   public function destroy($id)
   {
-    
+    $this->departementRepository->destroy($id);
   }
   
 }

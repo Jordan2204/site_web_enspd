@@ -1,5 +1,5 @@
-<div class="col-lg-12 ">
-    <div class=" row ">
+<div class="col-lg-12">
+    <div class="row">
    		<div class="col-4 col-sm-4 col-md-3 custom">
 				<p style="text-align: left;"><span style="color: #000000; font-size: 16px; font-family: Arial, &#39;Arial Unicode MS&#39;, Helvetica, sans-serif; font-variant: small-caps;"><span style="font-size: 14pt; color: #ffff00;">• </span>
 				<a href="">L'organigramme de la FGI</a></span></p>
@@ -44,11 +44,7 @@
        
     			</div>
    			</div>
-   			
-
-   			</div>
-   			
-   	
+   		</div>	
    		<div class="col-6 col-sm-4 col-md-3">
    			<div class="custom">
        			<img src="/storage/images/PngI2wwUjU.png" alt="LOGO-FGI et UDO" class="img-fluid" style="border: 1px none #000000;width: 95%;">
@@ -60,7 +56,7 @@
        				 e-mail : infosfgi-contact@fgi-udo.cm
        			</div>
    		</div>
-  	</div>
+   	</div>
   	<div class="row justify-content-center">
   			<p><span style="color: #d9e0e8; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 13px; line-height: 16px;">
 				<a href="https://iut-dla.cm">IUT</a> |
@@ -79,9 +75,7 @@
 				<a href="">La Bibliothèque U.</a> | </span>
 			</p>
 		</div>
+	<div class="row justify-content-center">
+		<p style="text-align: center;"><span style="color: #99a8ad; font-family: Tahoma, Arial, Helvetica, sans-serif;">© 2019 :: Faculté de Génie Industriel make by <a href="">@Jordan ANAFACK</a></span></p>
 	</div>
- 	<div class="row">
-			<p style="text-align: center;"><span style="color: #99a8ad; font-family: Tahoma, Arial, Helvetica, sans-serif;">© 2019 :: Faculté de Génie Industriel make by <a href=""><@Jordan ANAFACK/a></span></p>
-	</div>
-   	</div>
-</div>
+ </div>

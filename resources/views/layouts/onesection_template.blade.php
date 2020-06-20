@@ -33,12 +33,13 @@
             {{ Html::style('https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js') }}
         <![endif]-->
 
-        <style type="text/css">
+         <style type="text/css">
            [class*="col"] { margin-bottom: 5px; }
             img { width: 100%; }
             body { 
               margin-top: auto;
-              margin-left: 0;
+              margin-left: auto;
+             
              }
         </style>
     </head>

@@ -9,12 +9,14 @@ use App\Http\Requests\UserUpdateRequest;
 use App\Repositories\RespDeptRepository;
 
 use Illuminate\Http\Request;
+use App\Departement;
+
 
 class RespDeptController extends Controller
 {
      protected $respDeptRepository;
 
-    protected $nbrPerPage = 4;
+    protected $nbrPerPage = 10;
 
     public function __construct(RespDeptRepository $respDeptRepository)
     {
@@ -31,7 +33,10 @@ class RespDeptController extends Controller
 
     public function create()
     {
-        return view('backend.admin.users.createRespDept');
+        $Depts = DB::table("departement")->get();
+        return view('backend.admin.users.createRespDept',compact('Depts'));
+        //return view('backend.admin.users.createRespDept');
+   
     }
 
     public function store(RespDeptCreateRequest $request)

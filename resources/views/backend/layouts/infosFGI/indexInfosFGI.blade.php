@@ -14,7 +14,7 @@
                  @if(session('role') === "admin")
                   <div class="card-tools">
                     <button type="button" class="btn btn-danger btn-sm">
-                      {!! Form::open(['method' => 'DELETE', 'route' => ['infosfgi.destroy', $infoFGI->idInfo]]) !!}
+                      {!! Form::open(['method' => 'DELETE', 'route' => ['infosfgiAdmin.destroy', $infoFGI->idInfo]]) !!}
                         {!! Form::submit('x', ['class' => 'fas fa-times','onclick' => 'return confirm(\'Vroulez-vous vraiment supprimer ?\')']) !!}
                       {!! Form::close() !!}
                    </button>

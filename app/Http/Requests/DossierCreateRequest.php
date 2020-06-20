@@ -27,7 +27,7 @@ class DossierCreateRequest extends FormRequest
             'nomDOC' => 'required',
             'numBCA'  => 'required|unique:dossiers',
             'etape' => 'max:4',
-
+            'date_intr'  => 'required'
 
         ];
     }

@@ -38,14 +38,14 @@
                     </div>
                     <div class="form-group {!! $errors->has('date_intr') ? 'has-warning' : '' !!}">
                         <label for="datemask">Date d'introduction</label>
-                        <div class="input-group">
+                        <div class="input-group ">
                             <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                             </div>
                         <input type="text" id="datemask" name="date_intr" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" im-insert="false">
-                        {!! $errors->first('date_intr', '<small style="color: red;" class="form-text">:message</small>') !!}
                         
-                    </div>
+                        </div>
+                        {!! $errors->first('date_intr', '<small style="color: red;" class="form-text">:message</small>') !!}
                     </div>
                     <div class="form-group {!! $errors->has('etape') ? 'has-warning' : '' !!}">
                         <label for="etape">Etape</label>

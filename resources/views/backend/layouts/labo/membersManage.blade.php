@@ -67,6 +67,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                      @if(!empty($mbresHs))
                         @foreach ($mbresHs as $mbresH)
                             <tr>
                                 <td>{!! $mbresH->id !!}</td>
@@ -105,6 +106,7 @@
                                 </td>
                             </tr>
                         @endforeach
+                      @endif
                     </tbody>
                 </table>
            </div>
@@ -141,6 +143,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                      @if(!empty($mbres))
                         @foreach ($mbres as $mbre)
                             <tr>
                                 <td>{!! $mbre->id !!}</td>
@@ -179,6 +182,7 @@
                                 </td>
                             </tr>
                         @endforeach
+                      @endif
                     </tbody>
                 </table>
            </div>
@@ -212,7 +216,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($coords as $coord)
+                        @if(!empty($coords))
+                          @foreach ($coords as $coord)
                             <tr>
                                 <td>{!! $coord->id !!}</td>
                                 <td class="text-secondary"><strong>{!! $coord->gradePers !!}</strong></td>
@@ -243,13 +248,14 @@
 
                                 @endif
                                 <td>
-                                    {!! Form::open(['method' => 'DELETE', 'route' => [$routeDestroy, $mbre->id,'Coord' ]]) !!}
+                                    {!! Form::open(['method' => 'DELETE', 'route' => [$routeDestroy, $coord->id,'Coord' ]]) !!}
                                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
                                     {!! Form::close() !!}
                                 </td>
                                 
                             </tr>
                         @endforeach
+                      @endif
                     </tbody>
                 </table>
            </div>

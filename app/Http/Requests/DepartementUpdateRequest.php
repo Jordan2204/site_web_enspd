@@ -24,7 +24,7 @@ class DepartementUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'nomDept' => 'required|max:45',
+            'nomDept' => 'required|max:70',
             
             
         ];

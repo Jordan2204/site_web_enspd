@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\InfosFGIUpdateRequest;
 use App\Http\Requests\InfoFGICreateRequest;
 use App\Gestion\ImgGestionInterface;
@@ -77,15 +78,14 @@ class InfosFGIController extends Controller
       $request->request->add(['matPers' => $request->input('codeFECB')]);
       $request->request->add(['description' => '']);
       $codeFECB = $request->input('codeFECB'); 
-      $idMedia = 0;
-
+     
       if($imggestion->save($request->all())) {
 
           $idMedia = DB::table('medias')->where('titre', $codeFECB )->value('id');
           $request->request->add(['media_id' => $idMedia]);
           $infosFGI = $this->infosFGIRepository->store($request->all());
 
-          return redirect('admin/homeAdmin');
+          return redirect('admin/infosfgiAdmin');
 
       }else {
          return back();
@@ -150,9 +150,32 @@ class InfosFGIController extends Controller
    * @param  int  $id
    * @return Response
    */
+
+  public function destroyInStorage($image_path)
+    {
+     if(File::exists($image_path)){
+
+      File::delete($image_path);
+      return true;
+
+    }else{
+   
+      return false;
+    }
+  }
   public function destroy($id)
   {
+    $infosFGI = $this->infosFGIRepository->getById($id);
+    $media = $this->mediaRepository->getById($infosFGI->media_id);
+    //Suppression du media
+    $image_path = $media->chemin.'/'.$media->nom;
+
+    if ($this->destroyInStorage($image_path)) {
+        DB::delete('DELETE  from medias where titre = ? ',[$infosFGI->codeFECB]);
+        $this->infosFGIRepository->destroy($id);
+    }
     
+    return redirect('/admin/infosfgiAdmin');
   }
   
 }
