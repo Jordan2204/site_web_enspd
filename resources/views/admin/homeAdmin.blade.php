@@ -1,7 +1,7 @@
   @extends('admin/layouts/templateAdmin')
 
   @section('title')
-    Faculté de Génie Industriel | Admin
+    Polytechnique de Douala | Admin
   @endsection
 
   @section('dashboard')

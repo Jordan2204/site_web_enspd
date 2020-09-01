@@ -27,7 +27,8 @@
 
         <!-- Font Awesome -->
         <link rel="stylesheet" href="/vendor/AdminLTE-3.0.1/plugins/fontawesome-free/css/all.min.css">
-       
+
+        
         <!--[if lt IE 9]>
             {{ Html::style('https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js') }}
             {{ Html::style('https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js') }}
@@ -45,7 +46,8 @@
     </head>
     <body>
       <!-- Debut de la page-->
-      <div id="app" class="container-fluid">
+      <div class="content">
+          <div id="app" class="container-fluid">
          
           <!--header-->
           <div class="row"> 
@@ -60,39 +62,55 @@
           <!--corp de la page-->
 
           <!--Autres ets de l'udo-->
-          <div class="row">
-            @include('backend.include.carousel_partenaire')
+          <div class="row justify content-center">
+            <div class="col-12">
+              @include('backend.include.carousel_partenaire')
+            </div>
           </div>
           <!--Autres ets de l'udo-->
-         
+         <div id="scrollUp">
+              <a href="#top"><img style="width: 40px;height: 40px;" src="/storage/images/73e89hd9Pg.png"></a>
+          </div>
            
           <!--Inclusion du pieds de page-->
           <footer class="row art-footer">
-            @include('frontend/header_footer/pieds_de_page')
-         </footer>
+              @include('frontend/header_footer/pieds_de_page')
+          </footer>
           <!--Inclusion du pieds de page-->
+      </div>
     </div>
     <!-- Fin de la page-->
     
 
   <!-- plugins jQuery -->
     <script src="{{ asset('/js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ asset('/js/jquery.sticky.js') }}"></script>
 
      <!-- fichier js  -->
     <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
     <!--
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+     -->
     <script src="{{ asset('/js/bootnavbar.js') }}" ></script>
-    <script type="text/javascript" src="{{ asset('/js/script.responsive.js') }}"></script>
-
+    
 
     <script>
         $(function () {
             $('#bootnavbar').bootnavbar();
+            $("#bootnavbar").sticky({topSpacing:0});
+            $(window).scroll(function () {
+                        if ($(this).scrollTop() > 200 ) { 
+                            $('#scrollUp').css('right','10px');
+                        } else { 
+                            $('#scrollUp').removeAttr( 'style' );
+                        }
+ 
+                    });
         });
 
     </script>
+   
         <script>window.jQuery || document.write('<script src="/vendor/bootstrap4.0.0/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="{{ asset('/vendor/bootstrap-4.0.0/assets/js/vendor/popper.min.js') }}"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->

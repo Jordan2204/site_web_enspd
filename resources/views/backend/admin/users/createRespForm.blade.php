@@ -1,7 +1,7 @@
 @extends('admin/layouts/templateAdmin')
 
 @section('title')
-    FGI Admin | Création d'un utilisateur
+    {{ config('app.sigle') }} : Admin | Création d'un utilisateur
   @endsection
 
   @section('dashboard')

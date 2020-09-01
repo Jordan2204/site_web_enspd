@@ -37,10 +37,13 @@ class AdministrationCentraleController extends Controller
       from administrationcentrale as adminCent, medias as md
       where md.id = adminCent.media_id 
       ");
-    if( url()->current() == 'http://fgi-udo.local/adminCent') 
+    if( url()->current() == config('app.url').'/adminCent') 
      {
+
        return view('frontend.administrationcentrale',compact('persoAdminCents'));
+
      }else{
+      
       return view('backend.admin.adminCent.index',compact('persoAdminCents')); 
       
      }

@@ -2,7 +2,7 @@
 
 
 @section('titre')
-	Bienvenue en FGI 
+	Bienvenue a {{ config('app.sigle') }} 
 @endsection
 
 

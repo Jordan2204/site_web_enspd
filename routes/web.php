@@ -36,13 +36,13 @@ if(Auth::guest()){
         
        //Ligne
         $line = DB::table('medias')->where('titre','line')->first();
-        $iconeFGI = DB::table('medias')->where('titre','ico_fgi')->first();
+        $iconeFGI = DB::table('medias')->where('titre','ico_log')->first();
         $img_home_Bk = DB::table('medias')->where('titre','Home_BK')->first();
        
         //doyen
-        $doyen = DB::select('SELECT p.gradePers,p.nomPers,p.prenomPers,p.postePers,md.nom,md.chemin
+        $directeur = DB::select('SELECT p.gradePers,p.nomPers,p.prenomPers,p.postePers,md.nom,md.chemin
                             FROM medias md, personnel p 
-                            WHERE md.id = p.media_id and p.postePers = ?',['Doyen']);
+                            WHERE md.id = p.media_id and p.postePers = ?',['Directeur']);
         //logos
         $logom = DB::table('medias')->where('titre','img_email')->first();
         $logoy = DB::table('medias')->where('titre','logo_youtube')->first();
@@ -91,10 +91,18 @@ if(Auth::guest()){
         $depts =DB::table('departement')->get();
         $medias= DB::table('medias')->get();
 
-        //Les partenaires de la fgi
+        //Les partenaires de l'enspd
         $MediasPartenaires = DB::table('medias')->where('description','partenaireFGI')->get();
- 
-     
+
+
+        //Les livrets
+        $livrets = DB::table('medias')->where('description','livret')->get();
+
+        //Futurs articles
+        $articles = DB::table('posts')->orderBy('updated_at','DESC')->offset(0)->limit(3)->get();
+
+
+           
       //Enregistrement des variables dans la session
       session([
           'depts' => $depts ,
@@ -118,7 +126,7 @@ if(Auth::guest()){
           'mini_icones' => $mini_icones,
           'mediasAgenda' => $mediasAgenda,
           'mediasActu' => $mediasActu,
-          'doyen' => $doyen[0],
+          'directeur' => $directeur[0],
           'logom'=> $logom,
           'comPU'=> $comPU,
           'comET'=> $comET,
@@ -126,7 +134,9 @@ if(Auth::guest()){
           'img_home_Bk_chemin '=> $img_home_Bk->chemin,
           'fileE3MN' => $fileE3M->nom,
           'fileUFDN' => $fileUFD->nom,
-          'MediasPartenaires' => $MediasPartenaires
+          'MediasPartenaires' => $MediasPartenaires,
+          'livrets' => $livrets,
+          'articles'=> $articles
         
       ]);
 }
@@ -184,7 +194,12 @@ Route::group(['prefix' => '/'], function () {
   //Route::get('/download/{fichier}','FileDownloadController');
 
   Route::resource('dossierNA', 'DossierController');
-
+  Route::get('blog', 'PostController@index');
+  
+  //Le blog
+  Route::get('blog', 'PostController@indexPost');
+  Route::get('blog/post/{id}', 'PostController@getPost');
+  
 });
 
 Route::group(['prefix' => 'admin'], function () {
@@ -211,7 +226,7 @@ Route::group(['prefix' => 'admin'], function () {
 
  //Gestion des membres
   Route::get('membersManage','LaboController@membersManage')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-
+  Route::get('livretsManage','MediaController@getlivret')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
 
 //Gestion des medias
   Route::resource('mediasAdminCent', 'MediaController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
@@ -224,17 +239,18 @@ Route::group(['prefix' => 'admin'], function () {
 
   Route::resource('typemedia', 'TypeMediaController');
   Route::get('mediasManage/img', 'MediaController@getFormImg')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::get('mediasManagePart/img', 'MediaController@getFormImgPart')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
   Route::get('mediasManage/file', 'MediaController@getFormFile')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
   Route::get('mediasManage/video', 'MediaController@getFormVideo')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
   
   Route::post('mediasManage/img', 'MediaController@postFormImg')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-  Route::post('mediasManage/file', 'MediaController@postFormFile')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-  Route::post('mediasManage/video', 'MediaController@postFormVideo')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::post('mediasManagePart/img', 'MediaController@postFormImgPart')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  
 //////////////////////////////////
   //Gestion des medias
   Route::post('insolitesManage', 'MediaController@postFormImg')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
   Route::post('newsManage', 'MediaController@postFormImg')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
-  Route::post('mediasManage/file', 'MediaController@getFormFile')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+  Route::post('mediasManage/file', 'MediaController@postFormFile')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
   Route::post('mediasManage/video', 'MediaController@getFormVideo')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
 
 
@@ -266,6 +282,9 @@ Route::group(['prefix' => 'admin'], function () {
   Route::resource('docPartenaires', 'DossierController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
   Route::get('dossiersManage', 'DossierController@index')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
 
+//Articles
+   Route::resource('postsAdmin', 'PostController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
+   Route::get('postsManage', 'PostController@postsManage')->middleware('App\Http\Middleware\RedirectIfNotAdmin');
 
 //Labo E3M
     Route::resource('laboAdmin', 'LaboController')->middleware('App\Http\Middleware\RedirectIfNotAdmin');

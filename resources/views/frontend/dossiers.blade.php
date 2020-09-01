@@ -2,12 +2,12 @@
 
 
 @section('titre')
-	Le Laboratoire E3M
+	{{ config('app.namemaj') }} : Le Laboratoire E3M
 @endsection
 
 
 @section('section_principale')
-	<div><h1 style="text-align: center;">DOSSIERS EN CIRCULATION À LA FGI</h1></div><br>
+	<div><h1 style="text-align: center;">DOSSIERS EN CIRCULATION À {{ config('app.namemaj') }}</h1></div><br>
 	 <div class="card card-primary">
                 <div class="card-header">
                   <h3 class="card-title">Liste des Dossiers</h3>

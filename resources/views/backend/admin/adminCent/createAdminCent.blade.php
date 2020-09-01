@@ -1,7 +1,7 @@
 @extends('admin/layouts/templateAdmin')
 
  @section('title')
-    FGI Admin | Création d'un memebre de l'administration centrale
+     {{ config('app.sigle') }} :  Admin | Création d'un memebre de l'administration centrale
   @endsection
 
   @section('dashboard')
@@ -43,10 +43,10 @@
                     <div class="form-group {!! $errors->has('postePers') ? 'has-warning' : '' !!}">
                       <label for="postePers">Poste</label>
                        <select name="postePers" class="form-control select2bs4 select2-hidden-accessible" style="width: 100%; "data-select2-id="17" tabindex="-1" aria-hidden="true">
-                          <option  data-select2-id="31" value="Doyen" selected >Doyen</option>
-                          <option  data-select2-id="31" value="Vice-Doyen Chargé de la Programmation">Vice-Doyen Chargé de la Programmation</option>
-                          <option  data-select2-id="31" value="Vice-Doyen Chargé de la Scolarité">Vice-Doyen Chargé de la Scolarité</option>
-                          <option  data-select2-id="31" value="Vice-Doyen chargé de la Recherche et la Coopération">Vice-Doyen Chargé de la Recherche et la Coopération</option>
+                          <option  data-select2-id="31" value="Directeur" selected >Directeur</option>
+                          <option  data-select2-id="31" value="Direteur Adjoint">Direteur-Adjoint</option>
+                          <option  data-select2-id="31" value="Chef division de la Scolarité et des Etudes">Chef division de la Scolarité et des Etudes</option>
+                          <option  data-select2-id="31" value="Chef Cellule Informatique et des SI"> Chef de la Cellule Informatique et des systemes d'informations</option>
                         </select>
                     </div>
                     <div class="form-group {!! $errors->has('image') ? 'has-error' : '' !!}">

@@ -1,7 +1,7 @@
 @extends('admin/layouts/templateAdmin')
 
 @section('title')
-    FGI Admin | création d'un département
+    {{ config('app.sigle') }} : Admin | création d'un département
   @endsection
 
   @section('dashboard')

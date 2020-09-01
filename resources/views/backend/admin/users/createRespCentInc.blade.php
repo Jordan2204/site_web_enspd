@@ -1,7 +1,7 @@
 @extends('respcentinc/layouts/templateRespCentInc')
 
 @section('title')
-    FGI Admin | Création d'un utilisateur
+    {{ config('app.sigle') }} : Admin | Création d'un utilisateur
   @endsection
 
   @section('dashboard')

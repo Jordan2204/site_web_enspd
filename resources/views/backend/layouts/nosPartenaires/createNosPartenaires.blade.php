@@ -11,9 +11,9 @@
                         <div class="alert alert-danger">{!! session('error') !!}</div>
                     @endif
                      @if(session('role') === 'admin')
-                         {!! Form::open(['url' => 'admin/insolitesManage', 'files' => true]) !!}
+                         {!! Form::open(['url' => 'admin/mediasManagePart/img', 'files' => true]) !!}
                     @elseif(session('role') === 'respcom')
-                         {!! Form::open(['url' => 'respcom/insolitesManage', 'files' => true]) !!}
+                         {!! Form::open(['url' => 'respcom/mediasManagePart/img', 'files' => true]) !!}
                     @endif
                         <div class="form-group {!! $errors->has('titre') ? 'has-error' : '' !!}">
                            <label for="titre">Titre <span style="color: red;">*</span></label>

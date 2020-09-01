@@ -3,7 +3,7 @@
     <a href="{{ url('/admin/homeAdmin') }}" class="brand-link">
       <img src="/{{ session('iconeFGI')->chemin }}/{{ session('iconeFGI')->nom }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">FGI de l'UDo</span>
+      <span class="brand-text font-weight-light">{{ config('app.sigle') }}</span>
     </a>
 
     <!-- Sidebar -->
@@ -294,6 +294,32 @@
               </li>
             </ul>
           </li>
+          <li class="nav-header">SCOLARITE</li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-circle"></i>
+              <p>
+                Livret Etudiant
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin/livretsManage" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> Consulter</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+           <li class="nav-item has-treeview">
+            <a href="/admin/postsManage" class="nav-link">
+              <p>
+               <i class="far fa-circle nav-icon"></i>
+                Articles
+              </p>
+            </a>
+           </li>
           <li class="nav-item">
             <a href="/admin/nosPartenairesManage" class="nav-link">
               <i class="nav-icon fas fa-circle"></i>

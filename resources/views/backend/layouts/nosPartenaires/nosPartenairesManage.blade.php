@@ -43,10 +43,10 @@
     <div class="row  justify-content-center align-items-center">
       @if(session('role') === 'admin')
         <div>
-          <a href="/admin/mediasManage/img" class="btn btn-info">Ajouter Partenaire</a>
+          <a href="/admin/mediasManagePart/img" class="btn btn-info">Ajouter Partenaire</a>
           <br><br><br><br>    
       @elseif(session('role') === 'respcom')
-        <a href="/respcom/mediasManage/img" class="btn btn-info">Ajouter Partenaire</a>
+        <a href="/respcom/mediasManagePart/img" class="btn btn-info">Ajouter Partenaire</a>
         <br><br><br><br>             
       @endif
    </div>

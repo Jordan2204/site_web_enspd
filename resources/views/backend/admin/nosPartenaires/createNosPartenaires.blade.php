@@ -9,7 +9,7 @@
   @endsection
 
   @section('apresHome')
-   InsolitesManage/Create/Partenaire
+   PartenaireManage/Create/Partenaire
   @endsection
 
 @section('content')

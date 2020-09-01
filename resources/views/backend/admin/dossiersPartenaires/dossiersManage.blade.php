@@ -1,7 +1,7 @@
 @extends('admin/layouts/templateAdmin')
 
  @section('title')
-    FGI Admin | Gestion des dossiers
+    {{ config('app.sigle') }} : Admin | Gestion des dossiers
   @endsection
 
   @section('dashboard')

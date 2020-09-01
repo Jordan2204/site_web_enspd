@@ -25,8 +25,8 @@
                         <div class="alert alert-danger">{!! session('error') !!}</div>
                     @endif
                     <?php 
-                        $urlPage = 'http://fgi-udo.local/admin/mediasAdminCent/'.$media->id.'/edit';
-                         $urlPage2 = 'http://fgi-udo.local/admin/mediasAdmin/'.$media->id.'/edit';
+                        $urlPage = config('app.url').'/admin/mediasAdminCent/'.$media->id.'/edit';
+                         $urlPage2 = config('app.url').'/admin/mediasAdmin/'.$media->id.'/edit';
                      ?>
                    @if(url()->current() === $urlPage)
                     {!! Form::model($media, ['route' => ['mediasAdminCent.update', $media->id],'method' => 'PUT','files' => true, 'class' => 'form-horizontal panel']) !!}

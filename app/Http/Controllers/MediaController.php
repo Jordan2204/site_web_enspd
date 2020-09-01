@@ -35,17 +35,37 @@ class MediaController extends Controller
     return view('backend.admin.nosPartenaires.nosPartenairesManage',compact('MediasPartenaires'));
   }
 
+  public function getlivret()
+  {
+    $livrets = DB::table('medias')->where('description','livret')->get();
+    return view('backend.admin.livrets.livretsManage',compact('livrets'));
+  }
+
   public function getFormImg()
     {
         return view('backend/admin/medias/img');
     }
+  public function getFormImgPart()
+    {
+        return view('backend/admin/nosPartenaires/createNosPartenaires');
+    }
 
+    public function postFormImgPart(ImagesRequest $request, ImgGestionInterface $imggestion) {
+       $request->request->add(['description' => 'partenaireFGI']);
+
+       if($imggestion->save($request->all())) {
+
+          return redirect('admin/nosPartenairesManage');
+     
+       }
+   
+
+    }
+    
     public function postFormImg(ImagesRequest $request, ImgGestionInterface $imggestion)
     {
 
-      $ok = 'Image reçu et enregistrée';
-      $error = 'Désolé l\'image ne peut pas être envoyée !';
-
+     
       if ($request->is('respcom/insolitesManage') or $request->is('admin/insolitesManage')) {
 
           $request->request->add(['description' => 'Insolite']);
@@ -111,37 +131,11 @@ class MediaController extends Controller
     public function postFormFile(FilesRequest $request, FilesGestionInterface $fileGestion)
     {
 
-      $ok = 'Image reçu et enregistrée';
-      $error = 'Désolé l\'image ne peut pas être envoyée !';
-
-      if ($request->is('respcom/insolitesManage')) {
-
-            $request->request->add(['description' => 'Insolite']);
-
-        }elseif($request->is('respcom/newsManage')){
-
-          $request->request->add(['description' => 'News']);
-        }
-
+      $error = 'Désolé le fichier ne peut pas être envoyée !';
         if($fileGestion->save($request->all())) {
 
-          if ($request->is('admin/*')) {
-
-             return view('backend/admin/medias/mediaOk',['ok' => $ok]);
-
-          }elseif ($request->is('respcom/insolitesManage')) {
-
-            return view('backend/respcom/medias/mediaOk',['ok' => $ok]);
-
-          }elseif ($request->is('respcom/newsManage')) {
-            //On actualise la table news
-            $idMedia = DB::table('medias')->where('titre',$request->input('titre'))->value('id');
-            DB::insert('insert into news (categorie,media_id,url) values(?,?,?)',[$request->input('categorie'),$idMedia,$request->input('url')]);
-
-            return view('backend/respcom/news/mediaOk',['ok' => $ok]);
-          }
-           
-        } 
+             return back()->withOk("Fichier reçu et enregistrée");
+         } 
 
         if ($request->is('admin/*')) {
 
@@ -232,9 +226,9 @@ class MediaController extends Controller
 
     if (session('role') == 'admin') {
 
-        $urlPage = 'http://fgi-udo.local/admin/mediasAdminFichier/'.$id.'/edit';
-        $urlPage2 = 'http://fgi-udo.local/admin/mediasAdmin/'.$id.'/edit';
-        $urlPage3 = 'http://fgi-udo.local/admin/mediasAdminCent/'.$id.'/edit';
+        $urlPage = config('app.url').'/admin/mediasAdminFichier/'.$id.'/edit';
+        $urlPage2 = config('app.url').'/admin/mediasAdmin/'.$id.'/edit';
+        $urlPage3 = config('app.url').'/admin/mediasAdminCent/'.$id.'/edit';
        
         if(url()->current() == $urlPage){
 

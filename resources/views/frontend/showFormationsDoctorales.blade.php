@@ -2,7 +2,7 @@
 
 
 @section('titre')
-	Les Formations Doctorales
+	{{ config('app.sigle') }} : Les Formations Doctorales
 @endsection
 
 

@@ -1,13 +1,3 @@
-  <div class="col-12 col-sm-6 col-md-12">
-    <div class="art-block clearfix">
-      <div class="art-blockcontent">
-        <div class="custom">
-         <p style="text-align: center;"><a href="http://webmail.fgi-udo.cm/" target="_blank" rel="noopener "><img src="/storage/images/oyZW4otOad.png"  style="border: 1px none rgb(0, 0, 0); margin: 0px; width: 100%; max-width: 30px; height: auto;"></a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="col-6 col-sm-6 col-md-12" style="height: 100%">
     <div class="art-vmenublock clearfix">
       <div class="art-vmenublockcontent">
@@ -36,9 +26,9 @@
   <div class="row justify-content-center">
      @foreach (session('mini_icones') as $mini_icone)
       @if ($mini_icone->titre == 'E3M')
-        <div class="col-4 col-sm-4 col-md-8 col-lg-4">
+        <div class="col-4 col-sm-4 col-lg-4">
       @else
-        <div class="col-4 col-sm-4 col-md-6 col-lg-4">
+        <div class="col-4 col-sm-4 col-lg-4">
       @endif
         @if ($mini_icone->titre == 'E3M')
            <a href="/laboNA/{{ $mini_icone->idDept }}" title="{{ $mini_icone->titre }}"><img src="/{{ $mini_icone->chemin }}/{{ $mini_icone->nom }}"  style="margin: 0px 0px 0px; border: 1px none #000000; width: 100%;"></a>

@@ -1,7 +1,7 @@
 @extends('admin/layouts/templateAdmin')
 
  @section('title')
-    FGI Admin | Gestion des memembres de l'administration centrale
+    {{ config('app.sigle') }} : Admin | Gestion des memembres de l'administration centrale
   @endsection
 
   @section('dashboard')
@@ -21,7 +21,7 @@
     </div>
     <div class="row">
         @foreach ( $persoAdminCents as $persoAdminCent)
-          <div class="col-md-4">
+          <div class="col-12 col-sm-6 col-md-4">
               <div class="card mb-4 box-shadow">
                  <div class="card-header">
                     <h3 class="card-title">{!! $persoAdminCent->gradePers !!} {!! $persoAdminCent->nomPers !!} {!! $persoAdminCent->prenomPers !!}</h3>

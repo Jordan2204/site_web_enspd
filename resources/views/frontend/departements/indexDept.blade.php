@@ -2,14 +2,14 @@
 
 
 @section('titre')
-	Les départements de la FGI
+	Les départements de {{ config('app.sigle') }}
 @endsection
 
 
 @section('section_principale')
 		<div class="row justify-content-center">
 			@foreach ($depts as $dept) 
-			<div class="col-12 col-sm-6 col-md-4">
+			<div class="col-6 col-sm-6 col-lg-4">
 				<div class="card mb-2" style="height:100%">
 					@foreach ($medias as $media)
 					@if ($dept->media_id == $media->id)

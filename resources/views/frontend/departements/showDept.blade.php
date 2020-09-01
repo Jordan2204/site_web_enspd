@@ -2,7 +2,7 @@
 
 
 @section('titre')
-	Bienvenue en FGI - Bienvenue au  Département {{ $dept->nomDept }}
+	Bienvenue a {{ config('app.sigle') }} - Bienvenue au  Département {{ $dept->nomDept }}
 @endsection
 
 

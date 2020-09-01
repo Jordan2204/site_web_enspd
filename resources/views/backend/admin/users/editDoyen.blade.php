@@ -1,7 +1,7 @@
 @extends('admin/layouts/templateAdmin')
 
 @section('title')
-    admin
+    Admin
   @endsection
 
   @section('dashboard')

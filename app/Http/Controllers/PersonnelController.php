@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-
 use App\Gestion\ImgGestionInterface;
 use App\Http\Requests\ImagesRequest;
 use App\Repositories\MediaRepository;
@@ -43,7 +42,7 @@ class PersonnelController extends Controller
                            p.id = tpp.Personnel_idPers and tpp.TypePersonnel_idTypePersonnel = tp.idTypePersonnel and tp.libelleTypePersonnel = ?
       ',['MAdminCent']);
        
-        if( url()->current() == 'http://fgi-udo.local/adminCentNA') 
+        if( url()->current() == config('app.url').'/adminCentNA') 
          {
            return view('frontend.administrationcentrale',compact('persoAdminCents'));
 
@@ -96,19 +95,19 @@ class PersonnelController extends Controller
     public function create()
     {
 
-        if(url()->current() == 'http://fgi-udo.local/respecoledoct/personnel/create'){
+        if(url()->current() == config('app.url').'/respecoledoct/personnel/create'){
 
             return view('backend.respecoledoct.createMembre');
 
-        }elseif(url()->current() == 'http://fgi-udo.local/respdept/personnelDept/create'){
+        }elseif(url()->current() == config('app.url').'/respdept/personnelDept/create'){
 
             return view('backend.respdept.responsables.createResponsable');
 
-        }elseif(url()->current() == 'http://fgi-udo.local/admin/adminCent/create') {
+        }elseif(url()->current() == config('app.url').'/admin/adminCent/create') {
 
             return view('backend.admin.adminCent.createAdminCent');
 
-        }elseif(url()->current() == 'http://fgi-udo.local/admin/personnelAdmin/create') {
+        }elseif(url()->current() == config('app.url').'/admin/personnelAdmin/create') {
 
             return view('backend.admin.labo.createMembre');
         }
@@ -281,8 +280,8 @@ class PersonnelController extends Controller
 
             $adminCent = DB::table('personnel')->where('id',$id)->first();
             $membre = DB::table('personnel')->where('id',$id)->first();
-            $urlPage = 'http://fgi-udo.local/admin/personnelAdmin/'.$id.'/edit';
-            $urlPage2 = 'http://fgi-udo.local/admin/adminCent/'.$id.'/edit';
+            $urlPage = config('app.url').'/admin/personnelAdmin/'.$id.'/edit';
+            $urlPage2 = config('app.url').'/admin/adminCent/'.$id.'/edit';
           
             if (url()->current() == $urlPage) {
 
@@ -454,7 +453,7 @@ class PersonnelController extends Controller
 
         }elseif (session('role') == 'admin') {
 
-            $urlPage = 'http://fgi-udo.local/admin/personnelAdmin/destroy/'.$id.'/'.$choixM;
+            $urlPage = config('app.url').'/admin/personnelAdmin/destroy/'.$id.'/'.$choixM;
             if (url()->current() ==  $urlPage) {
                  $idType = DB::table('typepersonnel')->where('libelleTypePersonnel',$choixM)->value('idTypePersonnel');
            

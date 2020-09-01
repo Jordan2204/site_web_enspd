@@ -15,7 +15,7 @@
           [class*="col"] { margin-bottom: 20px; }
           img { width: 100%; }
           body { margin-top: 10px; }
-      </style>
+        </style>
       
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">

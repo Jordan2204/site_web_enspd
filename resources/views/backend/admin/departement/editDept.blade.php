@@ -1,6 +1,6 @@
 @extends('admin/layouts/templateAdmin')
 	@section('title')
-	  FGI RespDept |  Gestion des départements
+	  {{ config('app.sigle') }} : RespDept |  Gestion des départements
 	@endsection
 
 	@section('dashboard')

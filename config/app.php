@@ -13,7 +13,10 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'fgi-udo.cm'),
+    'name' => env('APP_NAME', 'Ecole Nationale Supérieure Polytechnique de Douala'),
+    'namemaj' => env('APP_NAMEMAJ', 'ENSPD'),
+    'sigle' => env('APP_SIGLE', 'l\'ENSPD'),
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -40,7 +43,7 @@ return [
     */
 
     'debug' => env('APP_DEBUG', true),
-
+   
     /*
     |--------------------------------------------------------------------------
     | Application URL

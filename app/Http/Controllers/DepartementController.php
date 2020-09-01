@@ -61,7 +61,7 @@ class DepartementController extends Controller
     $medias= $this->mediaRepository->getPaginate($this->nbrPerPageMedia);
     $links = $depts->render();
 
-    if( url()->current() == 'http://fgi-udo.local/departementNA') 
+    if( url()->current() == config('app.url').'/departementNA') 
      {
       return view('frontend.departements.indexDept', compact('depts', 'links','medias'));
 

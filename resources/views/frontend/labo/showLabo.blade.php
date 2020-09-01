@@ -2,7 +2,7 @@
 
 
 @section('titre')
-	Le Laboratoire E3M
+	{{ config('app.sigle') }} : Le Laboratoire E3M
 @endsection
 
 
