@@ -4,7 +4,7 @@
     <meta charset="utf-8">
   </head>
   <body>
-    <h2 style="color: blue;">Prise de contact sur le site de la Faculté de Génie industriel</h2>
+    <h2 style="color: blue;">Prise de contact sur le site de l'Ecole Nationale Supérier</h2>
     <p>Réception d'une prise de contact avec les éléments suivants :</p>
     <ul>
       <li><strong>Nom</strong> : {{ $nom }}</li>

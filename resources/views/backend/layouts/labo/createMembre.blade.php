@@ -7,7 +7,12 @@
             </div>
             <div class="card-body"> 
                 <div class="col-sm-12">
-                    {!! Form::open(['route' => 'personnel.store', 'class' => 'form-horizontal panel']) !!} 
+                    @if(session('role') === 'admin')
+                     {!! Form::open(['route' => 'personnelAdmin.store', 'class' => 'form-horizontal panel']) !!} 
+                    @elseif(session('role') === 'respecoledoct')
+                     {!! Form::open(['route' => 'personnel.store', 'class' => 'form-horizontal panel']) !!} 
+                    @endif
+                   
                      <div class="form-group {!! $errors->has('gradePers') ? 'has-warning' : '' !!}">
                         <label for="gradePers">Grade</label>
                         {!! Form::text('gradePers', null, ['class' => 'form-control','id' => 'gradePers', 'placeholder' => 'Grade']) !!}
@@ -17,7 +22,7 @@
                     <div class="form-group {!! $errors->has('nomPers') ? 'has-warning' : '' !!}">
                         <label for="lieuDeServicePers">Nom</label>
                         {!! Form::text('nomPers', null, ['class' => 'form-control','id' => 'nomPers', 'placeholder' => 'Nom']) !!}
-                        {!! $errors->first('nomPers', '<small class="help-block">:message</small>') !!}
+                        {!! $errors->first('nomPers', '<small class="help-block" style="color: red;">:message</small>') !!}
 
                     </div>
 
@@ -46,11 +51,10 @@
                         </select>
                     </div>
                     <div>
-                        <a href="javascript:history.back()" class="btn btn-primary align-items-center">         Retour
-                         <span class="glyphicon glyphicon-circle-arrow-left "></span>
-                         </a>
+                        <a href="javascript:history.back()" class="btn btn-primary float-left"> <i class="fas fa-chevron-circle-left"> Retour</i> 
+                          </a>
                     
-                        {!! Form::submit('Envoyer', ['class' => 'btn btn-primary float-right ']) !!}
+                        {!! Form::submit('Créer', ['class' => 'btn btn-primary float-right ']) !!}
                      </div>
                    
                     {!! Form::close() !!}

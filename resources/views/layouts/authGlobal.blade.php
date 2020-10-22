@@ -8,10 +8,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>PLATEFORME D'ADMINISTRATION DE LA FGI</title>
+    <title>PLATEFORME D'ADMINISTRATION DE {{ config('app.sigle') }}</title>
 
     @include('backend.include.style')
-   
+    <link rel="stylesheet" type="text/css" href=" {{ asset('css/mbootstrap4.min.css') }}">
     <style type="text/css">
       [class*="col"] { margin-bottom: 20px; }
       img { width: 100%; }

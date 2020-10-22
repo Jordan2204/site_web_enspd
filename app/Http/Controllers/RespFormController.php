@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
 
@@ -64,9 +65,20 @@ class RespFormController extends Controller
 
     public function update(UserUpdateRequest $request, $id)
     {
-        if (!$request->has('auth')) {
-             $request->request->add(['auth' => '0']);
+        $respForm = $this->respFormRepository->getById($id);
 
+        if (!$request->has('auth')) {
+            $request->request->add(['auth' => '0']);
+             if ($respForm->auth) {
+                 $request->request->add(['date_Auth' => NULL]);
+            }
+
+        }
+
+        if (!$respForm->auth) {
+            DB::update('UPDATE respforms
+                        SET date_Auth = NOW()
+                        WHERE id = ?',[$id]);
         }
         $this->respFormRepository->update($id, $request->all());
         

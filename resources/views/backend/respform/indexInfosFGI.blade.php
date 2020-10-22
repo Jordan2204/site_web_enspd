@@ -1,6 +1,6 @@
 @extends('respform/layouts/templateRespForm')
 @section('title')
-  FGI RespForm |  Gestion des formations
+  {{ config('app.sigle') }} : RespForm |  Gestion des formations
 @endsection
 
 @section('dashboard')

@@ -61,7 +61,7 @@ class DepartementController extends Controller
     $medias= $this->mediaRepository->getPaginate($this->nbrPerPageMedia);
     $links = $depts->render();
 
-    if( url()->current() == 'http://fgi-udo.local/departementNA') 
+    if( url()->current() == config('app.url').'/departementNA') 
      {
       return view('frontend.departements.indexDept', compact('depts', 'links','medias'));
 
@@ -179,7 +179,7 @@ class DepartementController extends Controller
         $this->departementRepository->update($id, $request->all());
         $departement = $this->departementRepository->getById($id);
    
-       return back()->withOk("Mise a du département  $departement->nomDept effectué");
+       return back()->withOk("Mise a jour du département  $departement->nomDept effectué");
     }
 
   /**
@@ -190,7 +190,7 @@ class DepartementController extends Controller
    */
   public function destroy($id)
   {
-    
+    $this->departementRepository->destroy($id);
   }
   
 }

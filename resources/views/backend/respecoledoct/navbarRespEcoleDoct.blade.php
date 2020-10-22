@@ -24,7 +24,7 @@
 
                   <ul class="dropdown-menu" role="menu">
                       <li>
-                          {!! link_to_route('respEcoleDoct.show', 'Profil', [session('id_user')], ['class' => 'dropdown-item ']) !!}
+                          {!! link_to_route('respEcoleDoctDoct.show', 'Profil', [session('id_user')], ['class' => 'dropdown-item ']) !!}
                       </li>
                       <li class="dropdown-divider"></li>
                       <li>

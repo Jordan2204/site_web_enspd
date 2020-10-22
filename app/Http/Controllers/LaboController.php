@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
-
 use App\Repositories\LaboRepository;
 use App\Repositories\PartenaireLaboRepository;
 
@@ -151,7 +149,7 @@ class LaboController extends Controller
   {
      $this->laboRepository->update($id, $request->all());
         
-      return back();
+      return back()->withOk("Mise a jour effectuée");
   }
 
   /**

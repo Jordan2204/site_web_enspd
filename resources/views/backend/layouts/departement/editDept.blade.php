@@ -6,7 +6,11 @@
 </div>
 <div class="row justify-content-center align-items-center">
   <div class="col-lg-9 col-sm-7 col-xm-9">
-     {!! Form::model($departement, ['route' => ['departement.update', $departement->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+    @if(session('role') === 'admin')
+      {!! Form::model($departement, ['route' => ['departementAdmin.update', $departement->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+    @elseif(session('role') === 'respdept')
+      {!! Form::model($departement, ['route' => ['departement.update', $departement->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+    @endif
 
       <div class="card card-primary">   
           <div class="card-header">

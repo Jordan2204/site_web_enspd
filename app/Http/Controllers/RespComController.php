@@ -96,7 +96,7 @@ class RespComController extends Controller
      {
 
         $insolites =  DB::table('medias')->where('description','Insolite')->get();
-        //$links = $insolites->links();
+        $links = $insolites->links();
 
       if (session('role') == 'admin') {
 
@@ -147,16 +147,27 @@ class RespComController extends Controller
 
     public function edit($id)
     {
-        $respCom = $this->respComRepository->getById($id);
+      $respCom = $this->respComRepository->getById($id);
 
         return view('backend.admin.users.editRespCom',  compact('respCom'));
     }
 
     public function update(UserUpdateRequest $request, $id)
     {
-        if (!$request->has('auth')) {
-             $request->request->add(['auth' => '0']);
+      $respCom = $this->respComRepository->getById($id);
 
+        if (!$request->has('auth')) {
+            $request->request->add(['auth' => '0']);
+             if ($respCom->auth) {
+                 $request->request->add(['date_Auth' => NULL]);
+            }
+
+        }
+
+        if (!$respCom->auth) {
+            DB::update('UPDATE respcoms 
+                        SET date_Auth = NOW()
+                        WHERE id = ?',[$id]);
         }
         $this->respComRepository->update($id, $request->all());
         

@@ -5,6 +5,11 @@
       $routeDelete = "personnelAdmin.delete";
       $routeIndex = "personnelAdmin.index";
       $routeDestroy = "personnelAdmin.destroyP";
+      $routeEditPart = "partenairelaboAdmin.edit";
+      $routeShowPart = "partenairelaboAdmin.show";
+      $routeDeletePart = "partenairelaboAdmin.destroy";
+     
+     
      ?>
   @elseif(session('role') === 'respecoledoct')
     <?php 
@@ -13,6 +18,11 @@
       $routeDelete = "personnel.delete";
       $routeIndex = "personnel.index";
       $routeDestroy = "personnel.destroyP";
+      $routeEditPart = "partenairelabo.edit";
+      $routeShowPart = "partenairelabo.show";
+      $routeDeletePart = "partenairelabo.destroy";
+     
+     
    ?>
   @endif
   <div class="rows">
@@ -57,6 +67,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                      @if(!empty($mbresHs))
                         @foreach ($mbresHs as $mbresH)
                             <tr>
                                 <td>{!! $mbresH->id !!}</td>
@@ -95,6 +106,7 @@
                                 </td>
                             </tr>
                         @endforeach
+                      @endif
                     </tbody>
                 </table>
            </div>
@@ -131,6 +143,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                      @if(!empty($mbres))
                         @foreach ($mbres as $mbre)
                             <tr>
                                 <td>{!! $mbre->id !!}</td>
@@ -169,6 +182,7 @@
                                 </td>
                             </tr>
                         @endforeach
+                      @endif
                     </tbody>
                 </table>
            </div>
@@ -202,7 +216,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($coords as $coord)
+                        @if(!empty($coords))
+                          @foreach ($coords as $coord)
                             <tr>
                                 <td>{!! $coord->id !!}</td>
                                 <td class="text-secondary"><strong>{!! $coord->gradePers !!}</strong></td>
@@ -233,13 +248,14 @@
 
                                 @endif
                                 <td>
-                                    {!! Form::open(['method' => 'DELETE', 'route' => [$routeDestroy, $mbre->id,'Coord' ]]) !!}
+                                    {!! Form::open(['method' => 'DELETE', 'route' => [$routeDestroy, $coord->id,'Coord' ]]) !!}
                                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
                                     {!! Form::close() !!}
                                 </td>
                                 
                             </tr>
                         @endforeach
+                      @endif
                     </tbody>
                 </table>
            </div>
@@ -279,20 +295,20 @@
                                 <td class="text-secondary"><strong>{!! $partnaire->nomLabo!!}</strong></td>
                                 
                                 <td>
-                                  <a href="{{ route('partenairelabo.show',[$partnaire->id])}}" class="btn btn-success btn-block">
+                                  <a href="{{ route($routeShowPart,[$partnaire->id])}}" class="btn btn-success btn-block">
                                     <i class="fa fa-eye" aria-hidden="true">  Voir</i>
                                   </a> 
                                 </td>
 
                                 <td>
-                                  <a href="{{ route('partenairelabo.edit',[$partnaire->id])}}" class="btn btn-warning btn-block">
+                                  <a href="{{ route($routeEditPart,[$partnaire->id])}}" class="btn btn-warning btn-block">
                                     <i class="fa fa-edit" aria-hidden="true">  Modifier</i>
                                   </a> 
                                 </td>
 
 
                                 <td>
-                                    {!! Form::open(['method' => 'DELETE', 'route' => ['partenairelabo.destroy', $partnaire->id]]) !!}
+                                    {!! Form::open(['method' => 'DELETE', 'route' => [$routeDeletePart, $partnaire->id]]) !!}
                                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
                                     {!! Form::close() !!}
                                 </td>

@@ -4,7 +4,7 @@
 @endsection
 
 @section('dashboard')
-  Gestion des formations
+  <li class="fas fa-edit"></li> Gestion des formations
 @endsection
 
 @section('apresHome')

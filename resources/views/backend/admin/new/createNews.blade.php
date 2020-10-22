@@ -5,7 +5,7 @@
 @endsection
 
 @section('dashboard')
-    Création des News
+     <li class="fas fa-edit"></li> Création des News
 @endsection
 
 @section('apresHome')

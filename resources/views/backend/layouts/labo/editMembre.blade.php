@@ -22,7 +22,12 @@
                     <h3 class=" card-title">Modification d'un Membre</h3>
                 </div>
             <div class="card-body "> 
+                @if(session('role') === 'admin')
+                    {!! Form::model($membre, ['route' => ['personnelAdmin.update', $membre->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+                @elseif(session('role') === 'respecoledoct')
                     {!! Form::model($membre, ['route' => ['personnel.update', $membre->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+                @endif
+                    
 
                     <div class="form-group {!! $errors->has('gradePers') ? 'has-warning' : '' !!}">
                         <label for="gradePers">Grade</label>
@@ -61,11 +66,11 @@
                                 <option  data-select2-id="32" value="1" selected="selected">E3M</option>
                         </select>
                     </div>
-                        <a href="javascript:history.back()" class="btn btn-primary float-left"><i class="fas fa-chevron-circle-left"></i> Retour
+                        <a href="javascript:history.back()" class="btn btn-primary float-left"><i class="fas fa-chevron-circle-left"> Retour</i> 
                          </a>
                     
                     
-                        {!! Form::submit('Envoyer', ['class' => 'btn btn-primary float-right']) !!}
+                        {!! Form::submit('Update', ['class' => 'btn btn-primary float-right']) !!}
                     {!! Form::close() !!}
                 </div>
             </div>

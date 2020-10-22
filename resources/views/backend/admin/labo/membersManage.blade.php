@@ -1,7 +1,7 @@
 @extends('admin/layouts/templateAdmin')
 
  @section('title')
-    Resp Ecole Doct
+    Administrateur
   @endsection
 
   @section('dashboard')

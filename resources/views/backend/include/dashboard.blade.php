@@ -16,6 +16,25 @@
         </div>
       </div>
       <!-- ./col -->
+       <div class="col-lg-6 col-6">
+        <!-- small box -->
+        <div class="small-box bg-danger">
+          <div class="inner">
+            @if(session('auth'))
+              <p>Temps qu'il vous reste pour effectuer la mise a jour</p>
+              <h3>{{ $date_gestion->difference }}</h3>
+            @else
+                <h4>Vous n'avez pas l'autorisation</h4>
+                <h4> Veuillez contacter votre administrateur</h4>
+            @endif
+        
+          </div>
+          <div class="icon">
+            <i class="ion ion-clock"></i>
+          </div>
+         </div>
+      </div>
+      <!-- ./col -->
     </div>
     <!-- /.row -->
     <!-- Main row -->

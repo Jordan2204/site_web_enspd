@@ -1,3 +1,8 @@
+<div class="row justify-content-center" >
+  @if(session()->has('ok'))
+    <button id="update" hidden class="toastrDefaultSuccess">ok</button>
+  @endif
+</div>
     <div class="row justify-content-center align-items-center">
 
          <div class="col-lg-9 col-sm-7 col-xm-9">
@@ -8,7 +13,11 @@
 
                 <div class="card-body "> 
                     <div class="col-sm-12">
-                        {!! Form::model($infosFGI, ['route' => ['infosfgi.update', $infosFGI->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+                       @if(session('role') === 'admin')
+                          {!! Form::model($infosFGI, ['route' => ['infosfgiAdmin.update', $infosFGI->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+                       @elseif(session('role') === 'respform')
+                          {!! Form::model($infosFGI, ['route' => ['infosfgi.update', $infosFGI->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+                       @endif
                         <div class="form-group {!! $errors->has('titreFECB') ? 'has-error' : '' !!}">
                             <label for="titreFECB">Titre de la page</label>                        {!! Form::text('titreFECB', null, ['class' => 'form-control','id' => 'nomDept', 'placeholder' => 'titre de la page']) !!}
                             {!! $errors->first('titreFECB', '<small class="help-block">:message</small>') !!}
@@ -43,9 +52,9 @@
                         </div>
                         <div>
                             <a href="javascript:history.back()" class="btn btn-primary">
-                                    <span class=""></span> <span>Retour</span>
+                              <i class="fas fa-chevron-circle-left"> Retour</i>
                             </a>
-                             {!! Form::submit('Envoyer', ['class' => 'btn btn-primary float-right']) !!}
+                             {!! Form::submit('Update', ['class' => 'btn btn-primary float-right']) !!}
                             {!! Form::close() !!}
                         
                         </div>

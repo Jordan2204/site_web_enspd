@@ -46,8 +46,8 @@
                         </tbody>
                         
                     </table>
-                     <a href="javascript:history.back()" class="btn btn-primary">
-                      <span class="glyphicon glyphicon-circle-arrow-left"></span> Retour
+                    <a href="javascript:history.back()" class="btn btn-primary">
+                      <i class="fas fa-chevron-circle-left"> Retour</i>
                     </a>
                     {!! link_to_route('personnelDept.edit', 'Modifier', [$resp->id], ['class' => 'btn btn-warning  float-right']) !!}
 

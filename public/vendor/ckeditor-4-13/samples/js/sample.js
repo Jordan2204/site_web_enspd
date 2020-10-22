@@ -32,6 +32,9 @@ CKEDITOR.config.toolbarGroups = [
 		{ name: 'about', groups: [ 'about' ] }
 	];
 
+CKEDITOR.config.removeButtons = 'Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Flash,About';
+
+
 
 var initSample = ( function() {
 	var wysiwygareaAvailable = isWysiwygareaAvailable(),

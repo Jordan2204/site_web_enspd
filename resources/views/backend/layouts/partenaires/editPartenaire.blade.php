@@ -32,7 +32,7 @@
                       <a href="javascript:history.back()" class="btn btn-primary float-left"><i class="fas fa-chevron-circle-left"> </i> Retour
                       </a>
                     
-                        {!! Form::submit('Envoyer', ['class' => 'btn btn-primary float-right']) !!}
+                        {!! Form::submit('Update', ['class' => 'btn btn-primary float-right']) !!}
                     {!! Form::close() !!}
                     </div>
                     </div>

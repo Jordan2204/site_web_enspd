@@ -2,22 +2,21 @@
 
 
 @section('titre')
-	Page de contact
+	{{ config('app.sigle') }} : Page de contact
 @endsection
 
 @section('section_principale')
     <div align="center">
-        <h1 style="text-align: center;">LOCALISATION DE LA FACULTE DE GENIE INDUSTRIEL(FGI) </h1><br> 
-       <br> 
+        <h1 style="text-align: center;">LOCALISATION DE l'{{ config('app.name') }} ({{ config('app.sigle') }}) </h1><br> 
     <div class="row justify-content-center">
-            <iframe  src="https://www.google.com/maps/d/u/0/embed?mid=1GbPvCjhaoxX2KaPqmJ-l2L6yb7Ub_Y_X" width="700" height="500">
+            <iframe  src="https://www.google.com/maps/d/u/0/embed?mid=1GbPvCjhaoxX2KaPqmJ-l2L6yb7Ub_Y_X" width="950" height="500">
             </iframe><br><br>
     </div>
         
     </div>
-    <div><br><br>
-        <h1 style="text-align: center;">COMMENT NOUS CONCTACTER</h1><br>
-        <p class="kt-contact-description">Vous avez une question ? Besoin de renseignement ? Prenez contact avec la <strong>Faculté de Génie Industriel</strong> via le formulaire de contact ci-dessous, et nous vous donnerons une réponse dans un court délai.</p>
+    <div><br>
+        <h1 style="text-align: center;">COMMENT NOUS CONTACTER</h1><br>
+        <p class="kt-contact-description">Vous avez une question ? Besoin de renseignement ? Prenez contact avec l' <strong>Ecole Nationale Supérieure Polytechnique de Douala</strong> via le formulaire de contact ci-dessous, et nous vous donnerons une réponse dans un court délai.</p>
     </div>
     <div class="contact">
         {!! Form::open(['route' => 'contactNA.store', 'class' => 'form-horizontal panel']) !!} 

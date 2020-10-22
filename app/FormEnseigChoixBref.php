@@ -10,7 +10,7 @@ class FormEnseigChoixBref extends Model
     protected $table = 'formEnseigChoixBref';
 
     protected $fillable = [
-    	'codeFECB','titreFECB','contenuFECB',
+    	'codeFECB','titreFECB','contenuFECB','media_id',
     ];
 
     public $timestamps = true;

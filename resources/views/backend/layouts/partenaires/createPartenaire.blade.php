@@ -12,16 +12,16 @@
                   @elseif(session('role') === 'respecoledoct')
                    {!! Form::open(['route' => 'partenairelabo.store', 'class' => 'form-horizontal panel']) !!} 
                   @endif
-                     <div class="form-group {!! $errors->has('gradePers') ? 'has-warning' : '' !!}">
+                     <div class="form-group {!! $errors->has('raison_socialePLabo') ? 'has-warning' : '' !!}">
                         <label for="gradePers">Raison Sociale</label>
                         {!! Form::text('raison_socialePLabo', null, ['class' => 'form-control','id' => 'raison_socialePLabo', 'placeholder' => 'Raison sociale']) !!}
-                        {!! $errors->first('raison_socialePLabo', '<small class="help-block">:message</small>') !!}
+                        {!! $errors->first('raison_socialePLabo', '<small class="help-block" style="color: red;">:message</small>') !!}
                         
                     </div>  
                     <div class="form-group {!! $errors->has('villePLabo') ? 'has-warning' : '' !!}">
                         <label for="lieuDeServicePers">Ville</label>
-                        {!! Form::text('villePLabo', null, ['class' => 'form-control','id' => 'nomPers', 'placeholder' => 'Nom']) !!}
-                        {!! $errors->first('villePLabo', '<small class="help-block">:message</small>') !!}
+                        {!! Form::text('villePLabo', null, ['class' => 'form-control','id' => 'nomPers', 'placeholder' => 'Ville']) !!}
+                        {!! $errors->first('villePLabo', '<small class="help-block" style="color: red;">:message</small>') !!}
 
                     </div>
                     <div class="form-group {!! $errors->has('idLabo') ? 'has-warning' : '' !!}">

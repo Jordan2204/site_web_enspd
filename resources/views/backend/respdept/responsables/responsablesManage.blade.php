@@ -21,7 +21,9 @@
                  
                    @if(session()->has('ok'))
                      <div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
-                  @endif
+                    @elseif(session()->has('er'))
+                       <div class="alert alert-danger alert-dismissible">{!! session('er') !!}</div>
+                    @endif
                 <div class="card card-primary">
                 <div class="card-header">
                   <h3 class="card-title">Liste des Responsables</h3>

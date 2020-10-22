@@ -14,7 +14,13 @@
 
 
 @section('content')
+    <div class="row justify-content-center" >
+     @if(session()->has('ok'))
+          <button  id="update" hidden class="toastrDefaultSuccess">ok</button>
+     @endif
+    </div>
     <div class="row justify-content-center align-items-center">
+
         <div class="col-sm-6 col-sm-5 col-lg-6">
             <div class="card card-info">
                 <div class="card-header">
@@ -30,8 +36,9 @@
                             {!! $errors->first('titre', '<small style="color: red;" class="form-text">:message</small>') !!}
                         </div>
                         <div class="form-group {!! $errors->has('description') ? 'has-error' : '' !!}">
-                            {!! Form::text('description', null, ['class' => 'form-control', 'placeholder' => 'description']) !!}
-                            {!! $errors->first('description', '<small style="color: red;" class="form-text">:message</small>') !!}
+                            <select name="description" class="form-control select2bs4 select2-hidden-accessible" style="width: 100%; "data-select2-id="17" tabindex="-1" aria-hidden="true">
+                            <option  data-select2-id="30" value="livret" selected="selected">Livret Etudiant</option>
+                        </select>
                         </div>
                         <div class="form-group {!! $errors->has('file') ? 'has-error' : '' !!}">
                             {!! Form::file('file', ['class' => 'form-control']) !!}
@@ -44,7 +51,5 @@
     </div>
         
     </div>
-	
-
 
 @endsection

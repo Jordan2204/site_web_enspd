@@ -130,7 +130,7 @@ class AdminController extends Controller
     {
         $this->adminRepository->destroy($id);
 
-        return back();
+        return redirect('/admin/departementAdmin');
     }
 
 }

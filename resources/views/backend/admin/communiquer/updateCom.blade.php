@@ -1,11 +1,11 @@
   @extends('admin/layouts/templateAdmin')
 
   @section('title')
-    Responsable cellule communication | Mise a jour des communiqués
+    Administrateur | Mise a jour des communiqués
   @endsection
 
   @section('dashboard')
-    Gestion des communiqués
+      <li class="fas fa-edit"></li> Mise a jour
   @endsection
 
   @section('apresHome')

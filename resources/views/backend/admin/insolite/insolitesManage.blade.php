@@ -5,7 +5,7 @@
   @endsection
 
   @section('dashboard')
-    Insolites
+    <li class="fas fa-edit"></li> Insolites
   @endsection
 
   @section('apresHome')

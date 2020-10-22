@@ -1,7 +1,7 @@
 @extends('admin/layouts/templateAdmin')
 
 @section('title')
-    FGI Admin | Création d'un dossier
+   {{ config('app.sigle') }} : Admin | Création d'un dossier
   @endsection
 
   @section('dashboard')
@@ -33,19 +33,19 @@
                     <div class="form-group {!! $errors->has('numBCA') ? 'has-warning' : '' !!}">
                         <label for="prenom">Numero BCA <span style="color: red;">*</span></label>
                         {!! Form::text('numBCA', null, ['class' => 'form-control','id' => 'prenom', 'placeholder' => 'numBCA']) !!}
-                        {!! $errors->first('prenumBCAnom', '<small style="color: red;" class="form-text">:message</small>') !!}
+                        {!! $errors->first('numBCA', '<small style="color: red;" class="form-text">:message</small>') !!}
                         
                     </div>
                     <div class="form-group {!! $errors->has('date_intr') ? 'has-warning' : '' !!}">
                         <label for="datemask">Date d'introduction</label>
-                        <div class="input-group">
+                        <div class="input-group ">
                             <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                             </div>
                         <input type="text" id="datemask" name="date_intr" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" im-insert="false">
-                        {!! $errors->first('date_intr', '<small style="color: red;" class="form-text">:message</small>') !!}
                         
-                    </div>
+                        </div>
+                        {!! $errors->first('date_intr', '<small style="color: red;" class="form-text">:message</small>') !!}
                     </div>
                     <div class="form-group {!! $errors->has('etape') ? 'has-warning' : '' !!}">
                         <label for="etape">Etape</label>
@@ -65,7 +65,7 @@
                     <a href="javascript:history.back()" class="btn btn-primary float-left">
                         <i class="fa fa-chevron-circle-left"> Retour</i>
                      </a>
-                    <div>{!! Form::submit('Envoyer', ['class' => 'btn btn-primary float-right ']) !!}</div>
+                    <div>{!! Form::submit('Créer', ['class' => 'btn btn-primary float-right ']) !!}</div>
                    
                     {!! Form::close() !!}
                 </div>

@@ -5,11 +5,11 @@
   @endsection
 
   @section('dashboard')
-    Gestion des Utilisateurs
+    <li class="fas fa-edit"></li> Gestion des Pages
   @endsection
 
   @section('apresHome')
-    UserManage/CreateInfoFGI
+    InfosFGI / CreateInfoFGI
   @endsection
 
 @section('content')
@@ -39,8 +39,7 @@
       
                    
                     <div>
-                        <a href="javascript:history.back()" class="btn btn-primary float-left">Retour
-                        <span class="glyphicon glyphicon-circle-arrow-left "></span>
+                        <a href="javascript:history.back()" class="btn btn-primary float-left"><i class="fas fa-chevron-circle-left"> Retour</i>
                         </a>
                         {!! Form::submit('Créer', ['class' => 'btn btn-primary float-right ']) !!}
                     </div>

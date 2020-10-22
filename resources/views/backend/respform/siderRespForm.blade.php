@@ -12,7 +12,7 @@
     <a href="{{ url('/respform/homeRespForm') }}" class="brand-link">
       <img src="/{{ session('iconeFGI')->chemin }}/{{ session('iconeFGI')->nom }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">FGI de l'UDo</span>
+      <span class="brand-text font-weight-light">{{ config('app.sigle') }} de l'UDo</span>
     </a>
 
     <!-- Sidebar -->
@@ -22,8 +22,8 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
-            <a href="{{ url('/respform/homeRespForm') }}" class="nav-link active">
+          <li class="nav-item">
+            <a href="{{ url('/respform/homeRespForm') }}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard

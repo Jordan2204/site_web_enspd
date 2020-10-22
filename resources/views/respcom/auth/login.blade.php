@@ -8,7 +8,7 @@
           @include('backend.include.loginForm')
         </form>
 
-      <p class="mb-1">
+       <p class="mb-1" align="center">
        <a class="btn btn-link" href="{{ url('/respcom/password/reset') }}">
             @include('backend.include.passOubli')
         </a>

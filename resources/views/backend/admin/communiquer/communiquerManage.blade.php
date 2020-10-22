@@ -5,7 +5,7 @@
   @endsection
 
   @section('dashboard')
-    Communiqué
+      <li class="fas fa-edit"></li> Communiqué
   @endsection
 
   @section('apresHome')

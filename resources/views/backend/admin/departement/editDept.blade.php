@@ -1,10 +1,10 @@
 @extends('admin/layouts/templateAdmin')
 	@section('title')
-	  FGI RespDept |  Gestion des départements
+	  {{ config('app.sigle') }} : RespDept |  Gestion des départements
 	@endsection
 
 	@section('dashboard')
-	 Gestion des départements
+	  <li class="fas fa-edit"></li> Gestion des départements
 	@endsection
 
 	@section('apresHome')

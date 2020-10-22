@@ -65,10 +65,7 @@
       </div>
 
 
-        <footer class="main-footer">
-          <strong>Copyright &copy; 2019 <a href="http://fgi-udo.cm">fgi-udo.cm</a>.</strong>
-          All rights reserved.
-        </footer>
+        @include('backend.include.footer')
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">

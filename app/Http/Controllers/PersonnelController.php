@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-
 use App\Gestion\ImgGestionInterface;
 use App\Http\Requests\ImagesRequest;
 use App\Repositories\MediaRepository;
@@ -43,7 +42,7 @@ class PersonnelController extends Controller
                            p.id = tpp.Personnel_idPers and tpp.TypePersonnel_idTypePersonnel = tp.idTypePersonnel and tp.libelleTypePersonnel = ?
       ',['MAdminCent']);
        
-        if( url()->current() == 'http://fgi-udo.local/adminCentNA') 
+        if( url()->current() == config('app.url').'/adminCentNA') 
          {
            return view('frontend.administrationcentrale',compact('persoAdminCents'));
 
@@ -96,19 +95,19 @@ class PersonnelController extends Controller
     public function create()
     {
 
-        if(url()->current() == 'http://fgi-udo.local/respecoledoct/personnel/create'){
+        if(url()->current() == config('app.url').'/respecoledoct/personnel/create'){
 
             return view('backend.respecoledoct.createMembre');
 
-        }elseif(url()->current() == 'http://fgi-udo.local/respdept/personnelDept/create'){
+        }elseif(url()->current() == config('app.url').'/respdept/personnelDept/create'){
 
             return view('backend.respdept.responsables.createResponsable');
 
-        }elseif(url()->current() == 'http://fgi-udo.local/admin/adminCent/create') {
+        }elseif(url()->current() == config('app.url').'/admin/adminCent/create') {
 
             return view('backend.admin.adminCent.createAdminCent');
 
-        }elseif(url()->current() == 'http://fgi-udo.local/admin/PersonnelAdmin/create') {
+        }elseif(url()->current() == config('app.url').'/admin/personnelAdmin/create') {
 
             return view('backend.admin.labo.createMembre');
         }
@@ -127,7 +126,7 @@ class PersonnelController extends Controller
         $request->request->add(['description' => '']);
         $matPers = $request->input('matPers'); 
         $idMedia = 0;
-        if($request->is('admin/*')){
+        if($request->is('admin/adminCent')){
 
             if($imggestion->save($request->all())) {
 
@@ -135,15 +134,14 @@ class PersonnelController extends Controller
                
             }
             $request->request->add(['media_id' => $idMedia]);
-            $adminCent = $this->personnelRepository->store($request->all());
-
+           
             $idType = DB::table('typepersonnel')->where('libelleTypePersonnel','MAdminCent')->value('idTypePersonnel');
             $idPers = DB::table('personnel')->where('matPers',$matPers)->value('id');
             DB::insert('INSERT INTO typepersonnel_personnel VALUES(?,?,?,?) ',[$idType, $idPers,1,null]);
            
             return redirect('/admin/adminCent');
 
-        }elseif($request->is('respecoledoct/*')){
+        }elseif($request->is('respecoledoct/*') || $request->is('admin/personnelAdmin')){
             $membre = $this->personnelRepository->store($request->all());
 
             $idType = DB::table('typepersonnel')->where('libelleTypePersonnel',$request->input('typeMLabo'))->value('idTypePersonnel');
@@ -151,8 +149,14 @@ class PersonnelController extends Controller
             $idMemebre = DB::table('personnel')->where('matPers',$request->input('matPers'))->value('id');
             DB::insert('INSERT INTO typepersonnel_personnel VALUES(?,?,?,?) ',[$idType, $idMemebre,1,null]);
 
+            if ($request->is('respecoledoct/*')) {
+               return redirect('respecoledoct/membersManage')->withOk("Le membre " . $membre->nomPers . " a été créé.");
+            }else{
+
+                return redirect('admin/membersManage')->withOk("Le membre " . $membre->nomPers . " a été créé.");
+            }
      
-            return redirect('respecoledoct/membersManage')->withOk("Le membre " . $membre->nomPers . " a été créé.");
+           
 
         }elseif($request->is('respdept/*')){
 
@@ -165,7 +169,7 @@ class PersonnelController extends Controller
              
             if (empty($request->input('respStage')) && empty($request->input('respAcad'))) 
             {
-                 return redirect('respdept/responsablesManage')->withOk("Le responsable " . $pers->nomPers . " n'a pas été créé.");
+                 return redirect('respdept/responsablesManage')->wither("Le responsable n'a pas été créé car aucun role n'a ete choisi.");
             }   
             if ($request->input('respStage') && $request->input('respAcad') ) {
                 $request->request->add(['postePers' => 'Responsable Académique et Stage']);
@@ -173,7 +177,7 @@ class PersonnelController extends Controller
 
                 $idPers = DB::table('personnel')->where('matPers',$request->input('matPers'))->value('id');
                
-                 DB::insert('INSERT INTO typepersonnel_personnel VALUES(?,?,?,?) ',[$idRespAcad, $idPers,1,null]);
+                DB::insert('INSERT INTO typepersonnel_personnel VALUES(?,?,?,?) ',[$idRespAcad, $idPers,1,null]);
                 DB::insert('INSERT INTO typepersonnel_personnel VALUES(?,?,?,?) ',[$idRespStage, $idPers,1,null]);
 
 
@@ -275,8 +279,8 @@ class PersonnelController extends Controller
 
             $adminCent = DB::table('personnel')->where('id',$id)->first();
             $membre = DB::table('personnel')->where('id',$id)->first();
-            $urlPage = 'http://fgi-udo.local/admin/personnelAdmin/'.$id.'/edit';
-            $urlPage2 = 'http://fgi-udo.local/admin/adminCent/'.$id.'/edit';
+            $urlPage = config('app.url').'/admin/personnelAdmin/'.$id.'/edit';
+            $urlPage2 = config('app.url').'/admin/adminCent/'.$id.'/edit';
           
             if (url()->current() == $urlPage) {
 
@@ -448,7 +452,7 @@ class PersonnelController extends Controller
 
         }elseif (session('role') == 'admin') {
 
-            $urlPage = 'http://fgi-udo.local/admin/personnelAdmin/destroy/'.$id.'/'.$choixM;
+            $urlPage = config('app.url').'/admin/personnelAdmin/destroy/'.$id.'/'.$choixM;
             if (url()->current() ==  $urlPage) {
                  $idType = DB::table('typepersonnel')->where('libelleTypePersonnel',$choixM)->value('idTypePersonnel');
            
@@ -474,16 +478,8 @@ class PersonnelController extends Controller
                      
         }
 
-        $perso = DB::select(' SELECT per.id,per.gradePers,per.nomPers, per.prenomPers
-
-           FROM personnel per, typepersonnel_personnel tpp
-
-           WHERE per.id = tpp.Personnel_idPers and per.id = ?',[$id]);
-       
-        if (empty($perso)) {
-
-            $this->destroy($id);
-        }
+        //On detruit le personnel s'il n'appartient a aucun type
+        $this->destroyPersonnel($id);
 
          return back();
     }
@@ -501,4 +497,19 @@ class PersonnelController extends Controller
     }
   }
 
+  public function destroyPersonnel($id)
+  {
+     $perso = DB::select(' SELECT per.id,per.gradePers,per.nomPers, per.prenomPers
+
+        FROM personnel per, typepersonnel_personnel tpp
+
+        WHERE per.id = tpp.Personnel_idPers and per.id = ?',[$id]);
+       
+        if (empty($perso)) {
+
+            $this->destroy($id);
+        }
+  }
+
 }
+

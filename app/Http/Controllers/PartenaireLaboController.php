@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use \App\Http\Requests\PartenaireCreateRequest;
+use \App\Http\Requests\PartenaireUPdateRequest;
+
 use Illuminate\Http\Request;
 use App\Repositories\PartenaireLaboRepository;
 use App\PartenaireLabo;
@@ -50,7 +53,7 @@ class PartenaireLaboController extends Controller
    *
    * @return Response
    */
-  public function store(Request $request)
+  public function store(PartenaireCreateRequest $request)
   {
       $partenaire = $this->partenaireLaboRepository->store($request->all());
 
@@ -114,7 +117,7 @@ class PartenaireLaboController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function update(Request $request,$id)
+  public function update(PartenaireUpdateRequest $request,$id)
   {
      $this->partenaireLaboRepository->update($id, $request->all());
      $partenaire = $this->partenaireLaboRepository->getById($id);

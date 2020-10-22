@@ -26,10 +26,8 @@
                   </div>
                   <!-- /. tools -->
                 </div>
-                <div class="card-body"> 
-                   <img src="/{{ $mediaActu->chemin }}/{{ $mediaActu->nom }}" class="img-thumbnail" alt="News">
-                </div>
-            </div>              
+                  <img src="/{{ $mediaActu->chemin }}/{{ $mediaActu->nom }}" class="img-thumbnail" alt="News" style="height: 200px;">
+             </div>              
          </div>
 
         @endforeach

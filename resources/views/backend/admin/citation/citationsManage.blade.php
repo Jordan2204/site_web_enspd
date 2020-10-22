@@ -5,7 +5,7 @@
   @endsection
 
   @section('dashboard')
-    Citations
+      <li class="fas fa-edit"></li> Citations
   @endsection
 
   @section('apresHome')

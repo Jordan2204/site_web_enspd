@@ -8,8 +8,8 @@
           @include('backend.include.loginForm')
       </form>
 
-      <p class="mb-1">
-       <a class="btn btn-link" href="{{ url('/respecoledoct/password/reset') }}">
+     <p class="mb-1" align="center">
+        <a class="btn btn-link" href="{{ url('/respecoledoct/password/reset') }}">
             @include('backend.include.passOubli')
         </a>
       </p>

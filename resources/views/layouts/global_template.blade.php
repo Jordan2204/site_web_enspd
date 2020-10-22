@@ -10,7 +10,7 @@
 
         <title> @yield('titre')</title>
 
-        <link rel="stylesheet" href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css">
+       <!-- <link rel="stylesheet" href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css"> -->
         <link rel="icon" type="image/x-icon" href="/{{ session('iconeFGI')->chemin }}/{{ session('iconeFGI')->nom }}">
       
          <!-- style css de boostrap -->
@@ -18,6 +18,7 @@
 
          <!-- style css personnaliser-->
         <link rel="stylesheet" type="text/css" href=" {{ asset('css/style_global.css') }}">
+        <link rel="stylesheet" type="text/css" href=" {{ asset('css/mbootstrap4.min.css') }}">
         <!-- {!! Html::style('css/template_responsive.css') !!}-->
 
          <!-- Barre de navigation justifier -->
@@ -55,16 +56,16 @@
             <!--corp de la page-->
             <div class="row">
 
-              <!--Aside gauche-->
-                <div  id="block-1" class="col-12 col-sm-12 col-md-2 col-lg-2 " style="    border: 1px solid rgba(222, 122, 122, 0.6);">
+              <!--Aside gauche
+                <div  id="block-1" class="col-12 col-sm-12 col-md-4 col-lg-3 jumbotron ">
                   <div class="row">
                          @include('backend/include/siderGauche')
                   </div>
                </div>
-              <!--Aside gauche-->
+              Aside gauche-->
            
                <!--Article : section principale-->
-              <div id="block-2" class="col-12 col-sm-12 col-md-8 col-lg-8 ">
+              <div id="block-2" class="col-12 col-sm-12 col-md-9 col-lg-10 ">
                  <div class="art-post">
                      <div class="art-postcontent clearfix">
                              @yield('section_principale')
@@ -74,17 +75,25 @@
                 <!--Article : section principale-->
            
                  
-              <!--Aside droite-->
-              <div id="block-3" class="col-12 col-sm-12 col-md-2 col-lg-2" style="border: 1px solid rgba(222, 122, 122, 0.6)">
+              <!--Aside droite -->
+              <div id="block-3" class="col-12 col-sm-12 col-md-3 col-lg-2 jumbotron">
                 <div class="row">
-                      @include('backend/include/siderDroite')
+                     @include('backend/include/siderGauche')
                 </div>
             </div>
-            <!--Aside droite-->
+             <!-- Aside droite-->
           
           </div>
           <!--corp de la page-->
-           
+         
+            <!--Autres ets de l'udo-->
+          <div class="row">
+             @include('backend.include.carousel_partenaire')
+         </div>
+          <div id="scrollUp">
+              <a href="#top"><img style="width: 40px;height: 40px;" src="/storage/images/73e89hd9Pg.png"></a>
+          </div>
+          <!--Autres ets de l'udo-->
           <!--Inclusion du pieds de page-->
           <footer class="row art-footer">
             @include('frontend/header_footer/pieds_de_page')
@@ -95,25 +104,38 @@
     
 
   <!-- plugins jQuery -->
+
     <script src="{{ asset('/js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ asset('/js/jquery.sticky.js') }}"></script>
+
 
      <!-- fichier js  -->
     <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="{{ asset('/js/bootnavbar.js') }}" ></script>
-    <script type="text/javascript" src="{{ asset('/js/script.responsive.js') }}"></script>
-
+   
+   
 
     <script>
         $(function () {
-            $('#bootnavbar').bootnavbar();
+           
+            $("#bootnavbar").sticky({topSpacing:0});
+            $(window).scroll(function () {
+                        if ($(this).scrollTop() > 200 ) { 
+                            $('#scrollUp').css('right','10px');
+                        } else { 
+                            $('#scrollUp').removeAttr( 'style' );
+                        }
+ 
+                    });
         })
     </script>
+   
         <script>window.jQuery || document.write('<script src="/vendor/bootstrap4.0.0/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="{{ asset('/vendor/bootstrap-4.0.0/assets/js/vendor/popper.min.js') }}"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="{{ asset('/vendor/bootstrap-4.0.0//assets/js/vendor/holder.min.js ') }}"></script>
+
 </body>
 </html>

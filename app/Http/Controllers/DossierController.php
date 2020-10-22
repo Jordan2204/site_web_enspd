@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DossierCreateRequest;
 use Illuminate\Http\Request;
 use App\Repositories\DossierFGIRepository;
 
@@ -43,7 +44,7 @@ class DossierController extends Controller
    *
    * @return Response
    */
-  public function store(Request $request)
+  public function store(DossierCreateRequest $request)
   {
     $dossiersPartenaires = $this->dossierFGIRepository->store($request->all());
 

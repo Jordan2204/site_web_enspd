@@ -5,7 +5,7 @@
   @endsection
 
   @section('dashboard')
-     Labo E3M
+    <li class="fas fa-edit"></li> Labo E3M
   @endsection
 
   @section('apresHome')
