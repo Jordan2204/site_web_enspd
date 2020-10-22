@@ -96,7 +96,7 @@ class RespComController extends Controller
      {
 
         $insolites =  DB::table('medias')->where('description','Insolite')->get();
-        //$links = $insolites->links();
+        $links = $insolites->links();
 
       if (session('role') == 'admin') {
 

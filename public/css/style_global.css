@@ -70,8 +70,8 @@ z-index: 12000;
 
   font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif; 
   font-size: 18px;
-  font-variant: small-caps; font-weight: bold; -webkit-border-horizontal-spacing: 2px;
-  -webkit-border-vertical-spacing: 2px;
+  font-variant: small-caps;
+
 
 }
 
@@ -84,6 +84,8 @@ z-index: 12000;
 .art-post {
   margin: inherit;
 }
+
+
 /*--------------------------End Mon CSS-----------------------------------------------*/
 #art-main
 {

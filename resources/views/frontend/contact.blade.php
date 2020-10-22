@@ -15,7 +15,7 @@
         
     </div>
     <div><br>
-        <h1 style="text-align: center;">COMMENT NOUS CONCTACTER</h1><br>
+        <h1 style="text-align: center;">COMMENT NOUS CONTACTER</h1><br>
         <p class="kt-contact-description">Vous avez une question ? Besoin de renseignement ? Prenez contact avec l' <strong>Ecole Nationale Supérieure Polytechnique de Douala</strong> via le formulaire de contact ci-dessous, et nous vous donnerons une réponse dans un court délai.</p>
     </div>
     <div class="contact">

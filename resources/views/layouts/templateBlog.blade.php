@@ -65,7 +65,7 @@
               Aside gauche-->
            
                <!--Article : section principale-->
-              <div id="block-1" class="col-12 col-sm-12 col-md-9 col-lg-10 ">
+              <div id="block-1" class="col-12 col-sm-12 col-md-9 col-lg-9 ">
                  <div class="art-post">
                      <div class="art-postcontent clearfix">
                              @yield('section_principale')
@@ -76,7 +76,7 @@
            
                  
               <!--Aside droite-->
-              <div id="block-2" class="col-12 col-sm-12 col-md-3 col-lg-2 jumbotron">
+              <div id="block-2" class="col-12 col-sm-12 col-md-3 col-lg-3 jumbotron">
                 <div class="row">
                       @include('backend/include/siderDroite')
                 </div>

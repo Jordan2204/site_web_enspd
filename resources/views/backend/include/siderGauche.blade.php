@@ -1,4 +1,5 @@
   <div class="col-6 col-sm-6 col-md-12" style="height: 100%">
+    <p class="Pcustum"><span style="color: #304050; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 13px;"><span class="spanCustum">Liens Rapides</span><img src="/{{ session('lineChemin') }}/{{ session('lineNom') }}" class="art-lightbox" style="margin-bottom: 0px; border: #bbc5c9;" width="90%"></span></p>
     <div class="art-vmenublock clearfix">
       <div class="art-vmenublockcontent">
       <ul class="art-vmenu nav-bar">
@@ -9,8 +10,12 @@
         </li>
          <li class="nav-item"><a href="/communiquerNA/2"><i class="fas fa-angle-double-right"></i> Communiqué Public <span class="badge badge-danger">!</span></a>
         </li>
-          <li class="nav-item"><a href="http://fgi-udo.local/#"><i class="fas fa-angle-double-right"></i> Pièces à télécharger</a>
-          </li>
+        <li class="nav-item"><a href="http://fgi-udo.local/#"><i class="fas fa-angle-double-right"></i> Pièces à télécharger</a>
+        </li>
+         <li class="nav-item"><a href="http://fgi-udo.local/#"><i class="fas fa-angle-double-right"></i> Consulter nos Pvs</a>
+        </li>
+        <li class="nav-item"><a href="http://fgi-udo.local/#"><i class="fas fa-angle-double-right"></i> Webmail </a>
+        </li>
       </ul>
       </div>
     </div>
@@ -19,7 +24,6 @@
 
   <div class="col-6 col-sm-6 col-md-12" style="height: 100%">
     <div class="custom">
-    <p style="text-align: center;">&nbsp;</p>
     <p class="Pcustum"><span style="color: #304050; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 13px;"><span class="spanCustum">Académia</span><img src="/{{ session('lineChemin') }}/{{ session('lineNom') }}" class="art-lightbox" style="margin-bottom: 0px; border: #bbc5c9;" width="90%"></span></p>
 
   <p class="Pcustum">Bon à savoir sur nos Départements et Unités de formations doctorales</p><br>

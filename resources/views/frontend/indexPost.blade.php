@@ -1,13 +1,13 @@
 @extends('layouts.templateBlog')
 
 @section('section_principale')
-    @if(isset($info))
+    <!-- @if(isset($info))
         <div class="row alert alert-info">{{ $info }}</div>
-    @endif
+    @endif -->
     {!! $links !!}
-    <article class="row">
+   <article class="row">
     @foreach($posts as $post)
-            <div class="col-md-4">
+            <div class="col-sm-6 col-md-4">
                 <div class="card mb-4"  style="height:100%">
                   <div class="card-header">
                       <header>

@@ -134,8 +134,7 @@ class PersonnelController extends Controller
                
             }
             $request->request->add(['media_id' => $idMedia]);
-            $adminCent = $this->personnelRepository->store($request->all());
-
+           
             $idType = DB::table('typepersonnel')->where('libelleTypePersonnel','MAdminCent')->value('idTypePersonnel');
             $idPers = DB::table('personnel')->where('matPers',$matPers)->value('id');
             DB::insert('INSERT INTO typepersonnel_personnel VALUES(?,?,?,?) ',[$idType, $idPers,1,null]);

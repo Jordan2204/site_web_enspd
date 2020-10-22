@@ -18,7 +18,7 @@ class FilesGestion implements FilesGestionInterface
             $chemin = config('files.path');
             $extension = $file->getClientOriginalExtension();
 
-            if($extension == 'pdf' || $extension == 'zip' || $extension == 'docx'){
+            if($extension == 'mp3' || $extension == 'zip' || $extension == 'wav'){
                 do {
                  $nom = str_random(10) . '.' . $extension;
                 } while(file_exists($chemin . '/' . $nom));

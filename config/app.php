@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', true),
+    'debug' => env('APP_DEBUG', True),
    
     /*
     |--------------------------------------------------------------------------
@@ -182,7 +182,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class,
+        App\Providers\HtmlMacrosServiceProvider::class,
+        App\Services\Html\HtmlServiceProvider::class,
 
 
     ],
@@ -236,6 +237,7 @@ return [
         'Form'  => Collective\Html\FormFacade::class,
         'Html'  => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Card'     => App\Services\Html\CardFacade::class,
 
     ],
 

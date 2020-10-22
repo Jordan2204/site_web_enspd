@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+ 
 
 if(Auth::guest()){
    //Recuperation des infos
@@ -148,6 +148,8 @@ Route::get('/', function () {
 
 Route::group(['prefix' => '/'], function () {
 
+  //Pour changer de langue
+  Route::get('language', 'PostController@language');
 
   //Accès a l'interface d'admin
   Route::resource('administrationInterface','AdministrationInterfaceController');

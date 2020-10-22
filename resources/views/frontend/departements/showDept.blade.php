@@ -23,7 +23,7 @@
 		<div class="row justify-content-center">
 		<div  class=" col-4 col-md-4">
 			<p style="text-align: center;">
-				<img src="/{{$media->chemin}}/{{$media->nom}}" style="display: block;width: 70%;height: 70%; margin-left: auto; margin-right: auto; border: 1px none #000000; " class="img-fluid" align="ligne">
+				<img src="/{{$media->chemin}}/{{$media->nom}}" style="display: block;width: 90%;height: 70%; margin-left: auto; margin-right: auto; border: 1px none #000000; " class="img-fluid" align="ligne">
 			</p><br><br>
 			<p><h3><strong>Direction du département</strong></h3></p>
 		

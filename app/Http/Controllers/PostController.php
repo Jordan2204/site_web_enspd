@@ -57,7 +57,7 @@ class PostController extends Controller
         $posts = $this->postRepository->getPaginate($this->nbrPerPage);
         $links = $posts->render();
 
-        return view('frontend.indexPost', compact('posts', 'links'));
+        return view('frontend.indexPost', compact('posts', 'links'))->with('info', trans('blog.search'));
     }
 
     public function create()
@@ -124,6 +124,19 @@ class PostController extends Controller
         }
        
         $this->postRepository->destroy($id);
+
+        return redirect()->back();
+    }
+
+    public function language()
+    {
+        if (session('locale') == '') {
+            session(['locale' => 'fr']);
+        }elseif (session('locale') == 'fr') {
+            session(['locale' => 'en']);
+         }else{
+             session(['locale' => 'fr']);
+         }
 
         return redirect()->back();
     }

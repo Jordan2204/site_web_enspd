@@ -8,7 +8,7 @@
       <!--Mot du Doyen-->
       <div class="col-12 jumbotron">
         <div class="row justify-content-center">
-           <h2 align="center"><span class="title" style="color: #d23030;"><strong>Bienvenue a l' {{ config('app.name') }} <a class="navbar-brand" href="#"><img class="img-fluid rounded" style="height: 40px;" src="/storage/images/HLL6Rm86e4.jpg" alt="logo"></a></strong></span>
+           <h2 align="center"><span class="title" style="color: #d23030;"><strong>{{ trans('site.welcome') }} l' {{ config('app.name') }} <a class="navbar-brand" href="#"><img class="img-fluid rounded" style="height: 40px;" src="/storage/images/HLL6Rm86e4.jpg" alt="logo"></a></strong></span>
            </h2>
 
         </div>

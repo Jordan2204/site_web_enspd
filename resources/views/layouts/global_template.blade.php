@@ -56,16 +56,16 @@
             <!--corp de la page-->
             <div class="row">
 
-              <!--Aside gauche-->
-                <div  id="block-1" class="col-12 col-sm-12 col-md-3 col-lg-2 jumbotron ">
+              <!--Aside gauche
+                <div  id="block-1" class="col-12 col-sm-12 col-md-4 col-lg-3 jumbotron ">
                   <div class="row">
                          @include('backend/include/siderGauche')
                   </div>
                </div>
-              <!--Aside gauche-->
+              Aside gauche-->
            
                <!--Article : section principale-->
-              <div id="block-2" class="col-12 col-sm-12 col-md-7 col-lg-8 ">
+              <div id="block-2" class="col-12 col-sm-12 col-md-9 col-lg-10 ">
                  <div class="art-post">
                      <div class="art-postcontent clearfix">
                              @yield('section_principale')
@@ -75,13 +75,13 @@
                 <!--Article : section principale-->
            
                  
-              <!--Aside droite-->
-              <div id="block-3" class="col-12 col-sm-12 col-md-2 col-lg-2 jumbotron">
+              <!--Aside droite -->
+              <div id="block-3" class="col-12 col-sm-12 col-md-3 col-lg-2 jumbotron">
                 <div class="row">
-                      @include('backend/include/siderDroite')
+                     @include('backend/include/siderGauche')
                 </div>
             </div>
-            <!--Aside droite-->
+             <!-- Aside droite-->
           
           </div>
           <!--corp de la page-->
@@ -114,12 +114,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="{{ asset('/js/bootnavbar.js') }}" ></script>
-
+   
    
 
     <script>
         $(function () {
-            $('#bootnavbar').bootnavbar();
+           
             $("#bootnavbar").sticky({topSpacing:0});
             $(window).scroll(function () {
                         if ($(this).scrollTop() > 200 ) { 
